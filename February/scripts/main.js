@@ -1,22 +1,10 @@
 
-
-var statesGrid = { columns: 5, rows: 10 };
-var cellSize = { width: 190, height: 100 };
-var maxRadius = (Math.floor(cellSize.height / 2) - 15);
-
-var scaleRadius = d3.scaleLinear()
-					.domain([0, 20])
-					.range([10, maxRadius]);
-					
-var scaleColor = d3.scaleOrdinal()
-				   .domain(["No Law", "Statutory Ban", "Constitutional Ban", "Legal"])
-				   .range(["#dadada", "#F13C05", "#FF7747", "#35D4DA"]);
-
 d3.csv("data/ssm.csv", function(error, source) {
 	if (error) throw error;
 	
 	var data = prepareData(source);
 	var svg = createContainer();
+
 	appendGooeyFilter(svg);
 	generateChart(svg, data);
 });
@@ -145,5 +133,4 @@ function appendGooeyFilter(svg) {
 			.attr("mode","matrix")
 			.attr("values","1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9")
 			.attr("result","gooey");
-
 }
