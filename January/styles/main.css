@@ -1,0 +1,70 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.25em;
+	color: #777;
+}
+
+.header {
+	padding: 20px;
+}
+
+.footer {
+	padding: 20px 50px;
+	font-size: 0.8em;
+	text-align: right;
+	color: #777;
+}
+
+.footer a {
+	color: #333;
+}
+
+.content {
+	margin: auto;
+	width: 960px;
+}
+
+.legend {
+	display: flex; 
+	flex-wrap: wrap;
+	margin: 10px 70px 50px 70px;
+	padding: 10px 50px;
+	border: 1px #dadada;
+	border-style: solid none;
+}
+
+.legend text {
+	text-anchor: left;
+	font-size: 12px;
+	fill: #333;	
+}
+
+.legend .column { 
+	display: flex; 
+	flex-wrap: wrap;
+	flex: 1 1 auto; 
+	align-items: center;
+}
+
+.legend .title {
+	padding-right: 30px;
+	color: #777;
+	font-size: 0.9em;
+}
