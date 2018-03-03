@@ -52,6 +52,8 @@ d3.json("data/algae-growth.json", function (error, data) {
 
     var temperatureScaleRadius = 5;
 
+    
+
     // draw growth information
     var angleOffset = scaleSpecies.bandwidth() / 2;
     var light5000radius = 5;
@@ -74,9 +76,7 @@ d3.json("data/algae-growth.json", function (error, data) {
         };
     }); 
 
-
-       
-	var growth = chart
+    var growth = chart
         .append("g")
             .attr("name", "growth")
         .selectAll("g")
@@ -84,20 +84,42 @@ d3.json("data/algae-growth.json", function (error, data) {
             .append("g");
 
     // draw support lines
+    var gradient = svg
+        .append("defs")
+        .append("radialGradient")
+            .attr("id", "grey-lines");
+
+    gradient
+        .selectAll("stop")
+        .data([ 
+                {offset: "0%", color: "#dadada"},
+                {offset: "70%", color: "#ddd"},
+                {offset: "100%", color: "white"}
+            ]).enter()
+        .append("stop")
+            .attr("offset", function(d) { return d.offset; })
+            .attr("stop-color", function(d) { return d.color; })
+
    growth
         .append("line")
         .attr("x1", function(d) { return d._supportLine.x1; })
         .attr("y1", function(d) { return d._supportLine.y1; })
         .attr("x2", function(d) { return d._supportLine.x2; })
         .attr("y2", function(d) { return d._supportLine.y2; })
-        .style("stroke", "#dadada");
+        .style("stroke", "url(#grey-lines)");
 
     // place core info
+    growth
+       .append("path")
+       .attr("d", generateDrop)
+       .style("fill", function (d) { return scaleSpeciesColor(d.name); })
+       .style("fill-opacity", 0.5); 
+
     growth
         .append("circle")
         .attr("cx", function(d) { return d._cos * d._radius_5000; })
         .attr("cy", function(d) { return d._sin * d._radius_5000; })
-        .attr("r", light5000radius)
+        .attr("r", 2)
         .style("fill", function (d) { return scaleSpeciesColor(d.name); })
         .style("fill-opacity", 0.7);
 
@@ -105,9 +127,11 @@ d3.json("data/algae-growth.json", function (error, data) {
         .append("circle")
         .attr("cx", function(d) { return d._cos * d._radius_2500; })
         .attr("cy", function(d) { return d._sin * d._radius_2500; })
-        .attr("r", ligth2500radius)
+        .attr("r", 1)
         .style("fill", function (d) { return scaleSpeciesColor(d.name); })
         .style("fill-opacity", 0.7);
+
+
 
     // draw temparature scale
     var temperatureInnerRadius = scaleGrowth(0) - temperatureScaleRadius;
@@ -125,7 +149,7 @@ d3.json("data/algae-growth.json", function (error, data) {
                         .cornerRadius(3)
                         .startAngle(function (d) { return scaleTemperature(d); })
                         .endAngle(function (d) { return scaleTemperature(d) + scaleTemperature.bandwidth(); }))
-            .style("fill", function (d) { return scaleTemperatureColor(d); });
+            .style("fill", function(d) { return scaleTemperatureColor(d); });
 
 });
 
@@ -136,4 +160,17 @@ function getColorScale(domain, interpolator) {
         colors.push(helper(i));
     }
     return d3.scaleOrdinal().domain(domain).range(colors);
+}
+
+function generateDrop(d) {
+    var x2500 = d._cos * d._radius_2500;
+    var y2500 = d._sin * d._radius_2500;
+    var x5000 = d._cos * d._radius_5000;
+    var y5000 = d._sin * d._radius_5000;
+    var xOffset = -d._sin * 4;
+    var yOffset = d._cos * 4;
+    var coeff = d._radius_2500 > d._radius_5000 ? -3 : 3;
+    return `M ${x5000 + xOffset} ${y5000 + yOffset} 
+            Q ${x5000 + coeff * yOffset} ${y5000 - coeff *xOffset} ${x5000 - xOffset} ${y5000 - yOffset} 
+            L ${x2500} ${y2500} Z`;
 }
