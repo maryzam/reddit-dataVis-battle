@@ -1,3 +1,7 @@
+var temperatureScaleRadius = 5;
+var tempSeriesOffset = 0.01;
+var ligthOffset = 12;
+
 var container = d3.select(".container");
 var size = container.node().getBoundingClientRect(),
     width = size.width,
@@ -8,11 +12,11 @@ var svg = container.append("svg")
 				.attr("height", height);
 
 var innerRadius = Math.min(width, height) * 0.4,
-    outerRadius = Math.min(width, (height-10));
+    outerRadius = Math.min(width, (height));
 
 var chart = svg
             .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + (height - 10) + ")");
+            .attr("transform", "translate(" + width / 2 + "," + height + ")");
 
 d3.json("data/algae-growth.json", function (error, data) {
 	if (error) throw error;
@@ -37,34 +41,45 @@ d3.json("data/algae-growth.json", function (error, data) {
             .padding(0.01)
             .align(0);
 
-	var scaleSpecies = d3.scaleBand()
-                 .range([0.01, scaleTemperature.bandwidth() - 0.01])
-                 .domain(species)
-                 .padding(0.1)
-                 .align(0);
-
-	var scaleSpeciesColor = getColorScale(species, d3.interpolateViridis);
-	var scaleTemperatureColor = getColorScale(temperatures, d3.interpolateYlOrRd);
 
 	var scaleGrowth = d3.scaleLinear()
                  .range([innerRadius, outerRadius])
                  .domain([minGrowth, maxGrowth]);
 
-    var temperatureScaleRadius = 5;
-
     // draw growth information
-    var angleOffset = scaleSpecies.bandwidth() / 2;
-    var light5000radius = 5;
-    var ligth2500radius = 3;
-    var ligthOffset = temperatureScaleRadius + light5000radius + 3;
+    data = prepareData(data, species, scaleTemperature, scaleGrowth);
 
-    data.forEach(function(d) {
+    var growthContainers = chart
+        .append("g")
+            .attr("name", "growth")
+        .selectAll("g")
+            .data(data).enter()
+            .append("g");
+
+    drawSupportLines(growthContainers, species);
+    drawGrowthMarkers(growthContainers, species);
+
+    drawTemperatureScale(chart, temperatures, scaleTemperature, scaleGrowth);
+});
+
+function prepareData(data, species, scaleTemperature, scaleGrowth) {
+
+    var scaleSpecies = d3.scaleBand()
+        .range([tempSeriesOffset, scaleTemperature.bandwidth() - tempSeriesOffset])
+        .domain(species)
+        .padding(0.1)
+        .align(0);
+
+    var angleOffset = scaleSpecies.bandwidth() / 2;
+
+    data.forEach(function (d) {
         var angle = scaleTemperature(d.temperature) + scaleSpecies(d.name) + angleOffset;
         // rotate the angle
         d._cos = Math.sin(angle);
         d._sin = -Math.cos(angle);
+        d._angle = angle * 180 / Math.PI;
 
-        d._radius_5000 = scaleGrowth(d.light_5000) + ligthOffset * (d.light_5000 > 0 ? 1: -1);
+        d._radius_5000 = scaleGrowth(d.light_5000) + ligthOffset * (d.light_5000 > 0 ? 1 : -1);
         d._radius_2500 = scaleGrowth(d.light_2500) + ligthOffset * (d.light_2500 > 0 ? 1 : -1);
         var supportInnerRadius = innerRadius - ligthOffset * 3;
         var supportOuterRadius = outerRadius + ligthOffset * 2;
@@ -74,62 +89,10 @@ d3.json("data/algae-growth.json", function (error, data) {
             x2: d._cos * supportOuterRadius,
             y2: d._sin * supportOuterRadius
         };
-    }); 
+    });
 
-    var growth = chart
-        .append("g")
-            .attr("name", "growth")
-        .selectAll("g")
-            .data(data).enter()
-            .append("g");
-
-    // draw support lines
-    prepareGreyGradient();
-
-   growth
-        .append("line")
-        .attr("x1", function(d) { return d._supportLine.x1; })
-        .attr("y1", function(d) { return d._supportLine.y1; })
-        .attr("x2", function(d) { return d._supportLine.x2; })
-        .attr("y2", function(d) { return d._supportLine.y2; })
-        .style("stroke", "url(#grey-lines)");
-
-    // place core info
-    growth
-        .append("path")
-        .filter(function (d) { return d.light_5000 !== d.light_2500; })
-           .attr("d", generateDrop)
-           .style("fill", function (d) { return scaleSpeciesColor(d.name); })
-           .style("fill-opacity", 0.5); 
-
-    growth
-        .append("circle")
-        .filter(function (d) { return d.light_5000 == d.light_2500; })
-            .attr("cx", function(d) { return d._cos * d._radius_5000; })
-            .attr("cy", function(d) { return d._sin * d._radius_5000; })
-            .attr("r", 4)
-            .style("fill", function (d) { return scaleSpeciesColor(d.name); })
-            .style("fill-opacity", 0.7);
-
-    // draw temparature scale
-    var temperatureInnerRadius = scaleGrowth(0) - temperatureScaleRadius;
-    var temperatureOuterRadius = temperatureInnerRadius + (2 * temperatureScaleRadius);
-
-    chart
-        .append("g")
-            .attr("name", "temperatures")
-        .selectAll("path")
-            .data(temperatures).enter()
-            .append("path")
-            .attr("d", d3.arc()
-                        .innerRadius(temperatureInnerRadius)
-                        .outerRadius(temperatureOuterRadius)
-                        .cornerRadius(3)
-                        .startAngle(function (d) { return scaleTemperature(d); })
-                        .endAngle(function (d) { return scaleTemperature(d) + scaleTemperature.bandwidth(); }))
-            .style("fill", function(d) { return scaleTemperatureColor(d); });
-
-});
+    return data;
+}
 
 function getColorScale(domain, interpolator) {
     var helper = d3.scaleSequential(interpolator).domain([-1, domain.length + 1]);
@@ -153,7 +116,8 @@ function generateDrop(d) {
             L ${x2500 - (coeff / 2) * yOffset} ${y2500 + (coeff / 2) * xOffset} Z`;
 }
 
-function prepareGreyGradient() {
+function drawSupportLines(growthContainer, species) {
+
     var gradient = svg
         .append("defs")
         .append("radialGradient")
@@ -167,6 +131,60 @@ function prepareGreyGradient() {
             { offset: "100%", color: "white" }
         ]).enter()
         .append("stop")
-        .attr("offset", function (d) { return d.offset; })
-        .attr("stop-color", function (d) { return d.color; })
+            .attr("offset", function (d) { return d.offset; })
+            .attr("stop-color", function (d) { return d.color; })
+
+    growthContainer
+        .append("line")
+            .attr("x1", function (d) { return d._supportLine.x1; })
+            .attr("y1", function (d) { return d._supportLine.y1; })
+            .attr("x2", function (d) { return d._supportLine.x2; })
+            .attr("y2", function (d) { return d._supportLine.y2; })
+            .style("stroke", "url(#grey-lines)");
+}
+
+function drawGrowthMarkers(growthContainer, species) {
+
+    var scaleSpeciesColor = getColorScale(species, d3.interpolateViridis);
+
+    growthContainer
+        .append("path")
+        .filter(function (d) { return d.light_5000 !== d.light_2500; })
+            .attr("d", generateDrop)
+            .style("fill", function (d) { return scaleSpeciesColor(d.name); })
+            .style("fill-opacity", 1);
+
+    growthContainer
+        .append("circle")
+        .filter(function (d) { return d.light_5000 == d.light_2500; })
+            .attr("cx", function (d) { return d._cos * d._radius_5000; })
+            .attr("cy", function (d) { return d._sin * d._radius_5000; })
+            .attr("r", 4)
+            .style("fill", function (d) { return scaleSpeciesColor(d.name); })
+            .style("fill-opacity", 1);
+}
+
+function drawTemperatureScale(container, temperatures, scaleTemperature, scaleGrowth) {
+
+    var temperatureInnerRadius = scaleGrowth(0) - temperatureScaleRadius;
+    var temperatureOuterRadius = temperatureInnerRadius + (2 * temperatureScaleRadius);
+
+    var scaleTemperatureColor = getColorScale(temperatures, d3.interpolateYlOrRd);
+
+    container
+        .append("g")
+            .attr("name", "temperatures")
+        .selectAll("path")
+        .data(temperatures).enter()
+            .append("path")
+                .attr("d", d3.arc()
+                    .innerRadius(temperatureInnerRadius)
+                    .outerRadius(temperatureOuterRadius)
+                    .cornerRadius(3)
+                    .startAngle(function (d) { return scaleTemperature(d); })
+                    .endAngle(function (d) { return scaleTemperature(d) + scaleTemperature.bandwidth(); }))
+                .style("fill", function (d) { return scaleTemperatureColor(d); })
+                .style("fill-opacity", 0.8)
+                .style("stroke", "white")
+                .style("stroke-width", "1");
 }
