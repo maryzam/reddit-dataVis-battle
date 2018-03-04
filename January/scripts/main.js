@@ -52,8 +52,6 @@ d3.json("data/algae-growth.json", function (error, data) {
 
     var temperatureScaleRadius = 5;
 
-    
-
     // draw growth information
     var angleOffset = scaleSpecies.bandwidth() / 2;
     var light5000radius = 5;
@@ -67,12 +65,14 @@ d3.json("data/algae-growth.json", function (error, data) {
         d._sin = -Math.cos(angle);
 
         d._radius_5000 = scaleGrowth(d.light_5000) + ligthOffset * (d.light_5000 > 0 ? 1: -1);
-        d._radius_2500 = scaleGrowth(d.light_2500) + ligthOffset * (d.light_2500 > 0 ? 1: -1);
+        d._radius_2500 = scaleGrowth(d.light_2500) + ligthOffset * (d.light_2500 > 0 ? 1 : -1);
+        var supportInnerRadius = innerRadius - ligthOffset * 3;
+        var supportOuterRadius = outerRadius + ligthOffset * 2;
         d._supportLine = {
-            x1: d._cos * (innerRadius - ligthOffset*2),
-            y1: d._sin * (innerRadius - ligthOffset*2),
-            x2: d._cos * (outerRadius + ligthOffset*2),
-            y2: d._sin * (outerRadius + ligthOffset*2)
+            x1: d._cos * supportInnerRadius,
+            y1: d._sin * supportInnerRadius,
+            x2: d._cos * supportOuterRadius,
+            y2: d._sin * supportOuterRadius
         };
     }); 
 
@@ -84,21 +84,7 @@ d3.json("data/algae-growth.json", function (error, data) {
             .append("g");
 
     // draw support lines
-    var gradient = svg
-        .append("defs")
-        .append("radialGradient")
-            .attr("id", "grey-lines");
-
-    gradient
-        .selectAll("stop")
-        .data([ 
-                {offset: "0%", color: "#dadada"},
-                {offset: "70%", color: "#ddd"},
-                {offset: "100%", color: "white"}
-            ]).enter()
-        .append("stop")
-            .attr("offset", function(d) { return d.offset; })
-            .attr("stop-color", function(d) { return d.color; })
+    prepareGreyGradient();
 
    growth
         .append("line")
@@ -110,28 +96,20 @@ d3.json("data/algae-growth.json", function (error, data) {
 
     // place core info
     growth
-       .append("path")
-       .attr("d", generateDrop)
-       .style("fill", function (d) { return scaleSpeciesColor(d.name); })
-       .style("fill-opacity", 0.5); 
+        .append("path")
+        .filter(function (d) { return d.light_5000 !== d.light_2500; })
+           .attr("d", generateDrop)
+           .style("fill", function (d) { return scaleSpeciesColor(d.name); })
+           .style("fill-opacity", 0.5); 
 
     growth
         .append("circle")
-        .attr("cx", function(d) { return d._cos * d._radius_5000; })
-        .attr("cy", function(d) { return d._sin * d._radius_5000; })
-        .attr("r", 2)
-        .style("fill", function (d) { return scaleSpeciesColor(d.name); })
-        .style("fill-opacity", 0.7);
-
-    growth
-        .append("circle")
-        .attr("cx", function(d) { return d._cos * d._radius_2500; })
-        .attr("cy", function(d) { return d._sin * d._radius_2500; })
-        .attr("r", 1)
-        .style("fill", function (d) { return scaleSpeciesColor(d.name); })
-        .style("fill-opacity", 0.7);
-
-
+        .filter(function (d) { return d.light_5000 == d.light_2500; })
+            .attr("cx", function(d) { return d._cos * d._radius_5000; })
+            .attr("cy", function(d) { return d._sin * d._radius_5000; })
+            .attr("r", 4)
+            .style("fill", function (d) { return scaleSpeciesColor(d.name); })
+            .style("fill-opacity", 0.7);
 
     // draw temparature scale
     var temperatureInnerRadius = scaleGrowth(0) - temperatureScaleRadius;
@@ -169,8 +147,26 @@ function generateDrop(d) {
     var y5000 = d._sin * d._radius_5000;
     var xOffset = -d._sin * 4;
     var yOffset = d._cos * 4;
-    var coeff = d._radius_2500 > d._radius_5000 ? -3 : 3;
+    var coeff = d._radius_2500 > d._radius_5000 ? -2 : 2;
     return `M ${x5000 + xOffset} ${y5000 + yOffset} 
             Q ${x5000 + coeff * yOffset} ${y5000 - coeff *xOffset} ${x5000 - xOffset} ${y5000 - yOffset} 
-            L ${x2500} ${y2500} Z`;
+            L ${x2500 - (coeff / 2) * yOffset} ${y2500 + (coeff / 2) * xOffset} Z`;
+}
+
+function prepareGreyGradient() {
+    var gradient = svg
+        .append("defs")
+        .append("radialGradient")
+        .attr("id", "grey-lines");
+
+    gradient
+        .selectAll("stop")
+        .data([
+            { offset: "0%", color: "#dadada" },
+            { offset: "50%", color: "#ddd" },
+            { offset: "100%", color: "white" }
+        ]).enter()
+        .append("stop")
+        .attr("offset", function (d) { return d.offset; })
+        .attr("stop-color", function (d) { return d.color; })
 }
