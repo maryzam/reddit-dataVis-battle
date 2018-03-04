@@ -14,7 +14,6 @@ var svg = container.append("svg")
 var innerRadius = Math.min(width, height) * 0.4,
     outerRadius = Math.min(width, (height));
 
-
 d3.json("data/algae-growth.json", function (error, data) {
 	if (error) throw error;
 	
@@ -26,7 +25,31 @@ d3.json("data/algae-growth.json", function (error, data) {
 });
 
 function showLegend(scales) {
+    var legendContainer = d3.select(".legend");
+    var legend = legendContainer
+                        .append("svg")
+                            .attr("width", width)
+                            .attr("heigth", 100);
+    var temperatures = legend
+                            .append("g")
+                            .selectAll("g")
+                            .data(scales.temperature.domain()).enter()
+                            .append("g")
+                                .attr("transform", function(d, i) {
+                                    var rowOffset = 15 + i * 30;
+                                    return "translate(30, " + rowOffset + ")";
+                                });
+    temperatures
+        .append("circle")
+        .attr("r", 7)
+        .attr("cx", -15)
+        .attr("cy", -4)
+        .style("fill", function(d) { return scales.temperatureColor(d); })
+        .style("fill-opacity", 0.7);
 
+    temperatures
+        .append("text")
+        .text(function (d) { return "temperature " + d + "\u2103"; })
 }
 
 function drawChart(data, scales) {
