@@ -1,6 +1,5 @@
 var temperatureScaleRadius = 5;
 var tempSeriesOffset = 0.01;
-var ligthOffset = 12;
 
 var container = d3.select(".container");
 var size = container.node().getBoundingClientRect(),
@@ -9,7 +8,9 @@ var size = container.node().getBoundingClientRect(),
 
 var svg = container.append("svg")
 				.attr("width", width)
-				.attr("height", height);
+                .attr("height", height);
+
+var defs = svg.append("defs");
 
 var innerRadius = Math.min(width, height) * 0.4,
     outerRadius = Math.min(width, (height));
@@ -102,16 +103,14 @@ function prepareData(data, scales) {
         d._sin = -Math.cos(angle);
         d._angle = angle * 180 / Math.PI;
 
-        d._radius_5000 = scales.growth(d.light_5000) + ligthOffset * (d.light_5000 > 0 ? 1 : -1);
-        d._radius_2500 = scales.growth(d.light_2500) + ligthOffset * (d.light_2500 > 0 ? 1 : -1);
+        d._radius_5000 = scales.growth(d.light_5000);
+        d._radius_2500 = scales.growth(d.light_2500);
 
-        var supportInnerRadius = innerRadius - ligthOffset * 3;
-        var supportOuterRadius = outerRadius + ligthOffset * 2;
         d._supportLine = {
-            x1: d._cos * supportInnerRadius,
-            y1: d._sin * supportInnerRadius,
-            x2: d._cos * supportOuterRadius,
-            y2: d._sin * supportOuterRadius
+            x1: d._cos * innerRadius,
+            y1: d._sin * innerRadius,
+            x2: d._cos * outerRadius,
+            y2: d._sin * outerRadius
         };
     });
 
@@ -163,8 +162,7 @@ function drawLegend(scales) {
 
 function drawSupportLines(chart, data) {
     
-    var gradient = svg
-        .append("defs")
+    var gradient = defs
         .append("radialGradient")
         .attr("id", "grey-lines");
 
@@ -191,6 +189,7 @@ function drawSupportLines(chart, data) {
 }
 
 function drawGrowthMarkers(chart, data, scales) {
+    prepareShadows();
 
     var growthContainer = chart
                             .append("g").attr("class", "growth-markers")
@@ -202,7 +201,10 @@ function drawGrowthMarkers(chart, data, scales) {
         .filter(function (d) { return d.light_5000 !== d.light_2500; })
             .attr("d", generateDrop)
             .style("fill", function (d) { return scales.speciesColor(d.name); })
-            .style("fill-opacity", 1);
+            .style("filter", "url(#drop-shadow)")
+            .style("stroke", "white")
+            .style("stroke-opacity", 0.5)
+            .style("stroke-width", 0.5);
 
     growthContainer
         .append("circle")
@@ -211,7 +213,10 @@ function drawGrowthMarkers(chart, data, scales) {
             .attr("cy", function (d) { return d._sin * d._radius_5000; })
             .attr("r", 4)
             .style("fill", function (d) { return scales.speciesColor(d.name); })
-            .style("fill-opacity", 1);
+            .style("filter", "url(#drop-shadow)")
+            .style("stroke", "white")
+            .style("stroke-opacity", 0.5)
+            .style("stroke-width", 0.5);
 }
 
 function drawTemperatureScale(container, scales) {
@@ -258,4 +263,42 @@ function generateDrop(d) {
     return `M ${x5000 + xOffset} ${y5000 + yOffset} 
             Q ${x5000 + coeff * yOffset} ${y5000 - coeff * xOffset} ${x5000 - xOffset} ${y5000 - yOffset} 
             L ${x2500 - (coeff / 2) * yOffset} ${y2500 + (coeff / 2) * xOffset} Z`;
+}
+
+function prepareShadows() {
+    var defs = svg.append("defs");
+
+    var filter = defs.append("filter")
+        .attr("id", "drop-shadow")
+        .attr("height", "130%")
+        .attr("width", "130%")
+
+    filter.append("feGaussianBlur")
+        .attr("in", "SourceAlpha")
+        .attr("stdDeviation", 1)
+        .attr("result", "blur");
+
+    filter.append("feOffset")
+        .attr("in", "blur")
+        .attr("dx", 3)
+        .attr("dy", 3)
+        .attr("result", "offsetBlur");
+
+    filter.append("feFlood")
+        .attr("flood-color", "#555")
+        .attr("flood-opacity", 0.5)
+        .attr("result", "offsetColor");
+
+    filter.append("feComposite")
+        .attr("in", "offsetColor")
+        .attr("in2", "offsetBlur")
+        .attr("operator", "in")
+        .attr("result", "offsetBlur");
+
+    var feMerge = filter.append("feMerge");
+
+    feMerge.append("feMergeNode")
+        .attr("in", "offsetBlur")
+    feMerge.append("feMergeNode")
+        .attr("in", "SourceGraphic");
 }
