@@ -20,37 +20,9 @@ d3.json("data/algae-growth.json", function (error, data) {
     var summary = getAggregatedInfo(data);
     var scales = prerateAllScales(summary);
 
-    showLegend(scales);
+    drawLegend(scales);
     drawChart(data, scales);
 });
-
-function showLegend(scales) {
-    var legendContainer = d3.select(".legend");
-    var legend = legendContainer
-                        .append("svg")
-                            .attr("width", width)
-                            .attr("heigth", 100);
-    var temperatures = legend
-                            .append("g")
-                            .selectAll("g")
-                            .data(scales.temperature.domain()).enter()
-                            .append("g")
-                                .attr("transform", function(d, i) {
-                                    var rowOffset = 15 + i * 30;
-                                    return "translate(30, " + rowOffset + ")";
-                                });
-    temperatures
-        .append("circle")
-        .attr("r", 7)
-        .attr("cx", -15)
-        .attr("cy", -4)
-        .style("fill", function(d) { return scales.temperatureColor(d); })
-        .style("fill-opacity", 0.7);
-
-    temperatures
-        .append("text")
-        .text(function (d) { return "temperature " + d + "\u2103"; })
-}
 
 function drawChart(data, scales) {
 
@@ -60,16 +32,9 @@ function drawChart(data, scales) {
         .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height + ")");
 
-    var growthContainers = chart
-        .append("g")
-        .attr("name", "growth")
-        .selectAll("g")
-        .data(data).enter()
-        .append("g");
-
-    drawSupportLines(growthContainers);
-    drawGrowthMarkers(growthContainers, scales);
+    drawSupportLines(chart, data);
     drawTemperatureScale(chart, scales);
+    drawGrowthMarkers(chart, data, scales);
 }
 
 function getAggregatedInfo(data) {
@@ -153,8 +118,51 @@ function prepareData(data, scales) {
     return data;
 }
 
-function drawSupportLines(growthContainer) {
+function drawLegend(scales) {
+    var legendContainer = d3.select(".legend");
+    var legend = legendContainer
+        .append("svg")
+        .attr("width", width)
+        .attr("heigth", 100);
 
+    var temperatures = legend
+        .append("g").attr("class", "temperatures")
+        .selectAll("g")
+        .data(scales.temperature.domain()).enter()
+        .append("g")
+        .attr("transform", function (d, i) {
+            var rowOffset = 15 + i * 30;
+            return "translate(30, " + rowOffset + ")";
+        });
+
+    var xSize = temperatureScaleRadius * 4;
+    var ySize = temperatureScaleRadius * 2;
+    var xOffset = -xSize - 5;
+    var yOffset = -ySize + 2;
+    temperatures
+        .append("rect")
+        .attr("rx", 3).attr("ry", 3)
+        .attr("x", xOffset).attr("y", yOffset)
+        .attr("width", xSize)
+        .attr("height", ySize)
+        .style("fill", function (d) { return scales.temperatureColor(d); })
+        .style("fill-opacity", 0.7);
+
+    temperatures
+        .append("text")
+        .text(function (d) { return d + "\u2103"; });
+
+    // species
+    var species = legend
+        .append("g").attr("class", "species")
+        .selectAll("g")
+        .data(scales.species.domain()).enter()
+        .append("g")
+        .attr("transform", "translate(0,0)");
+}
+
+function drawSupportLines(chart, data) {
+    
     var gradient = svg
         .append("defs")
         .append("radialGradient")
@@ -171,7 +179,9 @@ function drawSupportLines(growthContainer) {
             .attr("offset", function (d) { return d.offset; })
             .attr("stop-color", function (d) { return d.color; })
 
-    growthContainer
+    chart.append("g").attr("name", "support-lines")
+        .selectAll("line")
+        .data(data).enter()
         .append("line")
             .attr("x1", function (d) { return d._supportLine.x1; })
             .attr("y1", function (d) { return d._supportLine.y1; })
@@ -180,8 +190,13 @@ function drawSupportLines(growthContainer) {
             .style("stroke", "url(#grey-lines)");
 }
 
-function drawGrowthMarkers(growthContainer, scales) {
+function drawGrowthMarkers(chart, data, scales) {
 
+    var growthContainer = chart
+                            .append("g").attr("class", "growth-markers")
+                            .selectAll("g")
+                            .data(data).enter()
+                            .append("g");
     growthContainer
         .append("path")
         .filter(function (d) { return d.light_5000 !== d.light_2500; })
