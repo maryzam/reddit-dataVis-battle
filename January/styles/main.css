@@ -42,12 +42,12 @@ h2 {
 }
 
 .legend {
-	display: flex; 
-	flex-wrap: wrap;
-	margin: 10px 70px 50px 70px;
-	padding: 10px 50px;
-	border: 1px #dadada;
-	border-style: solid none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px #dadada;
+    border-style: solid none;
 }
 
 .legend text {

@@ -30,7 +30,7 @@
     "light_2500": 0.24
   },
   {
-    "name": "Chlorella vulgaris (freshwater)",
+    "name": "Chlorella vulgaris",
     "temperature": "5",
     "light_5000": -0.25,
     "light_2500": 0
@@ -144,7 +144,7 @@
     "light_2500": 0.24
   },
   {
-    "name": "Chlorella vulgaris (freshwater)",
+    "name": "Chlorella vulgaris",
     "temperature": "10",
     "light_5000": 0.21,
     "light_2500": 0.17
@@ -258,7 +258,7 @@
     "light_2500": 0.56
   },
   {
-    "name": "Chlorella vulgaris (freshwater)",
+    "name": "Chlorella vulgaris",
     "temperature": "25",
     "light_5000": 0.68,
     "light_2500": 0.67
@@ -372,7 +372,7 @@
     "light_2500": 0.39
   },
   {
-    "name": "Chlorella vulgaris (freshwater)",
+    "name": "Chlorella vulgaris",
     "temperature": "30",
     "light_5000": -0.29,
     "light_2500": -0.2
