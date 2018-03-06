@@ -68,3 +68,40 @@ h2 {
 	color: #777;
 	font-size: 0.9em;
 }
+
+.container {
+    position: relative;
+}
+
+.tooltip {
+    width: 250px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -110px;
+    color: #777777;
+    text-align: center;
+}
+
+.tooltip h6 {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #333333;
+}
+
+.tooltip p {
+    font-size: 1em;
+    padding: 3px 0;
+}
+
+.tooltip p.small {
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.tooltip strong {
+    color: #333333;
+    font-weight: inherit;
+}
