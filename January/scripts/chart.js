@@ -84,8 +84,8 @@ window.GC = window.GC || {};
                 target
                     .transition()
                     .duration(100)
-                    .style("stroke", function (d) { return d._color; } )
-                    .style("stroke-width", 3);
+                    .style("stroke", "tomato" )
+                    .style("stroke-width", 2);
 
                 showTooltip(d);
             })
