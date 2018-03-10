@@ -1,0 +1,914 @@
+[
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.01
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.5
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "10",
+    "light": 5000,
+    "growth": -0.1
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.25
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.28
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.3
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.38
+  },
+  {
+    "name": "Caloneis schroderi",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.29
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.01
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.05
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.16
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.07
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.52
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.39
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.62
+  },
+  {
+    "name": "Chaetoceros gracilis",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.73
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.06
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.01
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.27
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.55
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.47
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.52
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.54
+  },
+  {
+    "name": "Chaetoceros simplex",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.63
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.03
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.02
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.58
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.53
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.88
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.85
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.98
+  },
+  {
+    "name": "Chlorella ellipsoidea",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.94
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.01
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.24
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.36
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.24
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.78
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.56
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.66
+  },
+  {
+    "name": "Chlorella stigmatophora",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.39
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.25
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.21
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.17
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.68
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.67
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "30",
+    "light": 5000,
+    "growth": -0.29
+  },
+  {
+    "name": "Chlorella vulgaris",
+    "temperature": "30",
+    "light": 2500,
+    "growth": -0.2
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.16
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.08
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "10",
+    "light": 2500,
+    "growth": -0.1
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "30",
+    "light": 5000,
+    "growth": -0.18
+  },
+  {
+    "name": "Cyclotella sp. NUFP-9",
+    "temperature": "30",
+    "light": 2500,
+    "growth": -0.19
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.28
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.17
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.43
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.42
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.6
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.64
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.6
+  },
+  {
+    "name": "Dunaniella tertiolecta",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.45
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.36
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.07
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "10",
+    "light": 5000,
+    "growth": -0.68
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "10",
+    "light": 2500,
+    "growth": -0.21
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.21
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.15
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.11
+  },
+  {
+    "name": "Hanzchia marina",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.06
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.62
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.67
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.06
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "10",
+    "light": 2500,
+    "growth": -0.14
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.78
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.81
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.76
+  },
+  {
+    "name": "Isochrysis aff. galbana",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.74
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.57
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.07
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.42
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.25
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.55
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.55
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.52
+  },
+  {
+    "name": "Isochrysis galbana",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.51
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.06
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.07
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.04
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.54
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "25",
+    "light": 5000,
+    "growth": -0.32
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "25",
+    "light": 2500,
+    "growth": -0.34
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.46
+  },
+  {
+    "name": "Nannochloris salina",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.06
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.01
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.03
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.01
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.04
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.85
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.92
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 1.09
+  },
+  {
+    "name": "Nannochlorois oculata",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 1.14
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.16
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.2
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.37
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.22
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.39
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.37
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.48
+  },
+  {
+    "name": "Navicula incerta",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.35
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.1
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.12
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.2
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.23
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.23
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.29
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.46
+  },
+  {
+    "name": "Nitzscia sp.",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.4
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.29
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.34
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.66
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.61
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.6
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.67
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.48
+  },
+  {
+    "name": "Skeletonema costatum",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.43
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.04
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.02
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.42
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.28
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.46
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.44
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.55
+  },
+  {
+    "name": "Tetraselmus suecica",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.51
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "5",
+    "light": 5000,
+    "growth": 0.03
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "5",
+    "light": 2500,
+    "growth": 0.06
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "10",
+    "light": 5000,
+    "growth": 0.1
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "10",
+    "light": 2500,
+    "growth": 0.11
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "25",
+    "light": 5000,
+    "growth": -0.03
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.1
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.28
+  },
+  {
+    "name": "Thalassiosira fluviatilis",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.23
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "5",
+    "light": 5000,
+    "growth": -0.29
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "5",
+    "light": 2500,
+    "growth": -0.17
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "10",
+    "light": 5000,
+    "growth": -0.04
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "10",
+    "light": 2500,
+    "growth": -0.12
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "25",
+    "light": 5000,
+    "growth": 0.13
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "25",
+    "light": 2500,
+    "growth": 0.15
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "30",
+    "light": 5000,
+    "growth": 0.4
+  },
+  {
+    "name": "Thalassiosira sp.",
+    "temperature": "30",
+    "light": 2500,
+    "growth": 0.41
+  }
+]

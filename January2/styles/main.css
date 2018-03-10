@@ -1,0 +1,115 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.25em;
+	color: #777;
+}
+
+.header {
+	padding: 20px;
+}
+
+.footer {
+	padding: 20px 50px;
+	font-size: 0.8em;
+	text-align: right;
+	color: #777;
+}
+
+.footer a {
+	color: #333;
+}
+
+.content {
+	margin: auto;
+	width: 960px;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px #dadada;
+    border-style: solid none;
+}
+
+.legend text {
+	text-anchor: left;
+	font-size: 12px;
+	fill: #333;	
+}
+
+.legend .column { 
+	display: flex; 
+	flex-wrap: wrap;
+	flex: 1 1 auto; 
+	align-items: center;
+}
+
+.legend .title {
+	padding-right: 30px;
+	color: #777;
+	font-size: 0.9em;
+}
+
+.container {
+    position: relative;
+}
+
+.tooltip {
+    width: 250px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -110px;
+    color: #777777;
+    text-align: center;
+}
+
+.tooltip h6 {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #333333;
+}
+
+.tooltip p {
+    font-size: 1em;
+    padding: 3px 0;
+}
+
+.tooltip p.small {
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.tooltip strong {
+    color: #333333;
+    font-weight: inherit;
+}
+
+.axis path, line {
+    stroke: #dadada;
+}
+
+.axis text {
+    fill: #777;
+}
