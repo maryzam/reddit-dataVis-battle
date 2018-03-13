@@ -14,7 +14,7 @@
   - Preview: *Will be provided*
   
   
-All Live demos can be found [https://maryzam.github.io/reddit-dataVis-battle/](here)
+All Live demos can be found [here](https://maryzam.github.io/reddit-dataVis-battle/)
 
 Tools: D3.js v4
 
