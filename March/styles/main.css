@@ -1,0 +1,21 @@
+ body {
+    background: black;
+}
+ 
+.container {
+	width: 960px;
+	height: 600px;
+	overflow: hidden;
+	margin: auto;
+}
+
+.graticule {
+      fill: none;
+      stroke: #fff;
+      stroke-opacity: 0.2;
+}
+
+.stars {
+      fill: #fff;
+      stroke: #000;
+}
