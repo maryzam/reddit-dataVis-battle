@@ -15,7 +15,8 @@
       stroke-opacity: 0.2;
 }
 
-.stars {
-      fill: #fff;
-      stroke: #000;
+.stars circle {
+    fill-opacity: 0.7;
+    stroke: black;
+    stroke-width: 0.5px;
 }

@@ -1,73 +1,73 @@
 
 import * as d3 from "d3"
 
-var width = 960,
-    height = 600;
-    
-    var projection = d3.geoStereographic()
-      .scale(400)
+const rad2deg = 180 / Math.PI;
+
+const container = d3.select(".container");
+const size = container.node().getBoundingClientRect();
+
+const projection = d3.geoStereographic()
+      .scale(400) //todo based on size
       .clipAngle(120)
-      .translate([width/2, height/2]);
+      .translate([ size.width/2, size.height/2 ]);
       
-    var path = d3.geoPath()
-      .projection(projection);
+const path = d3.geoPath().projection(projection);
     
-    var lambda = d3.scaleLinear()
-      .domain([0, width])
+const lambda = d3.scaleLinear()
+      .domain([0, size.width])
       .range([-180, 180]);
     
-    var phi = d3.scaleLinear()
-      .domain([0, height])
+const phi = d3.scaleLinear()
+      .domain([0, size.height])
       .range([90, -90]);
     
-    var radius = d3.scaleLinear()
-      .domain([-1, 5])
-      .range([8, 1])
+const radius = d3.scaleLinear()
+      .domain([-20, 6])
+      .range([15, 1])
       .clamp(true);
     
-    var color = d3.scaleLinear()
-      .domain([-0.2, 0.5, 1.6])
-      .range(["#e6f0ff", "#ffffff", "fff5e6"])
+const color = d3.scaleLinear()
+      .domain([-0.4, 0.5, 1.5, 3.0, 5.0])
+      .range(["#7AF7FF", "#ffffff",  "#FFD230", "#FF8400", "#FF3E00"])
       .clamp(true);
     
-    var svg = d3.select(".container").append("svg")
-      .attr("width", width)
-      .attr("height", height);
-    
-    svg.append("path")
-      .attr("class", "graticule")
-      .datum(d3.geoGraticule());
-    
-    svg.append("g")
-      .attr("class", "stars");
+const svg = container
+      .append("svg")
+        .attr("width", size.width)
+        .attr("height", size.height);
     
     d3.json("data/all-visible.json")
       .then(function(data) {
+
+        const skyMap = svg.append("g").attr("class", "stars");
+        const graticule = svg.append("path")
+                .attr("class", "graticule")
+                .datum(d3.geoGraticule());
     
         function render() {
       
-          svg.select(".graticule")
-            .attr("d", path);
-        
-          var stars = svg.select(".stars")
+          graticule.attr("d", path);
+
+          var stars = skyMap
             .selectAll("circle")
-            .data(data.map(function(d) {
-              var p = projection([
-                  -d.Position.Ra * 180 / Math.PI, 
-                  d.Position.Dec * 180 / Math.PI
-              ]);
-              d[0] = p[0];
-              d[1] = p[1];   
-              return d;   
-            }));
+            .data(data
+                .map(function(d) {
+                  var p = projection([d.Pos.Ra, d.Pos.Dec]);
+                  d.x = p[0];
+                  d.y = p[1];   
+                  return d;   
+                })
+            );
           
-          stars.enter().append("circle")
-            .attr("r", function(d) { return radius(d.Magnitude); })
-            .style("fill", function(d) { return color(d.ColorIndex); });
+          stars
+            .enter()
+            .append("circle")
+              .attr("r", function(d) { return radius(d.Magnitude); })
+              .style("fill", function(d) { return color(d.ColorIndex); });
       
           stars
-            .attr("cx", function(d) { return d[0]; })
-            .attr("cy", function(d) { return d[1]; });
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
         }
       
         render();
