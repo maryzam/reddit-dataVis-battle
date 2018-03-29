@@ -1,90 +1,90 @@
-Abbreviation,Name
-,All
-And,Andromeda
-Ant,Antlia
-Aps,Apus
-Aqr,Aquarius
-Aql,Aquila
-Ara,Ara
-Ari,Aries
-Aur,Auriga
-Boo,Boötes
-Cae,Caelum
-Cam,Camelopardalis
-Cnc,Cancer
-CVn,Canes,Venatici
-CMa,Canis,Major
-CMi,Canis,Minor
-Cap,Capricornus
-Car,Carina
-Cas,Cassiopeia
-Cen,Centaurus
-Cep,Cepheus
-Cet,Cetus
-Cha,Chamaeleon
-Cir,Circinus
-Col,Columba
-Com,Coma,Berenices
-CrA,Corona,Austrina
-CrB,Corona,Borealis
-Crv,Corvus
-Crt,Crater
-Cru,Crux
-Cyg,Cygnus
-Del,Delphinus
-Dor,Dorado
-Dra,Draco
-Equ,Equuleus
-Eri,Eridanus
-For,Fornax
-Gem,Gemini
-Gru,Grus
-Her,Hercules
-Hor,Horologium
-Hya,Hydra
-Hyi,Hydrus
-Ind,Indus
-Lac,Lacerta
-Leo,Leo
-LMi,Leo,Minor
-Lep,Lepus
-Lib,Libra
-Lup,Lupus
-Lyn,Lynx
-Lyr,Lyra
-Men,Mensa
-Mic,Microscopium
-Mon,Monoceros
-Mus,Musca
-Nor,Norma
-Oct,Octans
-Oph,Ophiuchus
-Ori,Orion
-Pav,Pavo
-Peg,Pegasus
-Per,Perseus
-Phe,Phoenix
-Pic,Pictor
-Psc,Pisces
-PsA,Piscis,Austrinus
-Pup,Puppis
-Pyx,Pyxis
-Ret,Reticulum
-Sge,Sagitta
-Sgr,Sagittarius
-Sco,Scorpius
-Scl,Sculptor
-Sct,Scutum
-Ser,Serpens
-Sex,Sextans
-Tau,Taurus
-Tel,Telescopium
-Tri,Triangulum
-TrA,Triangulum,Australe
-Tuc,Tucana
-UMa,Ursa,Major
-UMi,Ursa,Minor
-Vel,Vela
-Vir,Virgo
-Vol,Volans
-Vul,Vulpecula
+Abbreviation,Name,Family
+,All,
+And,Andromeda,Perseus Family
+Ant,Antlia,La Caille Family
+Aps,Apus,Bayer Family
+Aqr,Aquarius,Zodiac
+Aql,Aquila,Hercules Family
+Ara,Ara,Hercules Family
+Ari,Aries,Zodiac
+Aur,Auriga,Perseus Family
+Boo,Boötes,Ursa Major Family
+Cae,Caelum,La Caille Family
+Cam,Camelopardalis,Ursa Major Family
+Cnc,Cancer,Zodiac
+CVn,Canes Venatici,Ursa Major Family
+CMa,Canis Major,Orion Family
+CMi,Canis Minor,Orion Family
+Cap,Capricornus,Heavenly Waters
+Car,Carina,Heavenly Waters
+Cas,Cassiopeia,Perseus Family
+Cen,Centaurus,Hercules Family
+Cep,Cepheus,Perseus Family
+Cet,Cetus,Perseus Family
+Cha,Chamaeleon,Bayer Family
+Cir,Circinus,La Caille Family
+Col,Columba,Heavenly Waters
+Com,Coma Berenices,Ursa Major Family
+CrA,Corona Austrina,Hercules Family
+CrB,Corona Borealis,Ursa Major Family
+Crv,Corvus,Hercules Family
+Crt,Crater,Hercules Family
+Cru,Crux,Hercules Family
+Cyg,Cygnus,Hercules Family
+Del,Delphinus,Heavenly Waters
+Dor,Dorado,Bayer Family
+Dra,Draco,Ursa Major Family
+Equ,Equuleus,Heavenly Waters
+Eri,Eridanus,Heavenly Waters
+For,Fornax,La Caille Family
+Gem,Gemini,Zodiac
+Gru,Grus,Bayer Family
+Her,Hercules,Hercules Family
+Hor,Horologium,La Caille Family
+Hya,Hydra,Hercules Family
+Hyi,Hydrus,Bayer Family
+Ind,Indus,Bayer Family
+Lac,Lacerta,Perseus Family
+Leo,Leo,Zodiac
+LMi,Leo Minor,Ursa Major Family
+Lep,Lepus,Orion Family
+Lib,Libra,Zodiac
+Lup,Lupus,Hercules Family
+Lyn,Lynx,Ursa Major Family
+Lyr,Lyra,Hercules Family
+Men,Mensa,La Caille Family
+Mic,Microscopium,La Caille Family
+Mon,Monoceros,Orion Family
+Mus,Musca,Bayer Family
+Nor,Norma,Norma
+Oct,Octans,La Caille Family
+Oph,Ophiuchus,Zodiac
+Ori,Orion,Orion Family
+Pav,Pavo,Bayer Family
+Peg,Pegasus,Perseus Family
+Per,Perseus,Perseus Family
+Phe,Phoenix,Bayer Family
+Pic,Pictor,La Caille Family
+Psc,Pisces,Zodiac
+PsA,Piscis Austrinus
+Pup,Puppis,Heavenly Waters
+Pyx,Pyxis,Heavenly Waters
+Ret,Reticulum,La Caille Family
+Sge,Sagitta,Zodiac
+Sgr,Sagittarius,Zodiac
+Sco,Scorpius,Zodiac
+Scl,Sculptor,La Caille Family
+Sct,Scutum,Hercules Family
+Ser,Serpens,Hercules Family
+Sex,Sextans,Hercules Family
+Tau,Taurus,Zodiac
+Tel,Telescopium,La Caille Family
+Tri,Triangulum,Perseus Family
+TrA,Triangulum Australe,Hercules Family
+Tuc,Tucana,Bayer Family
+UMa,Ursa Major,Ursa Major Family
+UMi,Ursa Minor,Ursa Major Family
+Vel,Vela,Heavenly Waters
+Vir,Virgo,Zodiac
+Vol,Volans,Bayer Family
+Vul,Vulpecula,Hercules Family
