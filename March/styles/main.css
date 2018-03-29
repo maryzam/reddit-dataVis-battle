@@ -2,20 +2,20 @@
     background: black;
 }
  
-.container {
+.sky-map {
 	width: 960px;
 	height: 600px;
 	overflow: hidden;
 	margin: auto;
 }
 
-.graticule {
+.sky-map .graticule {
       fill: none;
       stroke: #fff;
       stroke-opacity: 0.2;
 }
 
-.stars circle {
+.sky-map .stars circle {
     fill-opacity: 0.7;
     stroke: black;
     stroke-width: 0.5px;
