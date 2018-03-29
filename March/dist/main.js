@@ -6119,6 +6119,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__
 
 /***/ }),
 
+/***/ "./src/components/stellarFilter.js":
+/*!*****************************************!*\
+  !*** ./src/components/stellarFilter.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n\n\nconst onSelect = function () {\n\tconsole.log(this.value);\n};\n\nclass StellarFilter {\n\n\tconstructor(selector, data) {\n\n\t\tconst select = d3__WEBPACK_IMPORTED_MODULE_0__[\"select\"](selector).append(\"select\").on('change', onSelect);\n\t\tselect.selectAll('option').data(data).enter().append('option').attr(\"value\", function (d) {\n\t\t\treturn d.Abbreviation;\n\t\t}).text(function (d) {\n\t\t\treturn d.Name;\n\t\t});\n\t}\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (StellarFilter);\n\n//# sourceURL=webpack:///./src/components/stellarFilter.js?");
+
+/***/ }),
+
 /***/ "./src/main.js":
 /*!*********************!*\
   !*** ./src/main.js ***!
@@ -6127,7 +6139,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n/* harmony import */ var _components_skyMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/skyMap */ \"./src/components/skyMap.js\");\n\n\n\n\nObject(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/all-visible.json\").then(function (stars) {\n    const skyMap = new _components_skyMap__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\".sky-map\", stars);\n});\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n/* harmony import */ var _components_skyMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/skyMap */ \"./src/components/skyMap.js\");\n/* harmony import */ var _components_stellarFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/stellarFilter */ \"./src/components/stellarFilter.js\");\n\n\n\n\n\nPromise.all([Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/all-visible.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/constellations.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"csv\"])(\"data/constellation-names.csv\")]).then(result => {\n    const stars = result[0];\n    const constellations = result[1];\n    const constNames = result[2];\n\n    const navigation = new _components_stellarFilter__WEBPACK_IMPORTED_MODULE_2__[\"default\"](\".filters\", constNames);\n    const skyMap = new _components_skyMap__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\".sky-map\", stars);\n});\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 
