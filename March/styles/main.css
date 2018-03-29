@@ -1,14 +1,19 @@
  * {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: "PT Sans", sans-serif;
     margin: 0;
     padding: 0;
+ }
+ 
+ text {
+    font-family: 'Share Tech Mono', monospace;
+    
  }
  
  body {
     background: black;
  }
  
-.sky-map, .statistics {
+.sky-map, .part {
 	width: 960px;
 	height: 600px;
 	overflow: hidden;
@@ -27,8 +32,29 @@
     stroke-width: 0.5px;
 }
 
-.statistics {
+.part {
   border: solid white 1px;
+}
+
+.part .chart {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+}
+
+.part .note {
+  display: inline-block;
+  width: 29%;
+  margin: auto;
+}
+
+.part .note p {
+  padding: 5px 10px;
+  color: #777;
+}
+
+.part .note span {
+  color: #dadada;
 }
 
 .stars-total rect {

@@ -2,7 +2,6 @@
 import { json, csv } from "d3";
 import SkyMap from "./components/skyMap";
 import StellarFilter from "./components/stellarFilter";
-import ConstellationOverview from "./components/constellationOverview";
 import { renderStarsNumber } from "./components/overview/renderStarsNumber";
 
 
@@ -19,5 +18,5 @@ Promise.all([
       const navigation = new StellarFilter(".filters", constNames)
       const skyMap = new SkyMap(".sky-map", stars);
 
-      renderStarsNumber(".statistics", constStats, constNames);
+      renderStarsNumber(".stars-count", constStats, constNames);
   });

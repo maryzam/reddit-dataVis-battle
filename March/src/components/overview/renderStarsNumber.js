@@ -34,7 +34,7 @@ export function renderStarsNumber(selector, data, dict) {
       	.sort(function(a, b) { return b.StarCount - a.StarCount; });
 
     pack(root);
-
+    
 	const container = ph.append("svg")
     	.attr("width", size.width)
     	.attr("height", size.height)
