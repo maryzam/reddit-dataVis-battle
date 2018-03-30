@@ -3,15 +3,33 @@
     margin: 0;
     padding: 0;
  }
- 
- text {
-    font-family: 'Share Tech Mono', monospace;
-    
- }
- 
+
  body {
     background: black;
  }
+
+ text {
+    font-family: 'Share Tech Mono', monospace;
+ }
+
+.tooltip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: rgba(250, 250, 250, 0.7);
+    border: 1px solid #6F257F;
+    padding: 5px;
+    pointer-events: none;
+}
+
+.tooltip p, 
+.tooltip small,
+.tooltip span, 
+.tooltip strong {
+    font-family: 'Share Tech Mono', monospace;
+    text-align: center;
+}
  
 .sky-map, .part {
 	width: 960px;
@@ -57,6 +75,10 @@
   color: #dadada;
 }
 
+.stars-total {
+  cursor: pointer;
+}
+
 .stars-total rect {
   fill: tomato;
   fill-opacity: 0.7;
@@ -65,11 +87,13 @@
 .stars-total text {
   font-weight: bold;
   text-anchor: middle;
+  pointer-events: none;
 }
 
 .stars-total circle {
   fill-opacity: 0.5;
   stroke: none;
+  pointer-events: all;
 }
 
 .stars-total text.group-label  {

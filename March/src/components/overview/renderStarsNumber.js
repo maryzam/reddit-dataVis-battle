@@ -1,9 +1,85 @@
 
 import * as d3 from "d3";
 
-export function renderStarsNumber(selector, data, dict) {
+export function renderStarsNumber(selector, source, dict) {
 
-    data.forEach(function(d) {
+	const ph = d3.select(selector);
+	const tooltip = d3.select(".tooltip");
+    const size = ph.node().getBoundingClientRect();
+  	const color = d3.scaleSequential(d3.interpolateMagma).domain([-4, 4]);
+
+    prepareData(source, dict);
+    const data = getPackedData(source, size);
+
+	const container = ph.append("svg")
+    	.attr("width", size.width)
+    	.attr("height", size.height)
+  		.append("g").attr("class", "stars-total");
+
+  	const nodes = container
+    				.selectAll("g")
+    				.data(data).enter()
+    				.append("g")
+      					.attr("transform", function(d) { return `translate(${d.x},${d.y})`; });
+
+	nodes
+		.append("circle")
+	      .attr("id", function(d) { return "node-" + d.id; })
+	      .style("fill", function(d) { return color(d.depth); })
+	      .attr("r", function(d) { return d.r; });
+
+  	const costellations = nodes
+  		.filter(function(d) { return !d.children; });
+
+  	costellations
+  		.append("text")
+	      	.attr("dy", function(d) { return d.r / 3; })
+	      	.text(function(d) { return d.data.Name; })
+	      	.style("font-size", function(d){ return `${(d.r - 1)}px`; });
+
+	costellations
+		.selectAll("circle")
+		.on("mouseover", function() { tooltip.style("display", "block"); })
+	    .on("mouseout", function() { tooltip.style("display", "none"); })
+	    .on("mousemove", function(d) {
+	    	console.log("mousemove");
+	    	const { pageX, pageY } = d3.event;
+	    	tooltip
+	    		.style("top", `${pageY - 3}px`)
+	    		.style("left", `${pageX - 85}px`)
+	    		.html(
+	    			`<p>${d.data.FullName}</p>
+	    			<p><strong>${d.data.StarCount}</strong> stars</p>`
+	    		);
+	    });
+
+
+    const labelArc = d3.arc()
+					.innerRadius(function(d) { return (d.r - 5); })
+					.outerRadius(function(d) { return (d.r + 10); })
+					.startAngle(Math.PI * 0.15);
+
+    const groups = nodes.filter(function(d) { return !!d.children; });
+
+	groups
+		.append("path")
+	  		.attr("class", "group-arc")
+			.attr("id", function(d,i) { return `arc${i}`; })
+			.attr("d", labelArc.endAngle(Math.PI * 0.77));
+
+	groups
+		.append("text")
+			.attr("class", "group-label")
+			.attr("x", 5) 
+			.attr("dy", 7) 
+		.append("textPath")
+			.attr("xlink:href", function(d,i){ return `#arc${i}`;})
+			.text(function(d) { return d.data.Name ;});	
+};
+
+function prepareData(data, dict) 
+{
+	 data.forEach(function(d) {
           var info = dict.find(function(item) { return item.Abbreviation === d.Name; });
           d["FullName"] = info.Name;
           d["Family"] = info.Family;
@@ -16,11 +92,13 @@ export function renderStarsNumber(selector, data, dict) {
     			data.push({ Name: d, Family: "All Stars" });
     		}
 	    });
-    data.push({ Name: "All Stars" });
 
-	const ph = d3.select(selector);
-    const size = ph.node().getBoundingClientRect();
-		
+    data.push({ Name: "All Stars" });
+    return data;
+}
+
+function getPackedData(data, size) {
+
 	const stratify = d3.stratify()
     					.parentId(function(d) { return d.Family; })
     					.id(function(d) { return d.Name; });
@@ -34,51 +112,6 @@ export function renderStarsNumber(selector, data, dict) {
       	.sort(function(a, b) { return b.StarCount - a.StarCount; });
 
     pack(root);
-    
-	const container = ph.append("svg")
-    	.attr("width", size.width)
-    	.attr("height", size.height)
-  		.append("g").attr("class", "stars-total");
 
-  	const color = d3.scaleSequential(d3.interpolateMagma).domain([-4, 4]);
-
-  	const nodes = container
-    				.selectAll("g")
-    				.data(root.descendants()).enter()
-    				.append("g")
-      					.attr("transform", function(d) { return `translate(${d.x},${d.y})`; });
-
-	nodes.append("circle")
-	      .attr("id", function(d) { return "node-" + d.id; })
-	      .attr("r", function(d) { return d.r; })
-	      .style("fill", function(d) { return color(d.depth); });
-
-  	nodes
-  		.filter(function(d) { return !d.children; })
-  		.append("text")
-      	.attr("dy", function(d) { return d.r / 3; })
-      	.text(function(d) { return d.data.Name; })
-      	.style("font-size", function(d){ return `${(d.r - 1)}px`; });
-
-    const arc = d3.arc()
-					.innerRadius(function(d) { return (d.r - 5); })
-					.outerRadius(function(d) { return (d.r + 10); })
-					.startAngle(Math.PI * 0.15)
-          			.endAngle(Math.PI * 0.77);
-
-    const groups = nodes.filter(function(d) { return !!d.children; });
-
-	groups
-		.append("path")
-	  		.attr("class", "group-arc")
-			.attr("id", function(d,i) { return `arc${i}`; })
-			.attr("d", arc);
-	groups
-		.append("text")
-			.attr("class", "group-label")
-			.attr("x", 5) 
-			.attr("dy", 7) 
-		.append("textPath")
-			.attr("xlink:href", function(d,i){ return `#arc${i}`;})
-			.text(function(d) { return d.data.Name ;});	
-};
+    return root.descendants();
+}
