@@ -41,10 +41,9 @@ export function renderStarsNumber(selector, source) {
 		.on("mouseover", function() { tooltip.style("display", "block"); })
 	    .on("mouseout", function() { tooltip.style("display", "none"); })
 	    .on("mousemove", function(d) {
-	    	console.log("mousemove");
 	    	const { pageX, pageY } = d3.event;
 	    	tooltip
-	    		.style("top", `${pageY - 3}px`)
+	    		.style("top", `${pageY + 5}px`)
 	    		.style("left", `${pageX - 85}px`)
 	    		.html(
 	    			`<p>${d.data.FullName}</p>
