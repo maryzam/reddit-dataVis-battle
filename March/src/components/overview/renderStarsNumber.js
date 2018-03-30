@@ -1,15 +1,14 @@
 
 import * as d3 from "d3";
 
-export function renderStarsNumber(selector, source, dict) {
+export function renderStarsNumber(selector, source) {
 
 	const ph = d3.select(selector);
 	const tooltip = d3.select(".tooltip");
     const size = ph.node().getBoundingClientRect();
   	const color = d3.scaleSequential(d3.interpolateMagma).domain([-4, 4]);
 
-    prepareData(source, dict);
-    const data = getPackedData(source, size);
+	const data = getPackedData(source, size);
 
 	const container = ph.append("svg")
     	.attr("width", size.width)
@@ -77,15 +76,10 @@ export function renderStarsNumber(selector, source, dict) {
 			.text(function(d) { return d.data.Name ;});	
 };
 
-function prepareData(data, dict) 
+function prepareData(source) 
 {
-	 data.forEach(function(d) {
-          var info = dict.find(function(item) { return item.Abbreviation === d.Name; });
-          d["FullName"] = info.Name;
-          d["Family"] = info.Family;
-    });
-
-    const families = new Set(dict.map((d) => d.Family));
+	const data = source.slice(0);
+    const families = new Set(data.map((d) => d.Family));
     families
     	.forEach(function(d) {
     		if (d && d.length) {
@@ -97,8 +91,8 @@ function prepareData(data, dict)
     return data;
 }
 
-function getPackedData(data, size) {
-
+function getPackedData(source, size) {
+    const data = prepareData(source);
 	const stratify = d3.stratify()
     					.parentId(function(d) { return d.Family; })
     					.id(function(d) { return d.Name; });
