@@ -6107,6 +6107,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dis
 
 /***/ }),
 
+/***/ "./src/components/overview/renderColors.js":
+/*!*************************************************!*\
+  !*** ./src/components/overview/renderColors.js ***!
+  \*************************************************/
+/*! exports provided: renderColors */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"renderColors\", function() { return renderColors; });\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n\n\n\nfunction renderColors(selector, data) {\n\n\tconst ph = d3__WEBPACK_IMPORTED_MODULE_0__[\"select\"](selector);\n\tconst size = ph.node().getBoundingClientRect();\n\tconst width = size.width - 40;\n\tconst height = size.height - 40;\n\n\tconst scaleX = d3__WEBPACK_IMPORTED_MODULE_0__[\"scaleBand\"]().domain(data.map(function (d) {\n\t\treturn d.Name;\n\t})).range([0, width]).padding(0.1);\n\n\tconst scaleY = d3__WEBPACK_IMPORTED_MODULE_0__[\"scaleLinear\"]().domain([d3__WEBPACK_IMPORTED_MODULE_0__[\"min\"](data, function (d) {\n\t\treturn d.Colors.Min;\n\t}), d3__WEBPACK_IMPORTED_MODULE_0__[\"max\"](data, function (d) {\n\t\treturn d.Colors.Max;\n\t})]).range([height, 0]);\n\n\tconst colors = d3__WEBPACK_IMPORTED_MODULE_0__[\"scaleLinear\"]().domain([-0.4, 0.5, 1.5, 3.0, 5.0]).range([\"#7AF7FF\", \"#ffffff\", \"#FFD230\", \"#FF8400\", \"#FF3E00\"]).clamp(true);\n\n\tconst tooltip = d3__WEBPACK_IMPORTED_MODULE_0__[\"select\"](\".tooltip\");\n\tconst container = ph.append(\"svg\").attr(\"width\", size.width).attr(\"height\", size.height).append(\"g\").attr(\"transform\", \"translate(0, 20)\");\n\n\tconst gradient = ph.select(\"svg\").append(\"defs\").append(\"linearGradient\").attr(\"id\", \"color-gradient\").attr(\"gradientUnits\", \"userSpaceOnUse\").attr(\"x1\", 0).attr(\"y1\", 0).attr(\"x2\", 0).attr(\"y2\", \"100%\");\n\n\tconst stops = colors.domain().map(function (d) {\n\t\treturn {\n\t\t\toffset: (100 - 100 * scaleY(d) / height).toFixed(0) + \"%\",\n\t\t\tcolor: colors(d)\n\t\t};\n\t});\n\n\tconsole.log(stops);\n\n\tgradient.selectAll(\"stop\").data(stops).enter().append(\"stop\").attr(\"offset\", function (d) {\n\t\treturn d.offset;\n\t}).attr(\"stop-color\", function (d) {\n\t\treturn d.color;\n\t});\n\n\tconst items = container.selectAll(\"g\").data(data).enter().append(\"g\").attr(\"transform\", function (d) {\n\t\treturn `translate(${scaleX(d.Name)}, 0)`;\n\t});\n\n\titems.append(\"rect\").attr(\"y\", function (d) {\n\t\treturn scaleY(d.Colors.Max);\n\t}).attr(\"height\", function (d) {\n\t\treturn scaleY(d.Colors.Min) - scaleY(d.Colors.Max);\n\t}).attr(\"width\", scaleX.bandwidth()).style(\"fill\", \"url(#color-gradient)\").attr(\"rx\", 2).attr(\"ry\", 2);\n}\n\n//# sourceURL=webpack:///./src/components/overview/renderColors.js?");
+
+/***/ }),
+
 /***/ "./src/components/overview/renderDistances.js":
 /*!****************************************************!*\
   !*** ./src/components/overview/renderDistances.js ***!
@@ -6143,18 +6155,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__
 
 /***/ }),
 
-/***/ "./src/components/stellarFilter.js":
-/*!*****************************************!*\
-  !*** ./src/components/stellarFilter.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n\n\nconst onSelect = function () {\n\tconsole.log(this.value);\n};\n\nclass StellarFilter {\n\n\tconstructor(selector, data) {\n\n\t\tconst select = d3__WEBPACK_IMPORTED_MODULE_0__[\"select\"](selector).append(\"select\").on('change', onSelect);\n\t\tselect.selectAll('option').data(data).enter().append('option').attr(\"value\", function (d) {\n\t\t\treturn d.Abbreviation;\n\t\t}).text(function (d) {\n\t\t\treturn d.Name;\n\t\t});\n\t}\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (StellarFilter);\n\n//# sourceURL=webpack:///./src/components/stellarFilter.js?");
-
-/***/ }),
-
 /***/ "./src/main.js":
 /*!*********************!*\
   !*** ./src/main.js ***!
@@ -6163,7 +6163,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n/* harmony import */ var _components_skyMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/skyMap */ \"./src/components/skyMap.js\");\n/* harmony import */ var _components_stellarFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/stellarFilter */ \"./src/components/stellarFilter.js\");\n/* harmony import */ var _components_overview_renderStarsNumber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/overview/renderStarsNumber */ \"./src/components/overview/renderStarsNumber.js\");\n/* harmony import */ var _components_overview_renderDistances__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/overview/renderDistances */ \"./src/components/overview/renderDistances.js\");\n\n\n\n\n\n\n\nPromise.all([Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/all-visible.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/constellations.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"csv\"])(\"data/constellation-names.csv\")]).then(result => {\n      const stars = result[0];\n      const constStats = result[1];\n      const constNames = result[2];\n\n      combineData(constStats, constNames);\n\n      const navigation = new _components_stellarFilter__WEBPACK_IMPORTED_MODULE_2__[\"default\"](\".filters\", constNames);\n      const skyMap = new _components_skyMap__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\".sky-map\", stars);\n\n      Object(_components_overview_renderStarsNumber__WEBPACK_IMPORTED_MODULE_3__[\"renderStarsNumber\"])(\".stars-count\", constStats);\n      Object(_components_overview_renderDistances__WEBPACK_IMPORTED_MODULE_4__[\"renderDistances\"])(\".distance\", constStats);\n});\n\nfunction combineData(data, dict) {\n      data.forEach(function (d) {\n            var info = dict.find(function (item) {\n                  return item.Abbreviation === d.Name;\n            });\n            d[\"FullName\"] = info.Name;\n            d[\"Family\"] = info.Family;\n      });\n}\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ \"./node_modules/d3/index.js\");\n/* harmony import */ var _components_skyMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/skyMap */ \"./src/components/skyMap.js\");\n/* harmony import */ var _components_overview_renderStarsNumber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/overview/renderStarsNumber */ \"./src/components/overview/renderStarsNumber.js\");\n/* harmony import */ var _components_overview_renderDistances__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/overview/renderDistances */ \"./src/components/overview/renderDistances.js\");\n/* harmony import */ var _components_overview_renderColors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/overview/renderColors */ \"./src/components/overview/renderColors.js\");\n\n\n\n\n\n\n\nPromise.all([Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/all-visible.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"json\"])(\"data/constellations.json\"), Object(d3__WEBPACK_IMPORTED_MODULE_0__[\"csv\"])(\"data/constellation-names.csv\")]).then(result => {\n      const stars = result[0];\n      const constStats = result[1];\n      const constNames = result[2];\n\n      combineData(constStats, constNames);\n\n      const skyMap = new _components_skyMap__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\".sky-map\", stars);\n\n      Object(_components_overview_renderStarsNumber__WEBPACK_IMPORTED_MODULE_2__[\"renderStarsNumber\"])(\".stars-count\", constStats);\n      Object(_components_overview_renderDistances__WEBPACK_IMPORTED_MODULE_3__[\"renderDistances\"])(\".distance\", constStats);\n      Object(_components_overview_renderColors__WEBPACK_IMPORTED_MODULE_4__[\"renderColors\"])(\".colors\", constStats);\n});\n\nfunction combineData(data, dict) {\n      data.forEach(function (d) {\n            var info = dict.find(function (item) {\n                  return item.Abbreviation === d.Name;\n            });\n            d[\"FullName\"] = info.Name;\n            d[\"Family\"] = info.Family;\n      });\n}\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 

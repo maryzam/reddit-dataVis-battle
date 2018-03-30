@@ -1,9 +1,9 @@
  
 import { json, csv } from "d3";
 import SkyMap from "./components/skyMap";
-import StellarFilter from "./components/stellarFilter";
 import { renderStarsNumber } from "./components/overview/renderStarsNumber";
 import { renderDistances } from "./components/overview/renderDistances";
+import { renderColors } from "./components/overview/renderColors";
 
 
 Promise.all([
@@ -18,11 +18,11 @@ Promise.all([
 
       combineData(constStats, constNames);
 
-      const navigation = new StellarFilter(".filters", constNames)
       const skyMap = new SkyMap(".sky-map", stars);
 
       renderStarsNumber(".stars-count", constStats);
       renderDistances(".distance", constStats);
+      renderColors(".colors", constStats);
   });
 
 function combineData(data, dict) {
