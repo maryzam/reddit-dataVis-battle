@@ -31,7 +31,8 @@ export function renderColors(selector, data) {
 	    		.attr("width", size.width)
 	    		.attr("height", size.height)
 	    	.append("g")
-	    		.attr("transform", "translate(0, 20)");
+	    		.attr("transform", "translate(0, 20)")
+	    		.attr("class", "star-colors");
 
 	 const gradient = ph
 	 	.select("svg")
@@ -39,17 +40,16 @@ export function renderColors(selector, data) {
 	 	.append("linearGradient")
 	 		.attr("id", "color-gradient")
 	 		.attr("gradientUnits", "userSpaceOnUse")
-	 		.attr("x1", 0).attr("y1", 0)
-      		.attr("x2", 0).attr("y2", "100%");
+	 		.attr("x1", 0).attr("y1", "100%")
+      		.attr("x2", 0).attr("y2", 0);
 
 	 const stops = colors.domain().map(function(d) {
 	 	return {
-	 		offset: (100 - 100 * scaleY(d) / height).toFixed(0) + "%",
+	 		offset: (100 * (1- scaleY(d) / height)).toFixed(0) + "%",
 	 		color: colors(d)
 	 	};
 	 });
 
-	 
 	 gradient
 	 	.selectAll("stop")
 	 		.data(stops).enter()
@@ -73,4 +73,15 @@ export function renderColors(selector, data) {
 		 	.style("fill", "url(#color-gradient)")
 		 	.attr("rx", 2)
 		 	.attr("ry", 2);
+
+	// draw avg line
+	const midLine = d3.line()
+				    .x(function(d) { return scaleX(d.Name) + scaleX.bandwidth() * 0.5; })
+				    .y(function(d) { return scaleY(d.Colors.Avg); })
+				    .curve(d3.curveMonotoneX);
+	container
+		.append("path")
+    		.datum(data) 
+    		.attr("class", "line")
+    		.attr("d", midLine);
 }

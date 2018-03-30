@@ -154,3 +154,10 @@
   fill-opacity: 0.7;
   stroke: none;
 }
+
+.star-colors path {
+  fill: none;
+  stroke: black;
+  stroke-width: 3px;
+  stroke-linecap: round;
+}
