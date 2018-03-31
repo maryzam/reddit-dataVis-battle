@@ -57,15 +57,19 @@ export function renderStarsNumber(selector, source) {
 					.outerRadius(function(d) { return (d.r + 10); })
 					.startAngle(Math.PI * 0.15);
 
-    const groups = nodes.filter(function(d) { return !!d.children; });
+    const groupLabels = container
+        			.selectAll(".group")
+    				.data(data.filter(function(d) { return !!d.children; })).enter()
+    				.append("g")
+      					.attr("transform", function(d) { return `translate(${d.x},${d.y})`; });
 
-	groups
+	groupLabels
 		.append("path")
 	  		.attr("class", "group-arc")
 			.attr("id", function(d,i) { return `arc${i}`; })
 			.attr("d", labelArc.endAngle(Math.PI * 0.77));
 
-	groups
+	groupLabels
 		.append("text")
 			.attr("class", "group-label")
 			.attr("x", 5) 
