@@ -3,6 +3,7 @@ import { json, csv } from "d3";
 import SkyMap from "./components/skyMap";
 import { renderStarsNumber } from "./components/overview/renderStarsNumber";
 import { renderDistances } from "./components/overview/renderDistances";
+import { renderMagnitudes } from "./components/overview/renderMagnitudes";
 import { renderColors } from "./components/overview/renderColors";
 
 
@@ -22,6 +23,7 @@ Promise.all([
 
       renderStarsNumber(".stars-count", constStats);
       renderDistances(".distance", constStats);
+      renderMagnitudes(".magnitude", constStats);
       renderColors(".colors", constStats);
   });
 
