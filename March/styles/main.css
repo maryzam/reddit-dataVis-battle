@@ -161,3 +161,32 @@
   stroke-width: 3px;
   stroke-linecap: round;
 }
+
+/* magnitudes */
+.stars-magnitude * {
+  pointer-events: none;
+}
+
+.stars-magnitude line {
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.stars-magnitude circle {
+    stroke: black;
+    stroke-width: 0.5px;
+    fill-opacity: 1;
+    pointer-events: all;
+}
+
+.stars-magnitude .brightest {
+    fill: yellow;
+}
+
+.stars-magnitude .nearest {
+    fill: red;
+}
+
+.stars-magnitude .both {
+  fill: orange;
+}
