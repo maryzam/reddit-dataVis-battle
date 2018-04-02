@@ -22,7 +22,7 @@ export function renderDistances(selector, data) {
   	const container = ph.append("svg")
 	    	.attr("width", size.width)
 	    	.attr("height", size.height)
-  		.append("g").attr("class", "stars-distance")
+  		.append("g").attr("class", "star-distances")
   			.attr("transform", `translate(${size.width/2},${size.height/2})`);
 
   	renderAxis(container, scaleRadius);

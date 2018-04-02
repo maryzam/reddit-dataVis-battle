@@ -1,10 +1,11 @@
  * {
-    font-family: "PT Sans", sans-serif;
     margin: 0;
     padding: 0;
  }
 
  body {
+    font-family: 'Gudea', sans-serif;
+    color: white;
     background: black;
  }
 
@@ -12,6 +13,51 @@
     font-family: 'Share Tech Mono', monospace;
  }
 
+/* header & footer */
+header {
+    height: 80px;
+    align-content: center;
+}
+
+footer {
+   height: 20px;
+   align-content: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+/* main part :: flex */
+.main {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.part {
+  max-width: 960px;
+  margin: auto;
+  height: calc(100vh - 100px);
+  min-height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.viz {
+  flex: 70%;
+}
+
+.note {
+  flex: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* tooltip */
 .tooltip {
     position: absolute;
     display: none;
@@ -31,7 +77,9 @@
     text-align: center;
 }
  
-.sky-map, .part {
+ /* interactive sky map */
+
+.sky-map {
 	width: 960px;
 	height: 600px;
 	overflow: hidden;
@@ -50,28 +98,12 @@
     stroke-width: 0.5px;
 }
 
-.part {
-  border: solid white 1px;
-}
-
-.part .chart {
-  display: inline-block;
-  width: 70%;
-  height: 100%;
-}
-
-.part .note {
-  display: inline-block;
-  width: 29%;
-  margin: auto;
-}
-
-.part .note p {
+.part p {
   padding: 5px 10px;
   color: #777;
 }
 
-.part .note span {
+.part span {
   color: #dadada;
 }
 
@@ -108,16 +140,18 @@
   stroke: none;
 }
 
-.stars-distance circle {
+/* distances */
+
+.star-distances circle {
   fill: blue;
   stroke: black;
 }
 
-.stars-distance line {
+.star-distances line {
   stroke: #999;
 }
 
-.stars-distance text {
+.star-distances text {
   font-size: 20px;
   fill: tomato;
   stroke: black;
@@ -126,21 +160,20 @@
   cursor: pointer;
 }
 
-.stars-distance text:hover {
+.star-distances text:hover {
     font-size: 30px;
     fill: tomato;
     stroke: black;
     fill-opacity: 1;
 }
 
-.stars-distance .axis circle {
+.star-distances .axis circle {
     fill: none;
     stroke: #777;
     stroke-opacity: 0.5;
 }
 
-
-.stars-distance .axis text {
+.star-distances .axis text {
   font-size: 10px;
   fill: white;
   stroke: none;
@@ -149,12 +182,13 @@
   pointer-events: none;
 }
 
-.stars-distance .axis rect {
+.star-distances .axis rect {
   fill: black;
   fill-opacity: 0.7;
   stroke: none;
 }
 
+/* colors */
 .star-colors path {
   fill: none;
   stroke: black;
@@ -163,30 +197,30 @@
 }
 
 /* magnitudes */
-.stars-magnitude * {
+.star-magnitudes * {
   pointer-events: none;
 }
 
-.stars-magnitude line {
+.star-magnitudes line {
     stroke: black;
     stroke-width: 2px;
 }
 
-.stars-magnitude circle {
+.star-magnitudes circle {
     stroke: black;
     stroke-width: 0.5px;
     fill-opacity: 1;
     pointer-events: all;
 }
 
-.stars-magnitude .brightest {
+.star-magnitudes .brightest {
     fill: yellow;
 }
 
-.stars-magnitude .nearest {
+.star-magnitudes .nearest {
     fill: red;
 }
 
-.stars-magnitude .both {
+.star-magnitudes .both {
   fill: orange;
 }

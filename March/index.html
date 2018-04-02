@@ -3,15 +3,17 @@
   <meta charset="utf-8">
   <title>Visualize over 100'000 stars</title>
   <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 
 <body>
   <header>
-    <h1></h1>
-    <p class="filters"></p>
+    <h1>Let's learn about Stars and Constellation</h1>
   </header>
-  <div class="statistics">
+
+  <div class="main">
+
     <div class="part">
         <div class="note">
           <p>
@@ -24,16 +26,18 @@
             All constellations are splited in <span>8 constellation families</span> by some defining characteristic, such as proximity on the celestial sphere, common historical origin, or common mythological theme.
           </p>
         </div>
-        <div class="chart stars-count"></div>
+        <div class="viz stars-count"></div>
     </div>
+
     <div class="part">
-        <div class="chart distance"></div>
+        <div class="viz distances"></div>
         <div class="note">
           <p>The star's <span>distance</span> in parsecs, the most common unit in astrometry</p>
         </div>
     </div>
+
     <div class="part">
-        <div class="chart magnitude"></div>
+        <div class="viz magnitudes"></div>
         <div class="note">
             <p>
               <span>The apparent magnitude</span> of a star is a number that is a measure of its brightness as seen by an observer on Earth. The brighter an object appears, the lower its magnitude value (i.e. inverse relation). 
@@ -46,6 +50,7 @@
             </p>
         </div>
     </div>
+
     <div class="part">
         <div class="note">
           <p>
@@ -55,14 +60,16 @@
             The smaller the color index, the more blue (or hotter) the object is. Conversely, the larger the color index, the more red (or cooler) the object is.
           </p>
         </div>
-        <div class="chart colors"></div>
+        <div class="viz colors"></div>
     </div>
+
+    <div class="part sky-map"></div>
+
   </div>
 
-  <div class="sky-map"></div>
-
   <footer></footer>
-  <div class="tooltip"></div>
 
+  <div class="tooltip"></div>
+  
   <script type="text/javascript" src="dist/main.js" charset="UTF-8"></script>
 </body>

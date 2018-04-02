@@ -51,7 +51,6 @@ export function renderStarsNumber(selector, source) {
 	    		);
 	    });
 
-
     const labelArc = d3.arc()
 					.innerRadius(function(d) { return (d.r - 5); })
 					.outerRadius(function(d) { return (d.r + 10); })

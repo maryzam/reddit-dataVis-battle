@@ -14,7 +14,7 @@ export function renderMagnitudes(selector, data) {
                 .attr("width", size.width)
                 .attr("height", size.height)
             .append("g")
-                .attr("class", "stars-magnitude")
+                .attr("class", "star-magnitudes")
                 .attr("transform", `translate(${offset},${offset})`);
 
     const width = size.width - offset * 2;

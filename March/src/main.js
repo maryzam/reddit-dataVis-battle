@@ -22,8 +22,8 @@ Promise.all([
       const skyMap = new SkyMap(".sky-map", stars);
 
       renderStarsNumber(".stars-count", constStats);
-      renderDistances(".distance", constStats);
-      renderMagnitudes(".magnitude", constStats);
+      renderDistances(".distances", constStats);
+      renderMagnitudes(".magnitudes", constStats);
       renderColors(".colors", constStats);
   });
 
