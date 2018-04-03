@@ -66,8 +66,16 @@ li:before {
   padding: 5px 10px;
 }
 
-.part span {
+span {
   color: #dadada;
+}
+
+.blue {
+  color: #7AF7FF;
+}
+
+.red {
+  color: #FF3E00;
 }
 
 .viz {
@@ -137,34 +145,38 @@ li:before {
     stroke-width: 0.5px;
 }
 
-.stars-total {
+.stars-number {
   cursor: pointer;
 }
 
-.stars-total rect {
+.stars-number rect {
   fill: tomato;
   fill-opacity: 0.7;
 }
 
-.stars-total text {
+.stars-number text {
   font-weight: bold;
   text-anchor: middle;
   pointer-events: none;
 }
 
-.stars-total circle {
+.stars-number circle {
   fill-opacity: 0.5;
   stroke: none;
   pointer-events: all;
 }
 
-.stars-total text.group-label  {
+.stars-number .const:hover {
+  fill-opacity: 1;
+}
+
+.stars-number text.group-label  {
   font-size: 15px;
   text-anchor: start;
   fill: white;
 }
 
-.stars-total .group-arc  {
+.stars-number .group-arc  {
   fill-opacity: 0.5;
   fill: black;
   stroke: none;
@@ -185,14 +197,13 @@ li:before {
   font-size: 20px;
   fill: tomato;
   stroke: black;
-  fill-opacity: 0.7;
   text-anchor: middle;
   cursor: pointer;
 }
 
 .star-distances text:hover {
     font-size: 30px;
-    fill: tomato;
+    fill: gold;
     stroke: black;
     fill-opacity: 1;
 }
@@ -224,6 +235,16 @@ li:before {
   stroke: black;
   stroke-width: 3px;
   stroke-linecap: round;
+  pointer-events: none;
+}
+
+.star-colors rect {
+   stroke: black;
+   fill-opacity: 0.8;
+}
+
+.star-colors rect:hover {
+   fill-opacity: 1; 
 }
 
 /* magnitudes */

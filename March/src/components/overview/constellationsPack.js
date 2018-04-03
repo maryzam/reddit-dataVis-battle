@@ -1,12 +1,15 @@
 
 import * as d3 from "d3";
+import VizWithTooltip from "./VizWithTooltip"
 
-const animDuration = 2000;
+const animDuration = 600;
 
-class ConstellationsPack {
+class ConstellationsPack extends VizWithTooltip {
 
 	constructor(selector, source) {
 		
+		super(selector, source);
+
 		const ph = d3.select(selector);
     	
     	this.size = ph.node().getBoundingClientRect();
@@ -14,7 +17,7 @@ class ConstellationsPack {
 
 		this.packData(source);
 		this.prepareContainer(ph);
-		this.renderViz();
+		this.initVis();
 	}
 
 	static prepareData(source) 
@@ -57,10 +60,10 @@ class ConstellationsPack {
 		this.container = ph.append("svg")
 					    	.attr("width", this.size.width)
 					    	.attr("height", this.size.height)
-					  		.append("g").attr("class", "stars-total"); 
+					  		.append("g").attr("class", "stars-number"); 
 	}
 
-	renderViz(ph) {
+	initVis(ph) {
 
   		const color = d3.scaleSequential(d3.interpolateMagma).domain([-4, 4]);
 
@@ -73,9 +76,7 @@ class ConstellationsPack {
 	   	nodes
 			.append("circle")
 			    .attr("id", function(d) { return "node-" + d.id; })
-			    .style("fill", function(d) { return color(d.depth); })
-			    .transition().duration(animDuration)
-			    .attr("r", function(d) { return d.r; });
+			    .style("fill", function(d) { return color(d.depth); });
 
 	  	const costellations = nodes
 	  		.filter(function(d) { return !d.children; });
@@ -88,60 +89,64 @@ class ConstellationsPack {
 
 		costellations
 			.selectAll("circle")
-				.on("mouseover", this.showTooltip)
-			    .on("mouseout", this.hideTooltip)
-			    .on("mousemove", this.updateTooltip);
+	  			.attr("class", "const")
+				.on("mouseover", (d) => this.showTooltip(d))
+			    .on("mouseout", (d) => this.hideTooltip(d))
+			    .on("mousemove", (d) => this.updateTooltip(d));
 
-		this.addLabels();
+		this.addPackLabels();
+	}
+
+	show() {
+		
+		this.container
+			.selectAll("circle")
+				.transition().duration(animDuration)
+			    .attr("r", function(d) { return d.r; });
+
+		this.container
+			.selectAll(".group")
+			.transition().delay(animDuration/2).duration(animDuration)
+	     	.style("opacity", 1);
 	}
 
 	highlightConstellation(name) {
-
+		// todo
 	}
 
-	showTooltip = (d) => {
-		this.tooltip
-			.style("display", "block")
-			.html(
-				`<p>${d.data.FullName}</p>
-		    	<p><strong>${d.data.StarCount}</strong> stars</p>`
-		    );
+	getTooltipLabel(d) {
+		return (
+			`<p>${d.data.FullName}</p>
+		    <p><strong>${d.data.StarCount}</strong> stars</p>`
+		);
 	}
 
-	hideTooltip = () => {
-		this.tooltip.style("display", "none");
-	}
+	addPackLabels() {
 
-	updateTooltip = () => {
-		const { pageX, pageY } = d3.event;
-		this.tooltip
-			.style("top", `${pageY + 5}px`)
-		    .style("left", `${pageX - 85}px`);
-	}
-
-	addLabels() {
-
+		const startAngle = Math.PI * 0.1;
 		const labelArc = d3.arc()
 						.innerRadius(function(d) { return (d.r - 5); })
 						.outerRadius(function(d) { return (d.r + 10); })
-						.startAngle(Math.PI * 0.15);
+						.startAngle(startAngle)
+						.endAngle(function(d) {
+							const total = d.data.Name.length;
+							const step = 10.0 / d.r;
+							return startAngle + (total * step);
+						});
 
 	    const groupLabels = this.container
 	        			.selectAll(".group")
 	    					.data(this.data.filter(function(d) { return !!d.children; })).enter()
 	    				.append("g")
+	    					.attr("class", "group")
 	      					.attr("transform", function(d) { return `translate(${d.x},${d.y})`; })
 	      					.style("opacity", 0);
-
-	     groupLabels
-	     	.transition().delay(animDuration/2).duration(animDuration)
-	     	.style("opacity", 1);
 
 		groupLabels
 			.append("path")
 		  		.attr("class", "group-arc")
 				.attr("id", function(d,i) { return `arc${i}`; })
-				.attr("d", labelArc.endAngle(Math.PI * 0.77));
+				.attr("d", labelArc);
 
 		groupLabels
 			.append("text")

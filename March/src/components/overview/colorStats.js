@@ -1,87 +1,134 @@
 
 import * as d3 from "d3";
+import VizWithTooltip from "./VizWithTooltip";
 
-export function renderColors(selector, data) { 
+const gradientName = "color-gradient";
+const animDuration = 1000;
+const margin = 20;
 
-	const ph = d3.select(selector);
-    const size = ph.node().getBoundingClientRect();
-    const width = size.width - 40;
-    const height = size.height - 40;
+class ColorStats extends VizWithTooltip {
 
-    const scaleX = d3.scaleBand()
-    				.domain(data.map(function(d) { return d.Name; }))
-    				.range([0, width])
-    				.padding(0.1);
+	constructor(selector, source) {
+		
+		super(selector, source);
 
-    const scaleY = d3.scaleLinear()
-    			.domain([
-    				d3.min(data, function(d) { return d.Colors.Min; }),
-    				d3.max(data, function(d) { return d.Colors.Max; })
-    			])
-    			.range([height, 0]);
+		const ph = d3.select(selector);
+	    const size = ph.node().getBoundingClientRect();
 
-    const colors = d3.scaleLinear()
-            .domain([-0.4, 0.5, 1.5, 3.0, 5.0])
-            .range(["#7AF7FF", "#ffffff",  "#FFD230", "#FF8400", "#FF3E00"])
-            .clamp(true);
+	    this.data = source;
+	    this.size = {
+	    	width: size.width - margin * 2,
+	    	height: size.height - margin * 2
+	    };
 
+	    this.setupScales();
 
-    const tooltip = d3.select(".tooltip");
-  	const container = ph.append("svg")
-	    		.attr("width", size.width)
-	    		.attr("height", size.height)
-	    	.append("g")
-	    		.attr("transform", "translate(0, 20)")
-	    		.attr("class", "star-colors");
+	    this.prepareContainer(ph);
+	    this.prepareGradient(ph);
 
-	 const gradient = ph
-	 	.select("svg")
-	 	.append("defs")
-	 	.append("linearGradient")
-	 		.attr("id", "color-gradient")
-	 		.attr("gradientUnits", "userSpaceOnUse")
-	 		.attr("x1", 0).attr("y1", "100%")
-      		.attr("x2", 0).attr("y2", 0);
+	    this.initViz();
+	}
 
-	 const stops = colors.domain().map(function(d) {
-	 	return {
-	 		offset: (100 * (1- scaleY(d) / height)).toFixed(0) + "%",
-	 		color: colors(d)
-	 	};
-	 });
+	prepareContainer(ph) {
+	  	this.container = ph.append("svg")
+				    		.attr("width", this.size.width)
+				    		.attr("height", this.size.height)
+				    	.append("g")
+				    		.attr("class", "star-colors");
+	}
 
-	 gradient
-	 	.selectAll("stop")
-	 		.data(stops).enter()
-	 	.append("stop")
-      		.attr("offset", function(d) { return d.offset; })
-      		.attr("stop-color", function(d) { return d.color; });
+	prepareGradient(ph) {
 
-	 const items = container
-	 	.selectAll("g")
-	 	.data(data).enter()
-	 	.append("g")
-	 	.attr("transform", function(d) {
-	 		return `translate(${scaleX(d.Name)}, 0)`;
-	 	});
+		const gradient = ph
+			.select("svg")
+		 	.append("defs")
+		 	.append("linearGradient")
+		 		.attr("id", gradientName)
+		 		.attr("gradientUnits", "userSpaceOnUse")
+		 		.attr("x1", 0).attr("y1", "100%")
+	      		.attr("x2", 0).attr("y2", 0);
 
-	 items
-	 	.append("rect")
-		 	.attr("y", function(d){ return scaleY(d.Colors.Max); })
-		 	.attr("height", function(d) { return scaleY(d.Colors.Min) - scaleY(d.Colors.Max); })
-		 	.attr("width", scaleX.bandwidth())
-		 	.style("fill", "url(#color-gradient)")
-		 	.attr("rx", 2)
-		 	.attr("ry", 2);
+		const stops = this.scaleColors.domain()
+			.map((d) => {
+				const frac = 1 - this.scaleY(d) / this.size.height;
+			 	return {
+			 		offset: (100 * frac).toFixed(0) + "%",
+			 		color: this.scaleColors(d)
+			 	};
+		 	});
 
-	// draw avg line
-	const midLine = d3.line()
-				    .x(function(d) { return scaleX(d.Name) + scaleX.bandwidth() * 0.5; })
-				    .y(function(d) { return scaleY(d.Colors.Avg); })
-				    .curve(d3.curveMonotoneX);
-	container
-		.append("path")
-    		.datum(data) 
-    		.attr("class", "line")
-    		.attr("d", midLine);
-}
+		 gradient
+		 	.selectAll("stop")
+		 		.data(stops).enter()
+		 	.append("stop")
+	      		.attr("offset", function(d) { return d.offset; })
+	      		.attr("stop-color", function(d) { return d.color; });
+	}
+
+	setupScales() 
+	{
+ 		this.scaleX = d3.scaleBand()
+	    				.domain(this.data.map(function(d) { return d.Name; }))
+	    				.range([0, this.size.width])
+	    				.padding(0);
+
+	    this.scaleY = d3.scaleLinear()
+	    			.domain([
+	    				d3.min(this.data, function(d) { return d.Colors.Min; }),
+	    				d3.max(this.data, function(d) { return d.Colors.Max; })
+	    			])
+	    			.range([this.size.height, 0]);
+
+	    this.scaleColors = d3.scaleLinear()
+	            .domain([-0.4, 0.5, 1.5, 3.0, 5.0])
+	            .range(["#7AF7FF", "#ffffff",  "#FFD230", "#FF8400", "#FF3E00"])
+	            .clamp(true);
+	}
+
+	initViz() {
+
+		const items = this.container
+			 	.selectAll("g")
+			 		.data(this.data).enter()
+			 	.append("g")
+				 	.attr("transform", (d) => {	return `translate(${this.scaleX(d.Name)}, 0)`; });
+		items
+		 	.append("rect")
+			 	.attr("y", (d) => { return this.scaleY(d.Colors.Max); })
+			 	.attr("height", (d) => { return this.scaleY(d.Colors.Min) - this.scaleY(d.Colors.Max); })
+			 	.attr("width", this.scaleX.bandwidth())
+			 	.attr("rx", 2)
+			 	.attr("ry", 2)
+			 	.style("fill", `url(#${gradientName})`)
+			.on("mouseover", (d) => this.showTooltip(d))
+			.on("mouseout", (d) => this.hideTooltip(d))
+			.on("mousemove", (d) => this.updateTooltip(d));
+
+		// draw avg line
+		const avgLine = d3.line()
+					    .x((d) => { return this.scaleX(d.Name) + this.scaleX.bandwidth() * 0.5; })
+					    .y((d) => { return this.scaleY(d.Colors.Avg); })
+					    .curve(d3.curveMonotoneX);
+		this.container
+			.append("path")
+	    		.datum(this.data) 
+	    		.attr("class", "line")
+	    		.attr("d", avgLine);
+	}
+
+	show() {
+
+	}
+
+	getTooltipLabel(d) {
+		return (
+	    	`<p>${d.FullName}</p>
+	    	<p><small>Star's Color Indices:</small></p>
+	    	<p><small><strong>Min</strong> ${d.Colors.Min.toFixed(2)}</small></p>
+	    	<p><small><strong>Max</strong>  ${d.Colors.Max.toFixed(2)}</small></p>
+	    	<p><small><strong>Avg</strong>  ${d.Colors.Avg.toFixed(2)}</small></p>`
+		);
+	}
+};
+
+export default ColorStats;

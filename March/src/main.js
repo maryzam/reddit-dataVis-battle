@@ -4,7 +4,7 @@ import SkyMap from "./components/skyMap";
 import ConstellationsPack from "./components/overview/constellationsPack";
 import { renderDistances } from "./components/overview/renderDistances";
 import { renderMagnitudes } from "./components/overview/renderMagnitudes";
-import { renderColors } from "./components/overview/colorStats";
+import ColorStats from "./components/overview/colorStats";
 
 
 Promise.all([
@@ -22,8 +22,10 @@ Promise.all([
       const constellations = new ConstellationsPack(".stars-count", constStats);
       const distances = renderDistances(".distances", constStats);
       const magnitude = renderMagnitudes(".magnitudes", constStats);
-      const colors = renderColors(".colors", constStats);
+      const colors = new ColorStats(".colors", constStats);
       const skyMap = new SkyMap(".sky-map", stars);
+
+      constellations.show();
   });
 
 function combineData(data, dict) {
