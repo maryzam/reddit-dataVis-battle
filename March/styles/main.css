@@ -1,6 +1,7 @@
  * {
     margin: 0;
     padding: 0;
+    overflow: hidden;
  }
 
  body {
@@ -184,9 +185,13 @@ span {
 
 /* distances */
 
+.star-distances * {
+  pointer-events: none;
+}
+
 .star-distances circle {
-  fill: blue;
-  stroke: black;
+  fill: white;
+  stroke: none;
 }
 
 .star-distances line {
@@ -198,6 +203,7 @@ span {
   fill: tomato;
   stroke: black;
   text-anchor: middle;
+  pointer-events: all;
   cursor: pointer;
 }
 
