@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import VizWithTooltip from "./VizWithTooltip";
 
 const gradientName = "color-gradient";
-const animDuration = 400;
+const animDuration = 200;
 const margin = 20;
 const initHeight = 20;
 
@@ -25,7 +25,7 @@ class ColorStats extends VizWithTooltip {
 	    this.setupScales();
 
 	    this.prepareContainer(ph);
-	    this.prepareGradient(ph);
+	    this.prepareGradient();
 
 	    this.initViz();
 	}
@@ -101,9 +101,6 @@ class ColorStats extends VizWithTooltip {
 			 	.attr("rx", 2)
 			 	.attr("ry", 2)
 			 	.style("fill", `url(#${gradientName})`)
-			.on("mouseover", (d) => this.showTooltip(d))
-			.on("mouseout", (d) => this.hideTooltip(d))
-			.on("mousemove", (d) => this.updateTooltip(d));
 
 		// draw avg line
 		const avgLine = d3.line()
@@ -123,18 +120,24 @@ class ColorStats extends VizWithTooltip {
 			 .selectAll("rect")
 			 .transition()
 			 	.duration(animDuration)
-			 	.delay(function(d, i) { return i * 50; })
+			 	.delay(function(d, i) { return i * 25; })
 			 .attr("y", (d) => { return this.scaleY(d.Colors.Max); })
-			 .attr("height", (d) => { return this.scaleY(d.Colors.Min) - this.scaleY(d.Colors.Max); })
+			 .attr("height", (d) => { return this.scaleY(d.Colors.Min) - this.scaleY(d.Colors.Max); });
+
+		this.container
+			.on("mouseover", (d) => this.showTooltip(d))
+			.on("mouseout", (d) => this.hideTooltip(d))
+			.on("mousemove", (d) => this.updateTooltip(d));
 	}
 
 	getTooltipLabel(d) {
+		const item = d3.select(d3.event.target).data()[0];
 		return (
-	    	`<p>${d.FullName}</p>
+	    	`<p>${item.FullName}</p>
 	    	<p><small>Star's Color Indices:</small></p>
-	    	<p><small><strong>Min</strong> ${d.Colors.Min.toFixed(2)}</small></p>
-	    	<p><small><strong>Max</strong>  ${d.Colors.Max.toFixed(2)}</small></p>
-	    	<p><small><strong>Avg</strong>  ${d.Colors.Avg.toFixed(2)}</small></p>`
+	    	<p><small><strong>Min</strong> ${item.Colors.Min.toFixed(2)}</small></p>
+	    	<p><small><strong>Max</strong>  ${item.Colors.Max.toFixed(2)}</small></p>
+	    	<p><small><strong>Avg</strong>  ${item.Colors.Avg.toFixed(2)}</small></p>`
 		);
 	}
 };
