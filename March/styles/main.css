@@ -5,12 +5,13 @@
 
  body {
     font-family: 'Gudea', sans-serif;
-    color: white;
+    color: #777;
     background: black;
  }
 
  text {
     font-family: 'Share Tech Mono', monospace;
+    fill: black;
  }
 
 /* header & footer */
@@ -27,6 +28,20 @@ footer {
 h1 {
   text-align: center;
   padding: 10px;
+  color: #dadada;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+    padding-left: 16px;
+}
+
+li:before {
+    content: "-";
+    padding-right: 8px;
 }
 
 /* main part :: flex */
@@ -49,7 +64,6 @@ h1 {
 
 .part p {
   padding: 5px 10px;
-  color: #777;
 }
 
 .part span {
@@ -91,6 +105,7 @@ h1 {
     border: 1px solid #6F257F;
     padding: 5px;
     pointer-events: none;
+    color: black;
 }
 
 .tooltip p, 

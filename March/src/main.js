@@ -1,10 +1,10 @@
  
 import { json, csv } from "d3";
 import SkyMap from "./components/skyMap";
-import { renderStarsNumber } from "./components/overview/renderStarsNumber";
+import ConstellationsPack from "./components/overview/constellationsPack";
 import { renderDistances } from "./components/overview/renderDistances";
 import { renderMagnitudes } from "./components/overview/renderMagnitudes";
-import { renderColors } from "./components/overview/renderColors";
+import { renderColors } from "./components/overview/colorStats";
 
 
 Promise.all([
@@ -19,12 +19,11 @@ Promise.all([
 
       combineData(constStats, constNames);
 
+      const constellations = new ConstellationsPack(".stars-count", constStats);
+      const distances = renderDistances(".distances", constStats);
+      const magnitude = renderMagnitudes(".magnitudes", constStats);
+      const colors = renderColors(".colors", constStats);
       const skyMap = new SkyMap(".sky-map", stars);
-
-      renderStarsNumber(".stars-count", constStats);
-      renderDistances(".distances", constStats);
-      renderMagnitudes(".magnitudes", constStats);
-      renderColors(".colors", constStats);
   });
 
 function combineData(data, dict) {
