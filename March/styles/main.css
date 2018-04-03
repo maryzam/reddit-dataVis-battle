@@ -79,6 +79,10 @@ span {
   color: #FF3E00;
 }
 
+.yellow {
+  color: yellow;
+}
+
 .viz {
   flex: 70%;
 }
