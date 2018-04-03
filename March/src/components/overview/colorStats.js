@@ -65,8 +65,8 @@ class ColorStats extends VizWithTooltip {
 	      		.attr("stop-color", function(d) { return d.color; });
 	}
 
-	setupScales() 
-	{
+	setupScales() {
+
  		this.scaleX = d3.scaleBand()
 	    				.domain(this.data.map(function(d) { return d.Name; }))
 	    				.range([0, this.size.width])

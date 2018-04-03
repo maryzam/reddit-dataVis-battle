@@ -117,6 +117,7 @@ class DistanceStats extends VizWithTooltip {
     }
 
     show() {
+    	
     	const chart = this.container.select(".chart");
 
     	chart.selectAll("g")

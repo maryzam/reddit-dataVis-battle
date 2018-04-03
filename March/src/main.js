@@ -1,5 +1,9 @@
  
-import { json, csv } from "d3";
+import { json, csv, select } from "d3";
+
+import 'intersection-observer';
+import scrollama from 'scrollama';
+
 import SkyMap from "./components/skyMap";
 import ConstellationsPack from "./components/overview/constellationsPack";
 import DistanceStats from "./components/overview/distanceStats";
@@ -17,17 +21,26 @@ Promise.all([
 
       combineData(constStats, constNames);
 
-      const constellations = new ConstellationsPack(".stars-count", constStats);
-      const distances = new DistanceStats(".distances", constStats);
-      const magnitudes = new MagnitudeStats(".magnitudes", constStats);
-      const colors = new ColorStats(".colors", constStats);
+      const viz = {
+          counts: new ConstellationsPack(".stars-count", constStats),
+          distances: new DistanceStats(".distances", constStats),
+          magnitudes: new MagnitudeStats(".magnitudes", constStats),
+          colors: new ColorStats(".colors", constStats)
+      };
 
-      constellations.show();
-      setTimeout(function() { 
-        colors.show(); 
-        magnitudes.show();
-        distances.show();
-      }, 2000);
+      const scroller = scrollama();
+      scroller.setup({
+        step: '.part',
+        once: true
+      })
+      .onStepEnter(function(r) { 
+          const step = select(r.element).attr("data-step");
+          if (!!viz[step]) {
+            console.log(step + " show");
+              viz[step].show();
+          }
+      });
+
   });
 
 json("data/all-visible.json")

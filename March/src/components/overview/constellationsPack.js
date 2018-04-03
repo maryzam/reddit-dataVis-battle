@@ -98,7 +98,7 @@ class ConstellationsPack extends VizWithTooltip {
 	}
 
 	show() {
-		
+
 		this.container
 			.selectAll("circle")
 				.transition().duration(animDuration)
