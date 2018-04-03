@@ -3,8 +3,9 @@ import * as d3 from "d3";
 import VizWithTooltip from "./VizWithTooltip";
 
 const gradientName = "color-gradient";
-const animDuration = 1000;
+const animDuration = 400;
 const margin = 20;
+const initHeight = 20;
 
 class ColorStats extends VizWithTooltip {
 
@@ -39,8 +40,7 @@ class ColorStats extends VizWithTooltip {
 
 	prepareGradient(ph) {
 
-		const gradient = ph
-			.select("svg")
+		const gradient = this.container
 		 	.append("defs")
 		 	.append("linearGradient")
 		 		.attr("id", gradientName)
@@ -92,10 +92,11 @@ class ColorStats extends VizWithTooltip {
 			 		.data(this.data).enter()
 			 	.append("g")
 				 	.attr("transform", (d) => {	return `translate(${this.scaleX(d.Name)}, 0)`; });
+
 		items
 		 	.append("rect")
-			 	.attr("y", (d) => { return this.scaleY(d.Colors.Max); })
-			 	.attr("height", (d) => { return this.scaleY(d.Colors.Min) - this.scaleY(d.Colors.Max); })
+			 	.attr("y", (this.size.height + initHeight) * 0.5)
+			 	.attr("height", initHeight)
 			 	.attr("width", this.scaleX.bandwidth())
 			 	.attr("rx", 2)
 			 	.attr("ry", 2)
@@ -118,6 +119,13 @@ class ColorStats extends VizWithTooltip {
 
 	show() {
 
+		this.container
+			 .selectAll("rect")
+			 .transition()
+			 	.duration(animDuration)
+			 	.delay(function(d, i) { return i * 50; })
+			 .attr("y", (d) => { return this.scaleY(d.Colors.Max); })
+			 .attr("height", (d) => { return this.scaleY(d.Colors.Min) - this.scaleY(d.Colors.Max); })
 	}
 
 	getTooltipLabel(d) {

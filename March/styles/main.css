@@ -54,8 +54,8 @@ li:before {
 .part {
   position: relative;
   max-width: 960px;
-  margin: auto;
-  height: calc(100vh - 100px);
+  margin: 20px auto;
+  height: calc(100vh - 140px);
   min-height: 400px;
   display: flex;
   flex-direction: row;
@@ -259,9 +259,14 @@ span {
 
 .star-magnitudes circle {
     stroke: black;
-    stroke-width: 0.5px;
-    fill-opacity: 1;
+    stroke-width: 1px;
+    fill-opacity: 0.7;
     pointer-events: all;
+}
+
+.star-magnitudes circle:hover {
+    fill-opacity: 1;
+    stroke: none;
 }
 
 .star-magnitudes .brightest {

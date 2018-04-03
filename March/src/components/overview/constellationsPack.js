@@ -2,7 +2,7 @@
 import * as d3 from "d3";
 import VizWithTooltip from "./VizWithTooltip"
 
-const animDuration = 600;
+const animDuration = 1000;
 
 class ConstellationsPack extends VizWithTooltip {
 
@@ -108,10 +108,6 @@ class ConstellationsPack extends VizWithTooltip {
 			.selectAll(".group")
 			.transition().delay(animDuration/2).duration(animDuration)
 	     	.style("opacity", 1);
-	}
-
-	highlightConstellation(name) {
-		// todo
 	}
 
 	getTooltipLabel(d) {

@@ -8,14 +8,12 @@ import ColorStats from "./components/overview/colorStats";
 
 
 Promise.all([
-      json("data/all-visible.json"),
       json("data/constellations.json"),
       csv("data/constellation-names.csv")
   ])
   .then((result) => {
-      const stars = result[0];
-      const constStats = result[1];
-      const constNames = result[2];
+      const constStats = result[0];
+      const constNames = result[1];
 
       combineData(constStats, constNames);
 
@@ -23,9 +21,14 @@ Promise.all([
       const distances = renderDistances(".distances", constStats);
       const magnitude = renderMagnitudes(".magnitudes", constStats);
       const colors = new ColorStats(".colors", constStats);
-      const skyMap = new SkyMap(".sky-map", stars);
 
       constellations.show();
+      setTimeout(function() { colors.show(); }, 2000);
+  });
+
+json("data/all-visible.json")
+    .then((stars) => {
+        const skyMap = new SkyMap(".sky-map", stars);
   });
 
 function combineData(data, dict) {
