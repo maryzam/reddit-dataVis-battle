@@ -22,8 +22,18 @@ header {
 }
 
 footer {
-   height: 20px;
+   height: 40px;
    align-content: center;
+}
+
+footer p {
+  padding: 5px 20px; 
+  text-align: right;
+  font-size: 10px;
+}
+
+footer a {
+  color: #dadada;
 }
 
 h1 {
@@ -54,10 +64,13 @@ li:before {
 
 .part {
   position: relative;
-  max-width: 960px;
   margin: 20px auto;
+
   height: calc(100vh - 140px);
   min-height: 400px;
+  max-width: 960px;
+  min-width: 450px;
+
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -290,3 +303,29 @@ span {
 .star-magnitudes .both {
   fill: orange;
 }
+
+/* for small screens */
+
+@media only screen and (max-width: 600px), screen and (orientation: portrait) {
+  h1 {
+    font-size: 24px;
+  }
+  .part {
+      flex-direction: column;
+      min-height: 600px;
+      font-size: 12px;
+  }
+  .note {
+    order: 0;
+  }
+  .viz {
+    order: 1;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+    * {
+        overflow: auto;
+    }
+}
+
