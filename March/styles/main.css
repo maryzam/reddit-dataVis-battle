@@ -18,6 +18,7 @@
 /* header & footer */
 header {
     height: 80px;
+    padding: 10px;
     align-content: center;
 }
 
@@ -38,7 +39,6 @@ footer a {
 
 h1 {
   text-align: center;
-  padding: 10px;
   color: #dadada;
 }
 
@@ -313,7 +313,6 @@ span {
   .part {
       flex-direction: column;
       min-height: 600px;
-      font-size: 12px;
   }
   .note {
     order: 0;
