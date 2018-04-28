@@ -1,0 +1,74 @@
+[
+  {
+    "speaker": "Michael",
+    "total": 45104,
+    "distinct": 8964,
+    "freq": 19.8741
+  },
+  {
+    "speaker": "Dwight",
+    "total": 26355,
+    "distinct": 7763,
+    "freq": 29.4555
+  },
+  {
+    "speaker": "Andy",
+    "total": 15045,
+    "distinct": 5019,
+    "freq": 33.3599
+  },
+  {
+    "speaker": "Jim",
+    "total": 17051,
+    "distinct": 4454,
+    "freq": 26.1216
+  },
+  {
+    "speaker": "Pam",
+    "total": 13312,
+    "distinct": 3740,
+    "freq": 28.095
+  },
+  {
+    "speaker": "Angela",
+    "total": 4211,
+    "distinct": 1994,
+    "freq": 47.3522
+  },
+  {
+    "speaker": "Oscar",
+    "total": 3929,
+    "distinct": 1938,
+    "freq": 49.3255
+  },
+  {
+    "speaker": "Kevin",
+    "total": 4222,
+    "distinct": 1847,
+    "freq": 43.747
+  },
+  {
+    "speaker": "Erin",
+    "total": 3951,
+    "distinct": 1767,
+    "freq": 44.7229
+  },
+  {
+    "speaker": "Ryan",
+    "total": 3773,
+    "distinct": 1762,
+    "freq": 46.7002
+  },
+  {
+    "speaker": "Darryl",
+    "total": 3639,
+    "distinct": 1665,
+    "freq": 45.7543
+  },
+  {
+    "speaker": "Phyllis",
+    "total": 2439,
+    "distinct": 1305,
+    "freq": 53.5055
+  }
+]

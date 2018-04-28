@@ -1,0 +1,257 @@
+[
+  {
+    "word": "love",
+    "sentiment": "positive",
+    "n": 593
+  },
+  {
+    "word": "wow",
+    "sentiment": "positive",
+    "n": 464
+  },
+  {
+    "word": "nice",
+    "sentiment": "positive",
+    "n": 449
+  },
+  {
+    "word": "fine",
+    "sentiment": "positive",
+    "n": 348
+  },
+  {
+    "word": "fun",
+    "sentiment": "positive",
+    "n": 333
+  },
+  {
+    "word": "cool",
+    "sentiment": "positive",
+    "n": 300
+  },
+  {
+    "word": "whoa",
+    "sentiment": "positive",
+    "n": 273
+  },
+  {
+    "word": "pretty",
+    "sentiment": "positive",
+    "n": 272
+  },
+  {
+    "word": "bad",
+    "sentiment": "negative",
+    "n": 271
+  },
+  {
+    "word": "happy",
+    "sentiment": "positive",
+    "n": 211
+  },
+  {
+    "word": "wrong",
+    "sentiment": "negative",
+    "n": 211
+  },
+  {
+    "word": "hot",
+    "sentiment": "positive",
+    "n": 197
+  },
+  {
+    "word": "hard",
+    "sentiment": "negative",
+    "n": 188
+  },
+  {
+    "word": "stupid",
+    "sentiment": "negative",
+    "n": 177
+  },
+  {
+    "word": "weird",
+    "sentiment": "negative",
+    "n": 174
+  },
+  {
+    "word": "funny",
+    "sentiment": "negative",
+    "n": 169
+  },
+  {
+    "word": "crazy",
+    "sentiment": "negative",
+    "n": 164
+  },
+  {
+    "word": "ready",
+    "sentiment": "positive",
+    "n": 159
+  },
+  {
+    "word": "awesome",
+    "sentiment": "positive",
+    "n": 152
+  },
+  {
+    "word": "break",
+    "sentiment": "negative",
+    "n": 142
+  },
+  {
+    "word": "hate",
+    "sentiment": "negative",
+    "n": 138
+  },
+  {
+    "word": "perfect",
+    "sentiment": "positive",
+    "n": 128
+  },
+  {
+    "word": "win",
+    "sentiment": "positive",
+    "n": 119
+  },
+  {
+    "word": "excuse",
+    "sentiment": "negative",
+    "n": 117
+  },
+  {
+    "word": "damn",
+    "sentiment": "negative",
+    "n": 112
+  },
+  {
+    "word": "joke",
+    "sentiment": "negative",
+    "n": 110
+  },
+  {
+    "word": "terrible",
+    "sentiment": "negative",
+    "n": 108
+  },
+  {
+    "word": "dead",
+    "sentiment": "negative",
+    "n": 104
+  },
+  {
+    "word": "easy",
+    "sentiment": "positive",
+    "n": 100
+  },
+  {
+    "word": "lost",
+    "sentiment": "negative",
+    "n": 100
+  },
+  {
+    "word": "top",
+    "sentiment": "positive",
+    "n": 97
+  },
+  {
+    "word": "amazing",
+    "sentiment": "positive",
+    "n": 93
+  },
+  {
+    "word": "beautiful",
+    "sentiment": "positive",
+    "n": 93
+  },
+  {
+    "word": "miss",
+    "sentiment": "negative",
+    "n": 93
+  },
+  {
+    "word": "hell",
+    "sentiment": "negative",
+    "n": 91
+  },
+  {
+    "word": "idiot",
+    "sentiment": "negative",
+    "n": 89
+  },
+  {
+    "word": "ugh",
+    "sentiment": "negative",
+    "n": 84
+  },
+  {
+    "word": "worry",
+    "sentiment": "negative",
+    "n": 84
+  },
+  {
+    "word": "sick",
+    "sentiment": "negative",
+    "n": 83
+  },
+  {
+    "word": "die",
+    "sentiment": "negative",
+    "n": 82
+  },
+  {
+    "word": "excited",
+    "sentiment": "positive",
+    "n": 82
+  },
+  {
+    "word": "free",
+    "sentiment": "positive",
+    "n": 82
+  },
+  {
+    "word": "favorite",
+    "sentiment": "positive",
+    "n": 81
+  },
+  {
+    "word": "lose",
+    "sentiment": "negative",
+    "n": 81
+  },
+  {
+    "word": "luck",
+    "sentiment": "positive",
+    "n": 77
+  },
+  {
+    "word": "smart",
+    "sentiment": "positive",
+    "n": 77
+  },
+  {
+    "word": "worst",
+    "sentiment": "negative",
+    "n": 76
+  },
+  {
+    "word": "cold",
+    "sentiment": "negative",
+    "n": 71
+  },
+  {
+    "word": "fair",
+    "sentiment": "positive",
+    "n": 70
+  },
+  {
+    "word": "cute",
+    "sentiment": "positive",
+    "n": 68
+  },
+  {
+    "word": "trust",
+    "sentiment": "positive",
+    "n": 68
+  }
+]

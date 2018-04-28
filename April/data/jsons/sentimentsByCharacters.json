@@ -1,0 +1,110 @@
+[
+  {
+    "speaker": "Andy",
+    "negative": 1125,
+    "positive": 1089,
+    "sentiment": -36,
+    "total": 15045,
+    "positiveFreq": 7.2383,
+    "negativeFreq": 7.4776
+  },
+  {
+    "speaker": "Angela",
+    "negative": 385,
+    "positive": 263,
+    "sentiment": -122,
+    "total": 4211,
+    "positiveFreq": 6.2455,
+    "negativeFreq": 9.1427
+  },
+  {
+    "speaker": "Darryl",
+    "negative": 264,
+    "positive": 260,
+    "sentiment": -4,
+    "total": 3639,
+    "positiveFreq": 7.1448,
+    "negativeFreq": 7.2547
+  },
+  {
+    "speaker": "Dwight",
+    "negative": 2208,
+    "positive": 1577,
+    "sentiment": -631,
+    "total": 26355,
+    "positiveFreq": 5.9837,
+    "negativeFreq": 8.3779
+  },
+  {
+    "speaker": "Erin",
+    "negative": 272,
+    "positive": 287,
+    "sentiment": 15,
+    "total": 3951,
+    "positiveFreq": 7.264,
+    "negativeFreq": 6.8843
+  },
+  {
+    "speaker": "Jim",
+    "negative": 1098,
+    "positive": 1289,
+    "sentiment": 191,
+    "total": 17051,
+    "positiveFreq": 7.5597,
+    "negativeFreq": 6.4395
+  },
+  {
+    "speaker": "Kevin",
+    "negative": 321,
+    "positive": 297,
+    "sentiment": -24,
+    "total": 4222,
+    "positiveFreq": 7.0346,
+    "negativeFreq": 7.603
+  },
+  {
+    "speaker": "Michael",
+    "negative": 3561,
+    "positive": 3260,
+    "sentiment": -301,
+    "total": 45104,
+    "positiveFreq": 7.2277,
+    "negativeFreq": 7.8951
+  },
+  {
+    "speaker": "Oscar",
+    "negative": 291,
+    "positive": 251,
+    "sentiment": -40,
+    "total": 3929,
+    "positiveFreq": 6.3884,
+    "negativeFreq": 7.4065
+  },
+  {
+    "speaker": "Pam",
+    "negative": 880,
+    "positive": 890,
+    "sentiment": 10,
+    "total": 13312,
+    "positiveFreq": 6.6857,
+    "negativeFreq": 6.6106
+  },
+  {
+    "speaker": "Phyllis",
+    "negative": 168,
+    "positive": 151,
+    "sentiment": -17,
+    "total": 2439,
+    "positiveFreq": 6.1911,
+    "negativeFreq": 6.8881
+  },
+  {
+    "speaker": "Ryan",
+    "negative": 225,
+    "positive": 264,
+    "sentiment": 39,
+    "total": 3773,
+    "positiveFreq": 6.9971,
+    "negativeFreq": 5.9634
+  }
+]

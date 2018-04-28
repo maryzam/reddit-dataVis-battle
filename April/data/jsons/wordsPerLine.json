@@ -1,0 +1,62 @@
+[
+  {
+    "speaker": "Michael",
+    "avg": 4.6725,
+    "median": 3
+  },
+  {
+    "speaker": "Andy",
+    "avg": 4.4276,
+    "median": 3
+  },
+  {
+    "speaker": "Dwight",
+    "avg": 4.3721,
+    "median": 3
+  },
+  {
+    "speaker": "Darryl",
+    "avg": 3.5092,
+    "median": 2
+  },
+  {
+    "speaker": "Ryan",
+    "avg": 3.4935,
+    "median": 2
+  },
+  {
+    "speaker": "Oscar",
+    "avg": 3.3381,
+    "median": 2
+  },
+  {
+    "speaker": "Erin",
+    "avg": 3.3342,
+    "median": 2
+  },
+  {
+    "speaker": "Jim",
+    "avg": 3.2503,
+    "median": 2
+  },
+  {
+    "speaker": "Pam",
+    "avg": 3.2015,
+    "median": 2
+  },
+  {
+    "speaker": "Angela",
+    "avg": 3.1926,
+    "median": 2
+  },
+  {
+    "speaker": "Kevin",
+    "avg": 3.0528,
+    "median": 2
+  },
+  {
+    "speaker": "Phyllis",
+    "avg": 2.8131,
+    "median": 2
+  }
+]

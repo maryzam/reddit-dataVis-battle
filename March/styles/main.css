@@ -28,9 +28,11 @@ footer {
 }
 
 footer p {
+  display: inline;
   padding: 5px 20px; 
   text-align: right;
-  font-size: 10px;
+  font-size: 0.7em;
+
 }
 
 footer a {
