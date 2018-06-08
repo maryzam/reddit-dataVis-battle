@@ -1,7 +1,8 @@
 # Load Libraries, declare constants, Set working directory
-# setwd("c:/path/to/project/folder")
+# setwd("C:/Users/Sam/Documents/GitHub/reddit-dataVis-battle/June/data")
 library(tidyverse)
 library(lubridate)
+library(dplyr)
 
 # Load data. Note that certain cells will need formatting for
 # compatibility with ISO-8601 and R.
@@ -15,3 +16,10 @@ emperors$reign.start[1]<-emperors$reign.start[1] - 2*years(26)  # Inverting date
 emperors$birth[2]<-emperors$birth[2] - 2*years(41)              # Inverting date sign. See emperors$notes[2]
 emperors$birth[4]<-emperors$birth[4] - 2*years(9)               # Inverting date sign. See emperors$notes[4]
 emperors$birth[6]<-emperors$birth[6] - 2*years(2)               # Inverting date sign. See emperors$notes[6]
+
+emperors$age.reign.start <- (emperors$reign.start - emperors$birth)
+emperors$age.reign.end <- (emperors$reign.end - emperors$birth)
+emperors$age.death <- (emperors$death - emperors$birth)
+emperors$reign.duration <- (emperors$reign.end - emperors$reign.start)
+
+write.csv(emperors, file = "emperors.v2.csv")
