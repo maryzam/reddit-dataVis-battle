@@ -1,0 +1,10 @@
+
+body {
+	background: black;
+}
+
+text {
+	font-family: monospace;
+	text-anchor: middle;
+	fill: #dadada;
+}
