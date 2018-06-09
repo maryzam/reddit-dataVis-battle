@@ -21,5 +21,7 @@ emperors$age.reign.start <- (emperors$reign.start - emperors$birth)
 emperors$age.reign.end <- (emperors$reign.end - emperors$birth)
 emperors$age.death <- (emperors$death - emperors$birth)
 emperors$reign.duration <- (emperors$reign.end - emperors$reign.start)
+emperors$death.till <- (emperors$death - emperors$reign.start)
+
 
 write.csv(emperors, file = "emperors.v2.csv")

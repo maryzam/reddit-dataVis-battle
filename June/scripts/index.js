@@ -3,15 +3,20 @@ d3.csv("./data/emperors.v2.csv")
 	.then(function(source) {
 
 		const container = d3.select(".container");
+		const size = container.node().getBoundingClientRect();
+		const ratio = causeTypes.length / riseTypes.length;
 
-		const width = 800;
-		const height = 700;
-		const margin = 100;
+		const outerWidth = size.width - 20;
+		const outerHeight = Math.floor(outerWidth * ratio);
+		const margin = 50;
 		const svg = container.append("svg")
-						.attr("width", width  + 2 * margin)
-						.attr("height", height + 2 * margin)
+						.attr("width", outerWidth)
+						.attr("height", outerHeight)
 						.append("g")
 						.attr("transform", `translate(${margin},${margin})`);
+
+		const width = outerWidth - 2 * margin;
+		const height = outerHeight - 2 * margin;
 
 		const dynasty = distinct(source, (d) => (d.dynasty));
 
@@ -34,10 +39,15 @@ d3.csv("./data/emperors.v2.csv")
 						.append("g")
 							.attr("class", "rise")
 							.attr("transform", (d) => `translate(${scaleRise(d.position)},0)`);
+		rises
+			.append("line")
+			.attr("class", "axis")
+			.attr("y1", margin / 2)
+			.attr("y2", height + margin / 2);
 
 		rises
 			.append("text")
-			.attr("transform", `translate(0,${-margin / 2})rotate(-30)`)
+			.attr("transform", "rotate(-30)")
 			.selectAll("tspan")
 				.data(splitLabel).enter()
 			.append("tspan")
@@ -46,10 +56,6 @@ d3.csv("./data/emperors.v2.csv")
 				.attr("y", 0)
 				.attr("dy", (d, i) => `${(i * 1)}em`);
 
-		rises
-			.append("line")
-			.attr("y2", height + margin)
-			.style("stroke", "#333");
 
 		// draw cause axis
 		const causes = svg.append("g").attr("class", ".cause-axis")
@@ -60,8 +66,14 @@ d3.csv("./data/emperors.v2.csv")
 							.attr("transform", (d) => `translate(0,${scaleCause(d.position)})`);
 
 		causes
+			.append("line")
+			.attr("class", "axis")
+			.attr("x1", margin /2 )
+			.attr("x2", width + margin / 2 );
+
+		causes
 			.append("text")
-			.attr("transform", `translate(${-margin / 2},0)rotate(-30)`)
+			.attr("transform", "rotate(-30)")
 			.selectAll("tspan")
 				.data(splitLabel).enter()
 			.append("tspan")
@@ -70,15 +82,13 @@ d3.csv("./data/emperors.v2.csv")
 				.attr("y", 0)
 				.attr("dy", (d, i) => `${(i * 1)}em`);
 
-		causes
-			.append("line")
-			.attr("x2", width + margin )
-			.style("stroke", "#333");
-
 		// show emperors
 
 		const maxAge = getMax(source, (d) => d["age.death"]);
 		const scaleLife = d3.scaleLinear().domain([0, maxAge]).range([0, 25]);
+
+		const maxReign = getMax(source.filter((d) => isNaN(d["age.death"])), (d) => d["death.till"]);
+		const scaleReign = d3.scaleLinear().domain([0, maxReign]).range([2, 10]);
 
 		var simulation = d3.forceSimulation(source)
 		      .force("x", d3.forceX(function(d) { 
@@ -89,19 +99,27 @@ d3.csv("./data/emperors.v2.csv")
 		      		const info = causeTypes.find((x) => (x.name === d.cause))
 		      		return scaleCause(info.position); 
 		      	}).strength(1))
-		      .force("collide", d3.forceCollide().radius((d) => (scaleLife(d["age.death"]) || 0) + 2).iterations(2))
+		      .force("collide", d3.forceCollide()
+		      						.radius((d) => {
+		      							const radius = isNaN(d["age.death"]) ?
+		      									scaleReign(d["death.till"]) :
+		      									scaleLife(d["age.death"]);
+		      							return (radius + 2);
+		      						})
+		      						.iterations(2))
 		      .stop();
 
 		for (var i = 0; i < 250; ++i) simulation.tick();
 
 		const emperors = svg.selectAll(".emperor")
-			.data(source.filter((d) => d["age.death"] > 0)).enter()
+			.data(source).enter()
 			.append("g")
 				.attr("class", "emperor")
 				.attr("transform", (d) => `translate(${d.x},${d.y})`);
 
-
-		emperors
+		const fullInfoEmperors = emperors.filter((d) => !isNaN(d["age.death"]));
+		
+		fullInfoEmperors
 			.append("circle")
 				.attr("r", (d) => scaleLife(d["age.death"]))
 				.style("fill", "black")
@@ -111,7 +129,7 @@ d3.csv("./data/emperors.v2.csv")
 				})
 				.style("stroke-width", 1);
 
-		emperors
+		fullInfoEmperors
 			.append("circle")
 				.attr("r", (d) => scaleLife(d["age.reign.end"]))
 				.style("fill", function (d) {
@@ -119,11 +137,37 @@ d3.csv("./data/emperors.v2.csv")
 					return scaleDynasty(dynastyId);
 				})
 
-		emperors
+		fullInfoEmperors
 			.append("circle")
 				.attr("r", (d) => scaleLife(d["age.reign.start"]))
 				.style("fill", "black");
 
+		const missingEmperors = emperors.filter((d) => isNaN(d["age.death"]));
+
+		const hexbin = d3.hexbin();
+
+		missingEmperors
+			.append("path")
+			.attr("d", function(d) {
+				const radius = scaleReign(d["death.till"]);
+				return hexbin.hexagon(radius);
+			})
+			.style("fill", "black")
+			.style("stroke", function (d) {
+					const dynastyId = dynasty.indexOf(d.dynasty);
+					return scaleDynasty(dynastyId);
+			});
+
+		missingEmperors
+			.append("path")
+			.attr("d", function(d) {
+				const radius = scaleReign(d["reign.duration"]);
+				return hexbin.hexagon(radius);
+			})
+			.style("fill", function (d) {
+					const dynastyId = dynasty.indexOf(d.dynasty);
+					return scaleDynasty(dynastyId);
+			});
 	});
 
 function distinct(source, accessor) {
