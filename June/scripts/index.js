@@ -168,6 +168,111 @@ d3.csv("./data/emperors.v2.csv")
 					const dynastyId = dynasty.indexOf(d.dynasty);
 					return scaleDynasty(dynastyId);
 			});
+
+		// draw legend
+		const lgWidth = outerWidth;
+		const lgHeight = 150;
+		const lgContainer = d3.select(".legend")
+						.append("svg")
+							.attr("width", lgWidth)
+							.attr("height", lgHeight);
+		// 1 : draw dynasties
+		const scaleDynastyPos = d3.scalePoint()
+									.domain(dynasty)
+									.range([10, lgHeight - 10]);
+
+		const dynasties = lgContainer
+							.append("g")
+								.attr("class", "dynasties")
+								.attr("transform", "translate(10, 0)")
+							.selectAll("g")
+								.data(dynasty).enter()
+							.append("g")
+								.attr("transform", (d) => `translate(0, ${scaleDynastyPos(d)})`);
+		dynasties
+			.append("circle")
+			.attr("r", 5)
+			.style("fill", function (d) {
+					const dynastyId = dynasty.indexOf(d);
+					return scaleDynasty(dynastyId);
+			});
+
+		dynasties
+			.append("text")
+			.text((d) => d)
+			.attr("dx", 10)
+			.attr("dy", 5);
+
+		//2 : draw years
+		const midPoint = lgHeight / 2;
+		const yearsLegend = lgContainer
+						.append("g")
+							.attr("class", "years")
+							.attr("transform", "translate(200,0)");
+		yearsLegend
+			.append("line")
+				.attr("class", "axis")
+				.attr("y2", lgHeight);
+
+		const years = yearsLegend
+						.append("g")
+							.attr("class", "years")
+						.selectAll(".year")
+							.data([10, 40, 70]).enter()
+						.append("g")
+							.attr("class", "year")
+							.attr("transform", (d) => `translate(0, ${midPoint - 2 * scaleLife(d * 365)})`);
+
+		years
+			.append("circle")
+				.attr("r", (d) => scaleLife(d * 365))
+				.attr("transform", (d) => `translate(0, ${scaleLife(d * 365)})`)
+				.style("fill", "none")
+				.style("stroke", "#dadada");
+
+		years
+			.append("line")
+				.attr("x2", 50)
+				.style("stroke", "#777");
+
+		years
+			.append("text")
+			.text((d) => `${d} years`)
+			.attr("transform", "translate(55, 0)");
+
+		// colorize explanation
+		const periodsData = [
+			{ age: 80, description: "after Reign period (if presented)" },
+			{ age: 60, description: "Reign period", fill: true },
+			{ age: 25, description: "before Rise to power" }
+		];
+
+		const periods = yearsLegend
+			.append("g")
+				.attr("class", "periods")
+				.attr("transform", `translate(0, ${ lgHeight * 0.75 })`)
+			.selectAll(".period")
+				.data(periodsData).enter()
+			.append("g")
+				.attr("class", ".period");
+
+		periods
+			.append("circle")
+				.attr("r", (d) => scaleLife(d.age * 365))
+				.style("fill", (d) => (d.fill ? "rgb(210, 62, 167)" : "black"))
+				.style("stroke", "rgb(210, 62, 167)");
+
+		periods
+			.append("line")
+				.attr("x2", 50)
+				.attr("transform", (d) => `translate(0, ${ -scaleLife(d.age * 365)})`)
+				.style("stroke", "#777");
+
+		periods
+			.append("text")
+			.text((d) => d.description)
+			.attr("transform", (d) => `translate(55, ${- scaleLife(d.age * 365)})`);
+
 	});
 
 function distinct(source, accessor) {

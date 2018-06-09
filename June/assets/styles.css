@@ -21,7 +21,7 @@ header {
 	text-align: center;
 }
 
-.container {
+.container, .legend {
 	margin: auto;
 	min-width: 900px;
 	max-width: 1200px;
@@ -31,4 +31,8 @@ line.axis {
 	stroke: #4d4d4d;
 	stroke-width: 1px;
 	stroke-dasharray: 2 2;
+}
+
+.legend text {
+	text-anchor: start;
 }
