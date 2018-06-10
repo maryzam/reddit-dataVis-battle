@@ -4,28 +4,57 @@
 }
 
 body {
+	font-family: 'Oswald', sans-serif;
 	background: black;
 	color: #dadada;
 }
 
 text {
-	font-family: 'Oswald', sans-serif;
 	font-size: 0.7em;
 	text-anchor: middle;
 	fill: #dadada;
 }
 
-header {
+h1 {
 	font-family: 'Romanesco', cursive;
+}
+
+header {
 	padding: 20px;
 	text-align: center;
 }
 
-.container, .legend {
+.info p {
+	color: #aaa;
+	font-size: 0.8em;
+	padding: 1em;
+}
+
+.container, .info {
 	margin: auto;
 	min-width: 900px;
 	max-width: 1200px;
 }
+
+.info {
+	height: 150px;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+.info .note {
+	flex: 1;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.info .legend {
+	flex: 4;
+} 
 
 line.axis {
 	stroke: #4d4d4d;
@@ -35,4 +64,42 @@ line.axis {
 
 .legend text {
 	text-anchor: start;
+}
+
+/* years scale */
+.legend .year circle {
+	fill: none;
+	stroke: #f9488a;
+	stroke-width: 1px;
+}
+
+.legend .year .mark {
+	stroke: none;
+	fill: #aaa;
+}
+
+.legend .year line {
+	stroke: #aaa;
+	stroke-width: 1px;
+}
+
+/* life periods explanation */
+.legend .period circle {
+	fill: black;
+	stroke: #a03db3;
+	stroke-width: 1px;
+}
+
+.legend .period circle.filled {
+	fill: #a03db3;
+}
+
+.legend .period .mark {
+	stroke: none;
+	fill: #aaa;
+}
+
+.legend .period line {
+	stroke: #aaa;
+	stroke-width: 1px;
 }
