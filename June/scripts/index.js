@@ -19,7 +19,6 @@ d3.csv("./data/emperors.v2.csv")
 		}
 
 		const legend = new EI.Legend(".legend", dynasty, scales);
-		//renderLegend(".legend", dynasty, scales);
 		renderViz(".container", source, scales);
 
 	});

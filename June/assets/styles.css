@@ -17,6 +17,7 @@ text {
 
 h1 {
 	font-family: 'Romanesco', cursive;
+	padding-bottom: 20px;
 }
 
 header {
@@ -27,7 +28,7 @@ header {
 .info p {
 	color: #aaa;
 	font-size: 0.8em;
-	padding: 1em;
+	padding-top: 1em;
 }
 
 .container, .info {
@@ -37,7 +38,9 @@ header {
 }
 
 .info {
+	margin: auto;
 	height: 150px;
+	width: 900px;
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
@@ -53,7 +56,7 @@ header {
 }
 
 .info .legend {
-	flex: 4;
+	flex: 3;
 } 
 
 line.axis {
@@ -64,6 +67,12 @@ line.axis {
 
 .legend text {
 	text-anchor: start;
+}
+
+.legend .timeline {
+	stroke: #aaa;
+	fill: #aaa;
+	stroke-width: 1px;
 }
 
 /* years scale */

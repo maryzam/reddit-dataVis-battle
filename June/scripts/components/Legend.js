@@ -47,19 +47,22 @@ var EI = EI || {};
 	legend.prototype.drawDynastiesInfo = function(dynasties, position) {
 
 		const margin = markRadius * 2;
+		const totalWidth = markRadius * 3 * dynasties.length;
 
 		const scaleOrder = d3.scalePoint()
 								.domain(dynasties)
-								.range([margin, this.size.height - margin]);
+								.range([0, totalWidth]);
 
-		const nodes = this.container
+		const legend = this.container
 							.append("g")
 								.attr("class", "dynasties")
-								.attr("transform", `translate(${margin + position.x}, ${position.y})`)
-							.selectAll("g")
-								.data(dynasties).enter()
-							.append("g")
-								.attr("transform", (d) => `translate(0, ${ scaleOrder(d) })`);
+								.attr("transform", `translate(${margin + position.x}, ${ this.size.height / 2 + margin })`);
+
+		const nodes = legend
+						.selectAll("g")
+							.data(dynasties).enter()
+						.append("g")
+							.attr("transform", (d) => `translate(${ scaleOrder(d) }, 0)rotate(-90)`);
 		nodes
 			.append("circle")
 				.attr("r", markRadius)
@@ -70,6 +73,28 @@ var EI = EI || {};
 				.text((d) => d)
 				.attr("dx", 10)
 				.attr("dy", 5);
+
+		const title = legend
+						.append("g")
+						.attr("transform", "translate(0, 20)")
+		title
+			.append("line")
+			.attr("class", "timeline")
+			.attr("x1", -margin)
+			.attr("x2", totalWidth + margin);
+
+		title
+			.append("path")
+			.attr("class", "timeline")
+			.attr("d", "M0,-3L6,0L0,3")
+			.attr("transform", `translate(${totalWidth + margin},0)`);
+
+		title
+			.append("text")
+			.attr("class", "title")
+			.attr("dx", -margin)
+			.attr("dy", 15)
+			.text("Dynasties (ordered by Reign time)");
 	};
 
 	legend.prototype.drawDurationInfo = function(position) {
