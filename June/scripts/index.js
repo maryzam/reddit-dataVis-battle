@@ -204,11 +204,11 @@ d3.csv("./data/emperors.v2.csv")
 			.attr("dy", 5);
 
 		//2 : draw years
-		const midPoint = lgHeight / 2;
+		const midPoint = lgHeight / 2 + scaleLife(70 * 365);
 		const yearsLegend = lgContainer
 						.append("g")
 							.attr("class", "years")
-							.attr("transform", "translate(200,0)");
+							.attr("transform", "translate(400,0)");
 		yearsLegend
 			.append("line")
 				.attr("class", "axis")
@@ -228,50 +228,73 @@ d3.csv("./data/emperors.v2.csv")
 				.attr("r", (d) => scaleLife(d * 365))
 				.attr("transform", (d) => `translate(0, ${scaleLife(d * 365)})`)
 				.style("fill", "none")
-				.style("stroke", "#dadada");
+				.style("stroke", "rgb(249, 72, 138)");
 
 		years
 			.append("line")
 				.attr("x2", 50)
-				.style("stroke", "#777");
+				.style("stroke", "#aaa");
+		years
+			.append("circle")
+				.attr("r", 1.5)
+				.style("fill", "#aaa");
 
 		years
 			.append("text")
 			.text((d) => `${d} years`)
+			.attr("dy", 3)
 			.attr("transform", "translate(55, 0)");
 
 		// colorize explanation
+
 		const periodsData = [
 			{ age: 80, description: "after Reign period (if presented)" },
-			{ age: 60, description: "Reign period", fill: true },
+			{ age: 60, description: "Reign period", isReign: true },
 			{ age: 25, description: "before Rise to power" }
 		];
 
-		const periods = yearsLegend
+		const periodsContainer = lgContainer
 			.append("g")
 				.attr("class", "periods")
-				.attr("transform", `translate(0, ${ lgHeight * 0.75 })`)
-			.selectAll(".period")
-				.data(periodsData).enter()
-			.append("g")
-				.attr("class", ".period");
+				.attr("transform", `translate(150, ${ lgHeight / 2 })`);
+
+		periodsContainer
+			.append("line")
+				.attr("class", "axis")
+				.attr("y1", -lgHeight / 2)
+				.attr("y2", lgHeight / 2);
+
+		const periods = periodsContainer
+							.selectAll(".period")
+								.data(periodsData).enter()
+							.append("g")
+								.attr("class", ".period");
 
 		periods
 			.append("circle")
 				.attr("r", (d) => scaleLife(d.age * 365))
-				.style("fill", (d) => (d.fill ? "rgb(210, 62, 167)" : "black"))
-				.style("stroke", "rgb(210, 62, 167)");
+				.style("fill", (d) => (d.isReign ? "rgb(160, 61, 179)" : "black"))
+				.style("stroke", "rgb(160, 61, 179)");
 
-		periods
+		const labels = periods
+			.append("g")
+				.attr("transform", (d, i) => `translate(0,${ (scaleLife(d.age * 365) - 4) * (d.isReign ? -1 : 1) })`);
+
+		labels
 			.append("line")
 				.attr("x2", 50)
-				.attr("transform", (d) => `translate(0, ${ -scaleLife(d.age * 365)})`)
-				.style("stroke", "#777");
+				.style("stroke", "#aaa");
 
-		periods
+		labels
+			.append("circle")
+			.attr("r", 1.5)
+			.style("fill", "#aaa");
+
+		labels
 			.append("text")
-			.text((d) => d.description)
-			.attr("transform", (d) => `translate(55, ${- scaleLife(d.age * 365)})`);
+			.attr("dx", 55)
+			.attr("dy", 3)
+			.text((d) => d.description);
 
 	});
 
