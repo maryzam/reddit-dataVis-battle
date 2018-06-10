@@ -18,9 +18,10 @@ d3.csv("./data/emperors.v2.csv")
 			reign: d3.scaleLinear().domain([0, maxReign]).range([2, 10])
 		}
 
+		// render legend & main dataViz
 		const legend = new EI.Legend(".legend", dynasty, scales);
-		renderViz(".container", source, scales);
-
+		const chart = new EI.Chart(".container", source, scales);
+		
 	});
 
 function distinct(source, accessor) {
@@ -42,7 +43,3 @@ function getMax(source, accessor) {
 	}
 	return max;
 };
-
-function splitLabel(label) {
-	return label.name.split(/ (.+)/);
-}

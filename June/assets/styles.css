@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	border: none;
 }
 
 body {
@@ -13,6 +14,7 @@ text {
 	font-size: 0.7em;
 	text-anchor: middle;
 	fill: #dadada;
+	pointer-events: none;
 }
 
 h1 {
@@ -25,12 +27,6 @@ header {
 	text-align: center;
 }
 
-.info p {
-	color: #aaa;
-	font-size: 0.8em;
-	padding-top: 1em;
-}
-
 .container, .info {
 	margin: auto;
 	min-width: 900px;
@@ -38,12 +34,23 @@ header {
 }
 
 .info {
-	margin: auto;
 	height: 150px;
 	width: 900px;
+	margin: auto;
+
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
+
+	border: double #4d4d4d;
+	border-right-style: none;
+	border-left-style: none; 
+}
+
+.info p {
+	color: #aaa;
+	font-size: 0.8em;
+	padding: 1em 15px 0;
 }
 
 .info .note {
@@ -56,7 +63,7 @@ header {
 }
 
 .info .legend {
-	flex: 3;
+	flex: 2;
 } 
 
 line.axis {
