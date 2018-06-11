@@ -1,11 +1,11 @@
 
-d3.csv("./data/emperors.v2.csv")
+d3.csv("./data/data.csv")
 	.then(function(source) {
 
 		// shared scales 
 		const dynasty = distinct(source, (d) => (d.dynasty));
-		const maxAge = getMax(source, (d) => d["age.death"]);
-		const maxReign = getMax(source.filter((d) => isNaN(d["age.death"])), (d) => d["death.till"]);
+		const maxAge = getMax(source, (d) => d.ageDeath);
+		const maxReign = getMax(source.filter((d) => isNaN(d.ageDeath)), (d) => d.deathTill);
 
 		const scaleColor = d3.scaleSequential(d3.interpolateWarm).domain([0, dynasty.length]);
 

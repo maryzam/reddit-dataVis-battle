@@ -41,9 +41,9 @@ var EI = EI || {};
 	};
 
 	chart.prototype.getRadius = function(d) {
-		const radius = isNaN(d["age.death"]) ?
-		   		this.scales.reign(d["death.till"]) :
-		   		this.scales.life(d["age.death"]);
+		const radius = isNaN(d.ageDeath) ?
+		   		this.scales.reign(d.deathTill) :
+		   		this.scales.life(d.ageDeath);
 		return (radius + 2);
 	};
 
@@ -158,38 +158,38 @@ var EI = EI || {};
 							.attr("class", "emperor")
 							.attr("transform", (d) => `translate(${d.x},${d.y})`);
 
-		const emperors = nodes.filter((d) => !isNaN(d["age.death"]));
+		const emperors = nodes.filter((d) => !isNaN(d.ageDeath));
 		
 		emperors
 			.append("circle")
 				.attr("class", "handler")
-				.attr("r", (d) => this.scales.life(d["age.death"]))
+				.attr("r", (d) => this.scales.life(d.ageDeath))
 				.style("fill", "black")
 				.style("stroke", (d) => this.scales.dynasty(d.dynasty))
 				.style("stroke-width", 1);
 
 		emperors
 			.append("circle")
-				.attr("r", (d) => this.scales.life(d["age.reign.end"]))
+				.attr("r", (d) => this.scales.life(d.ageReignEnd))
 				.style("fill", (d) => this.scales.dynasty(d.dynasty))
 
 		emperors
 			.append("circle")
-				.attr("r", (d) => this.scales.life(d["age.reign.start"]))
+				.attr("r", (d) => this.scales.life(d.ageReignStart))
 				.style("fill", "black");
 
-		const missingEmperors = nodes.filter((d) => isNaN(d["age.death"]));
+		const missingEmperors = nodes.filter((d) => isNaN(d.ageDeath));
 
 		missingEmperors
 			.append("path")
 			.attr("class", "handler")
-			.attr("d", (d) => this.getHexagon(d["death.till"]))
+			.attr("d", (d) => this.getHexagon(d.deathTill))
 			.style("fill", "black")
 			.style("stroke", (d) => this.scales.dynasty(d.dynasty));
 
 		missingEmperors
 			.append("path")
-			.attr("d", (d) => this.getHexagon(d["reign.duration"]))
+			.attr("d", (d) => this.getHexagon(d.reignDuration))
 			.style("fill", (d) => this.scales.dynasty(d.dynasty));
 
 	};

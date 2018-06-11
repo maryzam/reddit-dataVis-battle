@@ -4,18 +4,6 @@ var EI = EI || {};
 
 	const yearReg = /^-?\d+/;
 
-	function formatYear(date) {
-		const year = parseInt(yearReg.exec(date));
-		if (isNaN(year)) {
-			return "?";
-		}
-		return year < 0 ? `${ -year } BC` : `${ year } AD`;
-	}
-
-	function formatDate(date) {
-		
-	}
-
 	function isUnknown(data) {
 		return data === "Unknown" || data === "NA";
 	}
@@ -33,20 +21,19 @@ var EI = EI || {};
 					${ data.name }
 			</p>
 			<p><small>#${ data.num } Roman Emperor (${ data.dynasty } Dynasty)</small></p>
-			<p>(${ formatYear(data.birth) } - ${ formatYear(data.death) })</p>
-			${ isUnknown(data["birth.prv"]) ? '' :
+			<p>(${ data.birthYear } - ${ data.deathYear })</p>
+			${ isUnknown(data.birthPrv) ? '' :
 				`<p>
-					<span>From:</span> ${ data["birth.prv"] } 
-					${ isUnknown(data["birth.cty"]) ? '' : `(${ data["birth.cty"] })`}	
+					<span>From:</span> ${ data.birthPrv } 
+					${ isUnknown(data.birthCity) ? '' : `(${ data.birthCity })`}	
 				</p>` }
-			<p><span>Reign:</span> ${ data["reign.start"] } - ${ data["reign.end"] }</p>
+			<p><span>Reign:</span> ${ data.reignStart } - ${ data.reignEnd }</p>
 			<p><span>Rise to Power:</span> ${ data.rise }</p>
 			<p><span>Death:</span> ${ data.cause } (${ data.killer })</p>
 		`;	
 	}
 
 	tooltip.prototype.show = function(data) {
-		console.log(data);
 		const text = this.format(data);
 		this.container
 				.style("display", "block")

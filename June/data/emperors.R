@@ -23,5 +23,9 @@ emperors$age.death <- (emperors$death - emperors$birth)
 emperors$reign.duration <- (emperors$reign.end - emperors$reign.start)
 emperors$death.till <- (emperors$death - emperors$reign.start)
 
+emperors$birth.year <- format(emperors$birth, "%y AD") 
+emperors$death.year <- format(emperors$death, "%%y AD") 
+emperors$reign.start <-  format(emperors$reign.start, "%B %d, %y AD")
+emperors$reign.end <- format(emperors$reign.end, "%B %d, %y AD") 
 
-write.csv(emperors, file = "emperors.v2.csv")
+write.csv(emperors, file = "emperors.v3.csv")
