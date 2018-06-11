@@ -171,3 +171,22 @@ line.axis {
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
 }
+
+footer {
+	border-top: double #4d4d4d;
+	margin: 0 20px;
+	padding: 10px;
+}
+
+footer p {
+	font-size: 0.7em;
+	text-align: right;
+}
+
+footer a {
+	color: #a03db3;
+}
+
+footer a:hover {
+	color: #d23ea7;
+}
