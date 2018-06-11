@@ -120,6 +120,14 @@ line.axis {
 	stroke-width: 1px;
 }
 
+.emperor {
+	opacity: 0.8;
+}
+
+.emperor:hover {
+	opacity: 1;
+}
+
 .emperor circle, .emperor path {
 	pointer-events: none;
 }
