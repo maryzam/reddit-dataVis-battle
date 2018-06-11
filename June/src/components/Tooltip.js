@@ -24,9 +24,24 @@
 		}
 
 		move(pos) {
+			
+			const size = this.container.node().getBoundingClientRect();
+			const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    		const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+			let top = pos.pageY + 5;
+			if ((top + size.height) > windowHeight) {
+				top = top - size.height - 10;
+			}
+
+			let left = pos.pageX + 5; 
+			if ((left + size.width) > windowWidth) {
+				left = left - size.width - 10;
+			}
+			
 			this.container
-				.style("top", `${pos.pageY + 5}px`)
-			    .style("left", `${pos.pageX - 85}px`);
+				.style("top", `${ top }px`)
+			    .style("left", `${ left }px`);
 		}
 
 		format(data) {
