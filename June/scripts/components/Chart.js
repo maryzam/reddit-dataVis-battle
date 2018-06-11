@@ -26,6 +26,8 @@ var EI = EI || {};
 		this.drawRiseAxis();
 		this.drawCauseAxis();
 		this.drawEmperors();
+
+		this.setupTooltip();
 	};
 
 	chart.prototype.getRisePos = function(d) { 
@@ -160,6 +162,7 @@ var EI = EI || {};
 		
 		emperors
 			.append("circle")
+				.attr("class", "handler")
 				.attr("r", (d) => this.scales.life(d["age.death"]))
 				.style("fill", "black")
 				.style("stroke", (d) => this.scales.dynasty(d.dynasty))
@@ -179,6 +182,7 @@ var EI = EI || {};
 
 		missingEmperors
 			.append("path")
+			.attr("class", "handler")
 			.attr("d", (d) => this.getHexagon(d["death.till"]))
 			.style("fill", "black")
 			.style("stroke", (d) => this.scales.dynasty(d.dynasty));
@@ -187,7 +191,19 @@ var EI = EI || {};
 			.append("path")
 			.attr("d", (d) => this.getHexagon(d["reign.duration"]))
 			.style("fill", (d) => this.scales.dynasty(d.dynasty));
+
 	};
+
+	chart.prototype.setupTooltip = function() {
+
+		const tooltip = new exports.Tooltip(this.scales.dynasty);
+
+		this.container
+			.selectAll(".handler")
+				.on("mouseover", (d) => tooltip.show(d))
+				.on("mouseout", (d) => tooltip.hide())
+				.on("mousemove", (d) => tooltip.move(d3.event));
+	}
 
 	chart.prototype.getHexagon = function(duration) {
 		const radius = this.scales.reign(duration);

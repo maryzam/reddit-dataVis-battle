@@ -119,3 +119,41 @@ line.axis {
 	stroke: #aaa;
 	stroke-width: 1px;
 }
+
+.emperor circle, .emperor path {
+	pointer-events: none;
+}
+
+.emperor .handler {
+	pointer-events: all;
+}
+
+/* tooltip */
+.tooltip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: rgba(250, 250, 250, 0.7);
+    border: 1px solid #6F257F;
+    padding: 5px;
+    pointer-events: none;
+    color: black;
+}
+
+.tooltip p, 
+.tooltip small,
+.tooltip span, 
+.tooltip strong {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.tooltip span {
+	color: #4d4d4d;
+}
+
+.tooltip .title {
+	font-family: 'Romanesco', cursive;
+	font-size: 1.5em;
+}
