@@ -1,53 +1,27 @@
-var EI = EI || {};
+import * as d3 from "d3";
+import { hexbin } from "d3-hexbin";
 
-(function(d3, exports) {
+import { riseTypes } from "../data/riseTypes";
+import { causeTypes } from "../data/causeTypes";
 
-	const margin = 50;
-	
-	const hexbin = d3.hexbin();
+import Tooltip from "./Tooltip";
 
-	function splitLabel(label) {
-		return label.name.split(/ (.+)/);
+const margin = 50;
+const hb = hexbin();
+
+function splitLabel(label) {
+	return label.name.split(/ (.+)/);
+}
+
+class Chart {
+
+	constructor(selector, scales) {
+
+		this.initContainer(selector);
+		this.setupScales(scales);
 	}
 
-	const chart = function(selector, data, scales) {
-
-		this.data = data;
-		
-		this.size = null;
-		this.container = null;
-		this.scales = null;
-
-		this.init(selector);
-
-		this.setupScales(scales);
-		this.runSimulation();
-
-		this.drawRiseAxis();
-		this.drawCauseAxis();
-		this.drawEmperors();
-
-		this.setupTooltip();
-	};
-
-	chart.prototype.getRisePos = function(d) { 
-		const info = riseTypes.find((x) => (x.name === d.rise))
-		return this.scales.rise(info.position); 
-	};
-
-	chart.prototype.getCausePos = function(d) {
-		const info = causeTypes.find((x) => (x.name === d.cause))
-		return this.scales.cause(info.position); 
-	};
-
-	chart.prototype.getRadius = function(d) {
-		const radius = isNaN(d.ageDeath) ?
-		   		this.scales.reign(d.deathTill) :
-		   		this.scales.life(d.ageDeath);
-		return (radius + 2);
-	};
-
-	chart.prototype.init = function(selector) {
+	initContainer(selector) {
 
 		const ph = d3.select(selector);
 		const size = ph.node().getBoundingClientRect();
@@ -67,9 +41,9 @@ var EI = EI || {};
 			width:  outerWidth - 2 * margin,
 			height: outerHeight - 2 * margin
 		};
-	};
+	}
 
-	chart.prototype.setupScales = function(scales) {
+	setupScales(scales) {
 
 		const rise = d3.scaleLinear()
 							.domain([0, d3.max(riseTypes, (d) => d.position)])
@@ -80,21 +54,31 @@ var EI = EI || {};
 							.range([0, this.size.height]);
 
 		this.scales = Object.assign({ rise, cause }, scales);
-	};
+	}
 
-	chart.prototype.runSimulation = function() {
+	render(data) {
 
-		const simulation = d3.forceSimulation(this.data)
-		      .force("x", d3.forceX((d) => this.getRisePos(d)).strength(1))
-		      .force("y", d3.forceY((d) => this.getCausePos(d)).strength(1))
-		      .force("collide", d3.forceCollide().radius((d) => this.getRadius(d)).iterations(2))
+		this.runSimulation(data);
+
+		this.drawRiseAxis();
+		this.drawCauseAxis();
+		this.drawEmperors(data);
+
+		this.setupTooltip();
+	}
+
+	runSimulation(data) {
+
+		const simulation = d3.forceSimulation(data)
+		      .force("x", d3.forceX(this.getRisePos).strength(1))
+		      .force("y", d3.forceY(this.getCausePos).strength(1))
+		      .force("collide", d3.forceCollide().radius(this.getRadius).iterations(2))
 		      .stop();
 
 		for (let i = 0; i < 250; ++i) { simulation.tick(); }
-	};
+	}
 
-	chart.prototype.drawRiseAxis = function() {
-
+	drawRiseAxis() {
 		const rises = this.container
 						.append("g")
 							.attr("class", ".rise-axis")
@@ -119,10 +103,9 @@ var EI = EI || {};
 				.attr("x", 0)
 				.attr("y", 0)
 				.attr("dy", (d, i) => `${(i * 1)}em`);
-	};
+	}
 
-	chart.prototype.drawCauseAxis = function() {
-
+	drawCauseAxis() {
 		const causes = this.container
 						.append("g")
 							.attr("class", ".cause-axis")
@@ -147,13 +130,13 @@ var EI = EI || {};
 				.attr("x", 0)
 				.attr("y", 0)
 				.attr("dy", (d, i) => `${(i * 1)}em`);
-	};
+	}
 
-	chart.prototype.drawEmperors = function() {
+	drawEmperors(data) {
 
 		const nodes = this.container
 						.selectAll(".emperor")
-							.data(this.data).enter()
+							.data(data).enter()
 						.append("g")
 							.attr("class", "emperor")
 							.attr("transform", (d) => `translate(${d.x},${d.y})`);
@@ -191,12 +174,14 @@ var EI = EI || {};
 			.append("path")
 			.attr("d", (d) => this.getHexagon(d.reignDuration))
 			.style("fill", (d) => this.scales.dynasty(d.dynasty));
+	}
 
-	};
+	setupTooltip() {
 
-	chart.prototype.setupTooltip = function() {
-
-		const tooltip = new exports.Tooltip(this.scales.dynasty);
+		const tooltip = new Tooltip(
+				d3.select("#tooltip"),
+				this.scales.dynasty
+			);
 
 		this.container
 			.selectAll(".handler")
@@ -205,11 +190,28 @@ var EI = EI || {};
 				.on("mousemove", (d) => tooltip.move(d3.event));
 	}
 
-	chart.prototype.getHexagon = function(duration) {
+	getHexagon(duration) {
 		const radius = this.scales.reign(duration);
-		return hexbin.hexagon(radius);
+		return hb.hexagon(radius);
 	}
 
-	exports.Chart = chart;
+	getRisePos = (d) => { 
+		const info = riseTypes.find((x) => (x.name === d.rise));
+		return this.scales.rise(info.position); 
+	};
 
-}) (d3, EI);
+	getCausePos = (d) => { 
+		const info = causeTypes.find((x) => (x.name === d.cause));
+		return this.scales.cause(info.position); 
+	};
+
+	getRadius = (d) => {
+		const radius = isNaN(d.ageDeath) ?
+		   		this.scales.reign(d.deathTill) :
+		   		this.scales.life(d.ageDeath);
+		return (radius + 2);
+	};
+
+}
+
+export default Chart;
