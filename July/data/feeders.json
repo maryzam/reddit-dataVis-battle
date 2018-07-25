@@ -1,4 +1,4 @@
-{
+[
   { "feeder": "Hooper Feeder",
     "seeds": [
       {
@@ -347,7 +347,7 @@
     ]
   },
   {
-    "feeder: "Ground Feeder",
+    "feeder": "Ground Feeder",
     "seeds": [
       {
         "seed": "Black Oil Sunflower",
@@ -546,4 +546,4 @@
       }
     ]
   }
-}
+]
