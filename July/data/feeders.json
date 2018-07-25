@@ -1,0 +1,549 @@
+{
+  { "feeder": "Hooper Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 1,
+        "Goldfinches": 1,
+        "Grosbeaks": 0.6,
+        "House Finches": 1,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Nuthatches": 1,
+        "Purple Finches": 1,
+        "Sparrows": 1,
+        "Titmice": 1,
+        "Towhees": 1,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Goldfinches": 0.6,
+        "Grosbeaks": 0.6,
+        "House Finches": 0.6,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Nuthatches": 0.6,
+        "Purple Finches": 0.6,
+        "Sparrows": 1,
+        "Titmice": 0.6,
+        "Towhees": 1,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Goldfinches": 1,
+        "Grosbeaks": 1,
+        "House Finches": 1,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Nuthatches": 0.6,
+        "Purple Finches": 1,
+        "Sparrows": 1,
+        "Titmice": 0.6,
+        "Towhees": 1,
+        "Woodpeckers": 1
+      },
+      {
+        "seed": "Millet White/Red",
+        "Cardinals": 0.2,
+        "Chickadees": 0,
+        "Goldfinches": 0.2,
+        "Grosbeaks": 0,
+        "House Finches": 0.6,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Nuthatches": 0,
+        "Purple Finches": 0.2,
+        "Sparrows": 1,
+        "Titmice": 0,
+        "Towhees": 0.2,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Milo Seed",
+        "Cardinals": 0,
+        "Chickadees": 0,
+        "Goldfinches": 0,
+        "Grosbeaks": 0,
+        "House Finches": 0,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Nuthatches": 0,
+        "Purple Finches": 0,
+        "Sparrows": 0.6,
+        "Titmice": 0,
+        "Towhees": 0,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Cardinals": 0,
+        "Chickadees": 0,
+        "Goldfinches": 1,
+        "Grosbeaks": 0,
+        "House Finches": 1,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Nuthatches": 0,
+        "Purple Finches": 1,
+        "Sparrows": 0,
+        "Titmice": 0.2,
+        "Towhees": 0,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Cardinals": 0,
+        "Chickadees": 0.6,
+        "Goldfinches": 0,
+        "Grosbeaks": 0,
+        "House Finches": 0,
+        "Jays": 0.6,
+        "Juncos": 0,
+        "Nuthatches": 0.2,
+        "Purple Finches": 0,
+        "Sparrows": 0,
+        "Titmice": 0.6,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Safflower Seed",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Goldfinches": 0,
+        "Grosbeaks": 0.2,
+        "House Finches": 0.2,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Nuthatches": 0.2,
+        "Purple Finches": 0,
+        "Sparrows": 0.2,
+        "Titmice": 0.2,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Corn Products",
+        "Cardinals": 0.2,
+        "Chickadees": 0,
+        "Goldfinches": 0,
+        "Grosbeaks": 0,
+        "House Finches": 0,
+        "Jays": 0.6,
+        "Juncos": 1,
+        "Nuthatches": 0,
+        "Purple Finches": 0,
+        "Sparrows": 0.6,
+        "Titmice": 0,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      }
+    ]
+  },
+  {
+    "feeder": "Tube Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Cardinals": 1,
+        "Nuthatches": 1,
+        "Siskins": 0.2,
+        "Sparrows": 1,
+        "Titmice": 1
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Cardinals": 1,
+        "Nuthatches": 0.6,
+        "Siskins": 0.2,
+        "Sparrows": 1,
+        "Titmice": 0.6
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Cardinals": 1,
+        "Nuthatches": 0.6,
+        "Siskins": 1,
+        "Sparrows": 1,
+        "Titmice": 0.6
+      },
+      {
+        "seed": "Millet White/Red",
+        "Cardinals": 0.2,
+        "Nuthatches": 0,
+        "Siskins": 0,
+        "Sparrows": 1,
+        "Titmice": 0
+      },
+      {
+        "seed": "Milo Seed",
+        "Cardinals": 0,
+        "Nuthatches": 0,
+        "Siskins": 0,
+        "Sparrows": 0.6,
+        "Titmice": 0
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Cardinals": 0,
+        "Nuthatches": 0,
+        "Siskins": 1,
+        "Sparrows": 0,
+        "Titmice": 0.2
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Cardinals": 0,
+        "Nuthatches": 0.2,
+        "Siskins": 0,
+        "Sparrows": 0,
+        "Titmice": 0.6
+      },
+      {
+        "seed": "Safflower Seed",
+        "Cardinals": 1,
+        "Nuthatches": 0.2,
+        "Siskins": 0,
+        "Sparrows": 0.2,
+        "Titmice": 0.2
+      },
+      {
+        "seed": "Corn Products",
+        "Cardinals": 0.2,
+        "Nuthatches": 0,
+        "Siskins": 0.2,
+        "Sparrows": 0.6,
+        "Titmice": 0
+      }
+    ]
+  }, 
+  {
+    "feeder": "Platform Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 1,
+        "Doves": 0.6,
+        "Grosbeaks": 0.6,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Sparrows": 1,
+        "Titmice": 1,
+        "Towhees": 1,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Doves": 0.2,
+        "Grosbeaks": 0.6,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Sparrows": 1,
+        "Titmice": 0.6,
+        "Towhees": 1,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Doves": 0.6,
+        "Grosbeaks": 1,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Sparrows": 1,
+        "Titmice": 0.6,
+        "Towhees": 1,
+        "Woodpeckers": 1
+      },
+      {
+        "seed": "Millet White/Red",
+        "Cardinals": 0.2,
+        "Chickadees": 0,
+        "Doves": 1,
+        "Grosbeaks": 0,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Sparrows": 1,
+        "Titmice": 0,
+        "Towhees": 0.2,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Milo Seed",
+        "Cardinals": 0,
+        "Chickadees": 0,
+        "Doves": 1,
+        "Grosbeaks": 0,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Sparrows": 0.6,
+        "Titmice": 0,
+        "Towhees": 0,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Cardinals": 0,
+        "Chickadees": 0,
+        "Doves": 0.2,
+        "Grosbeaks": 0,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Sparrows": 0,
+        "Titmice": 0.2,
+        "Towhees": 0,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Cardinals": 0,
+        "Chickadees": 0.6,
+        "Doves": 0,
+        "Grosbeaks": 0,
+        "Jays": 0.6,
+        "Juncos": 0,
+        "Sparrows": 0,
+        "Titmice": 0.6,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Safflower Seed",
+        "Cardinals": 1,
+        "Chickadees": 0.6,
+        "Doves": 0.6,
+        "Grosbeaks": 0.2,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Sparrows": 0.2,
+        "Titmice": 0.2,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Corn Products",
+        "Cardinals": 0.2,
+        "Chickadees": 0,
+        "Doves": 0.6,
+        "Grosbeaks": 0,
+        "Jays": 0.6,
+        "Juncos": 1,
+        "Sparrows": 0.6,
+        "Titmice": 0,
+        "Towhees": 0.2,
+        "Woodpeckers": 0.2
+      }
+    ]
+  },
+  {
+    "feeder: "Ground Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Cardinals": 1,
+        "Doves": 0.6,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Towhees": 1
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Cardinals": 1,
+        "Doves": 0.2,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Towhees": 1
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Cardinals": 1,
+        "Doves": 0.6,
+        "Jays": 1,
+        "Juncos": 0.2,
+        "Towhees": 1
+      },
+      {
+        "seed": "Millet White/Red",
+        "Cardinals": 0.2,
+        "Doves": 1,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Towhees": 0.2
+      },
+      {
+        "seed": "Milo Seed",
+        "Cardinals": 0,
+        "Doves": 1,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Towhees": 0
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Cardinals": 0,
+        "Doves": 0.2,
+        "Jays": 0,
+        "Juncos": 0.2,
+        "Towhees": 0
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Cardinals": 0,
+        "Doves": 0,
+        "Jays": 0.6,
+        "Juncos": 0,
+        "Towhees": 0.2
+      },
+      {
+        "seed": "Safflower Seed",
+        "Cardinals": 1,
+        "Doves": 0.6,
+        "Jays": 0.2,
+        "Juncos": 0,
+        "Towhees": 0.2
+      },
+      {
+        "seed": "Corn Products",
+        "Cardinals": 0.2,
+        "Doves": 0.6,
+        "Jays": 0.6,
+        "Juncos": 1,
+        "Towhees": 0.2
+      }
+    ]
+  },
+  {
+    "feeder": "Nyjer Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Chickadees": 1,
+        "Goldfinches": 1,
+        "House Finches": 1,
+        "Purple Finches": 1,
+        "Siskins": 0.2
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Chickadees": 0.6,
+        "Goldfinches": 0.6,
+        "House Finches": 0.6,
+        "Purple Finches": 0.6,
+        "Siskins": 0.2
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Chickadees": 0.6,
+        "Goldfinches": 1,
+        "House Finches": 1,
+        "Purple Finches": 1,
+        "Siskins": 1
+      },
+      {
+        "seed": "Millet White/Red",
+        "Chickadees": 0,
+        "Goldfinches": 0.2,
+        "House Finches": 0.6,
+        "Purple Finches": 0.2,
+        "Siskins": 0
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Chickadees": 0,
+        "Goldfinches": 1,
+        "House Finches": 1,
+        "Purple Finches": 1,
+        "Siskins": 1
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Chickadees": 0.6,
+        "Goldfinches": 0,
+        "House Finches": 0,
+        "Purple Finches": 0,
+        "Siskins": 0
+      },
+      {
+        "seed": "Safflower Seed",
+        "Chickadees": 0.6,
+        "Goldfinches": 0,
+        "House Finches": 0.2,
+        "Purple Finches": 0,
+        "Siskins": 0
+      },
+      {
+        "seed": "Corn Products",
+        "Chickadees": 0,
+        "Goldfinches": 0,
+        "House Finches": 0,
+        "Purple Finches": 0,
+        "Siskins": 0.2
+      }
+    ]
+  }, 
+  { 
+    "feeder": "Suet Feeder",
+    "seeds": [
+      {
+        "seed": "Black Oil Sunflower",
+        "Chickadees": 1,
+        "Nuthatches": 1,
+        "Titmice": 1,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Stripped Sunflower",
+        "Chickadees": 0.6,
+        "Nuthatches": 0.6,
+        "Titmice": 0.6,
+        "Woodpeckers": 0.6
+      },
+      {
+        "seed": "Hulled Sunflower",
+        "Chickadees": 0.6,
+        "Nuthatches": 0.6,
+        "Titmice": 0.6,
+        "Woodpeckers": 1
+      },
+      {
+        "seed": "Nyjer Seed",
+        "Chickadees": 0,
+        "Nuthatches": 0,
+        "Titmice": 0.2,
+        "Woodpeckers": 0
+      },
+      {
+        "seed": "Shelled Peanuts",
+        "Chickadees": 0.6,
+        "Nuthatches": 0.2,
+        "Titmice": 0.6,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Safflower Seed",
+        "Chickadees": 0.6,
+        "Nuthatches": 0.2,
+        "Titmice": 0.2,
+        "Woodpeckers": 0.2
+      },
+      {
+        "seed": "Corn Products",
+        "Chickadees": 0,
+        "Nuthatches": 0,
+        "Titmice": 0,
+        "Woodpeckers": 0.2
+      }
+    ]
+  }
+}
