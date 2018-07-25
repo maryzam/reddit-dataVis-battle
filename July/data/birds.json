@@ -1,0 +1,257 @@
+[
+	{
+		"bird": "Cardinals",
+		"feeders": [
+			"Hooper Feeder", "Tube Feeder", "Platform Feeder", "Ground Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 1,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0.2,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 1,
+			"Corn Products": 0.2
+		}		
+	},
+	{
+		"bird": "Chickadees",
+		"feeders": [
+			"Hooper Feeder", "Nyjer Feeder", "Platform Feeder", "Suet Feeder" 
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 0.6,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0.6,
+			"Safflower Seed": 0.6,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Doves",
+		"feeders": [
+			"Platform Feeder", "Ground Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 0.6,
+			"Stripped Sunflower": 0.2,
+			"Hulled Sunflower": 0.6,
+			"Millet White/Red": 1,
+			"Milo Seed": 1,
+			"Nyjer Seed": 0.2,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0.6,
+			"Corn Products": 0.6
+		}	
+	},
+	{
+		"bird": "Goldfinches",
+		"feeders": [
+			"Hooper Feeder", "Nyjer Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0.2,
+			"Milo Seed": 0,
+			"Nyjer Seed": 1,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Grosbeaks",
+		"feeders": [
+			"Hooper Feeder", "Platform Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 0.6,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "House Finches",
+		"feeders": [
+			"Hooper Feeder", "Nyjer Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0.6,
+			"Milo Seed": 0,
+			"Nyjer Seed": 1,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Jays",
+		"feeders": [
+			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 1,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0,
+			"Milo Seed": 0.2,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0.6,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0.6
+		}		
+	},
+	{
+		"bird": "Juncos",
+		"feeders": [
+			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 0.2,
+			"Stripped Sunflower": 0.2,
+			"Hulled Sunflower": 0.2,
+			"Millet White/Red": 0.2,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0.2,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0,
+			"Corn Products": 1
+		}		
+	},
+	{
+		"bird": "Nuthatches",
+		"feeders": [
+			"Hooper Feeder", "Tube Feeder", "Suet Feeder" 
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 0.6,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0.2,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Purple Finches",
+		"feeders": [
+			"Hooper Feeder", "Nyjer Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0.2,
+			"Milo Seed": 0,
+			"Nyjer Seed": 1,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Siskins",
+		"feeders": [
+			"Tube Feeder", "Nyjer Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 0.2,
+			"Stripped Sunflower": 0.2,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 1,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0,
+			"Corn Products": 0.2
+		}		
+	},
+	{
+		"bird": "Sparrows",
+		"feeders": [
+			"Hooper Feeder", "Tube Feeder", "Platform Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 1,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 1,
+			"Milo Seed": 0.6,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0.6
+		}		
+	},
+	{
+		"bird": "Titmice",
+		"feeders": [
+			"Hooper Feeder", "Tube Feeder", "Platform Feeder", "Suet Feeder" 
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 0.6,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0.2,
+			"Shelled Peanuts": 0.6,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0
+		}		
+	},
+	{
+		"bird": "Towhees",
+		"feeders": [
+			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+		],
+		"seeds": {
+			"Black Oil Sunflower": 1,
+			"Stripped Sunflower": 1,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0.2,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0.2,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0.2
+		}		
+	},
+	{
+		"bird": "Woodpeckers",
+		"feeders": [
+			"Hooper Feeder", "Platform Feeder", "Suet Feeder" 
+		],
+		"seeds": {
+			"Black Oil Sunflower": 0.6,
+			"Stripped Sunflower": 0.6,
+			"Hulled Sunflower": 1,
+			"Millet White/Red": 0,
+			"Milo Seed": 0,
+			"Nyjer Seed": 0,
+			"Shelled Peanuts": 0.2,
+			"Safflower Seed": 0.2,
+			"Corn Products": 0.2
+		}		
+	}
+]
