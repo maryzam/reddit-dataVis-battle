@@ -62,3 +62,10 @@ header {
 	background-repeat: no-repeat;
 	margin-right: 5px;
 }
+
+footer {
+	border-top: 1px solid #dadada;
+	padding: 10px 20px;
+	font-size: 0.7em;
+	text-align: right;
+}
