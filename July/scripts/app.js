@@ -20,7 +20,7 @@
 	   								.range([0, Math.PI * 2]);
 
 	   		const allBirds = getAllBirds(feeders);
-	   		const scaleColor = d3.scaleSequential(d3.interpolatePlasma)
+	   		const scaleColor = d3.scaleSequential(d3.interpolateWarm)
     							 .domain([0, allBirds.length]);
 
     		// prepare radial area generator
@@ -107,6 +107,22 @@
       				.attr("dy", -3)
       				.style("text-anchor", (d, i) => (i && i < 5) ? "end": "start")
 	   		});
+
+	   		// add legend
+	   		const labels = d3.select('.legend')
+	   			.selectAll('.bird')
+	   				.data(allBirds).enter()
+	   			.append("p")
+	   				.attr("class", "bird")
+		   	
+		   	labels
+		   		.append("span")
+		   		.attr("class", "icon")
+		   		.style("background-color", (d) => scaleBirds(d));
+
+		   	labels
+		   		.append("span")
+		   		.html((d) => d);
 	   })
 	   .catch((e) => console.log(e));
 

@@ -5,8 +5,13 @@
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+html, body {
+	width: 100%;
+}
+
 text {
 	font-weight: bold;
+	font-size: 12px;
 	paint-order: stroke;
 	fill: black;
 	stroke: white;
@@ -19,4 +24,41 @@ text {
 
 .title text {
 	font-size: 12px;
+}
+
+header {
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+}
+
+.legend {
+	margin:  15px 25px 0 25px;
+	padding: 5px 15px;
+	display: flex;
+	direction: row;
+	flex-wrap: wrap;
+	width: calc(100%-110px);
+	border-bottom: 1px solid #dadada;
+	border-top: 1px solid #dadada;
+}
+
+.legend .bird {
+	font-size: 12px;
+	color: #333;
+	padding: 2px 10px;
+	width: 20%;
+	text-align: start;
+}
+
+.legend .icon {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background-image: url("bird_white.png");
+	background-size: 20px;
+	background-color: red;
+	background-position: start; 
+	background-repeat: no-repeat;
+	margin-right: 5px;
 }
