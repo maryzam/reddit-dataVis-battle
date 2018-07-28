@@ -1,0 +1,22 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+text {
+	font-weight: bold;
+	paint-order: stroke;
+	fill: black;
+	stroke: white;
+	text-anchor: middle;
+}
+
+.axis text {
+	font-size: 10px;
+}
+
+.title text {
+	font-size: 12px;
+}

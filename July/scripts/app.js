@@ -1,29 +1,25 @@
+    const radToDeg = 180 / Math.PI;
 
 	d3.json("data/feeders.json")
 	   .then((feeders) => {
 
-	   		const width = 400;
-	   		const height = 400;
+	   		const size = Math.floor((window.innerWidth / 3) - 20);
 
 	   		// add container
 	   		const svg = d3.select('main')
 	   						.append('svg')
-	   						.attr("width", width)
-	   						.attr("height", height * feeders.length);
-
-	   		// get data categories
-	   		const allSeeds = getAllSeeds(feeders);
-	   		const allBirds = getAllBirds(feeders);
+	   						.attr("width", size * 3)
+	   						.attr("height", size * Math.ceil(feeders.length / 3));
 
 	   		// prepare scales
-	   		const maxRadius = height / 2 - 10;
-	   		const minRadius = Math.max(maxRadius * 0.1, 25);
+	   		const maxRadius = size / 2 - 30;
+	   		const minRadius =  Math.max(maxRadius * 0.1, 40);
 	   		const scaleRadius = d3.scaleLinear().range([minRadius, maxRadius]);
 
-	   		const scaleAngle = d3.scalePoint()
-	   								.domain(allSeeds)
+	   		const scaleAngle = d3.scaleBand()
 	   								.range([0, Math.PI * 2]);
 
+	   		const allBirds = getAllBirds(feeders);
 	   		const scaleColor = d3.scaleSequential(d3.interpolatePlasma)
     							 .domain([0, allBirds.length]);
 
@@ -32,7 +28,7 @@
 	    					.angle((d) => scaleAngle(d.data.seed))
 	    					.innerRadius((d) => scaleRadius(d[0])) 
 	    					.outerRadius((d) => scaleRadius(d[1])) 
-	    					.curve(d3.curveCardinalClosed.tension(0.5));
+	    					.curve(d3.curveCardinalClosed.tension(0));
 
     		const scaleBirds = (d) => {
     			const id = allBirds.indexOf(d);
@@ -42,6 +38,7 @@
 	   		feeders.forEach((f, i) => {
 
 	   			const birds = getBirds(f);
+    			const seeds = getSeeds(f);
 
     			const stack = d3.stack()
     						.keys(birds)
@@ -49,18 +46,33 @@
     						.offset(d3.stackOffsetNone);
 
     			const data = stack(f.seeds);
-
     			// prepare scales
     			const max = d3.max(data, (d) => d3.max(d, (x) => x[1]));
     			scaleRadius.domain([ 0, max ]);
+    			scaleAngle.domain(seeds)
 
 				// prepare container
-				const offset = { x: width / 2, y: height / 2}
-    			const container = svg.append("g")
+				const offset = size /2
+				const x = (i % 3) * size + offset;
+				const y = Math.floor( i / 3) * size + offset;
+     			const container = svg.append("g")
     								.attr("dataFeeder", f.feeder)
-    								.attr("transform", `translate(${offset.x}, ${ i * height + offset.y})`);
+    								.attr("transform", `translate(${x}, ${y})`);
+    			// add title
+    			container
+			    	.append("text")
+			    		.attr("class", "title")
+			    	.selectAll("tspan")
+			    		.data(f.feeder.split(" ")).enter()
+			    	.append("tspan")
+			    		.text((d) => d)
+			    		.attr("x", 0)
+			    		.attr("y", (d, i) => i * 14);
+
     			// draw chart
     			container
+    				.append('g')
+    					.attr('class', 'chart')
     				.selectAll('.seed')
     					.data(data).enter()
     				.append('path')
@@ -68,18 +80,38 @@
     					.attr("d", (d) => area(d))
       					.style("fill", (d) => scaleBirds(d.key))
       					.style("stroke", "none");
+
+      			// add axis
+      			const sl = container 
+      				.append('g')
+      					.attr('class', 'axis')
+      				.selectAll('.seed')
+      					.data(seeds).enter()
+      				.append('g')
+      					.attr('transform', (d) => `rotate(${ scaleAngle(d) * radToDeg - 90})`);
+
+      			sl.append('line')
+      					.attr('x1', minRadius - 3)
+      					.attr('x2', maxRadius)
+      					.style('stroke', '#000');
+
+      			sl.append("circle")
+      				.attr("r", 1.5)
+      				.attr("cx", minRadius - 3)
+      				.style("fill", "#000")
+
+
+      			sl.append('text')
+      				.text((d) => d)
+      				.attr("transform", (d, i) => `translate(${ maxRadius}, 0)rotate(${i && i < 5 ? 0: 180 })`)
+      				.attr("dy", -3)
+      				.style("text-anchor", (d, i) => (i && i < 5) ? "end": "start")
 	   		});
 	   })
 	   .catch((e) => console.log(e));
 
-	function getAllSeeds(feeders) {
-		const seeds = {};
-		feeders.forEach((f) => {
-			f.seeds.forEach((s) => {
-				seeds[s.seed] = true;
-			});
-		});
-		return Object.keys(seeds);
+	function getSeeds(feeder) {
+		return feeder.seeds.map((s) => s.seed);
 	}
 
 	function getAllBirds(feeders) {

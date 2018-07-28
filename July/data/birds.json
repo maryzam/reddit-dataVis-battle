@@ -2,7 +2,7 @@
 	{
 		"bird": "Cardinals",
 		"feeders": [
-			"Hooper Feeder", "Tube Feeder", "Platform Feeder", "Ground Feeder"
+			"Hopper Feeder", "Tube Feeder", "Platform Feeder", "Ground Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -19,7 +19,7 @@
 	{
 		"bird": "Chickadees",
 		"feeders": [
-			"Hooper Feeder", "Nyjer Feeder", "Platform Feeder", "Suet Feeder" 
+			"Hopper Feeder", "Nyjer Feeder", "Platform Feeder", "Suet Feeder" 
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -53,7 +53,7 @@
 	{
 		"bird": "Goldfinches",
 		"feeders": [
-			"Hooper Feeder", "Nyjer Feeder"
+			"Hopper Feeder", "Nyjer Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -70,7 +70,7 @@
 	{
 		"bird": "Grosbeaks",
 		"feeders": [
-			"Hooper Feeder", "Platform Feeder"
+			"Hopper Feeder", "Platform Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 0.6,
@@ -87,7 +87,7 @@
 	{
 		"bird": "House Finches",
 		"feeders": [
-			"Hooper Feeder", "Nyjer Feeder"
+			"Hopper Feeder", "Nyjer Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -104,7 +104,7 @@
 	{
 		"bird": "Jays",
 		"feeders": [
-			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -121,7 +121,7 @@
 	{
 		"bird": "Juncos",
 		"feeders": [
-			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 0.2,
@@ -138,7 +138,7 @@
 	{
 		"bird": "Nuthatches",
 		"feeders": [
-			"Hooper Feeder", "Tube Feeder", "Suet Feeder" 
+			"Hopper Feeder", "Tube Feeder", "Suet Feeder" 
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -155,7 +155,7 @@
 	{
 		"bird": "Purple Finches",
 		"feeders": [
-			"Hooper Feeder", "Nyjer Feeder"
+			"Hopper Feeder", "Nyjer Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -189,7 +189,7 @@
 	{
 		"bird": "Sparrows",
 		"feeders": [
-			"Hooper Feeder", "Tube Feeder", "Platform Feeder"
+			"Hopper Feeder", "Tube Feeder", "Platform Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -206,7 +206,7 @@
 	{
 		"bird": "Titmice",
 		"feeders": [
-			"Hooper Feeder", "Tube Feeder", "Platform Feeder", "Suet Feeder" 
+			"Hopper Feeder", "Tube Feeder", "Platform Feeder", "Suet Feeder" 
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -223,7 +223,7 @@
 	{
 		"bird": "Towhees",
 		"feeders": [
-			"Hooper Feeder", "Platform Feeder", "Ground Feeder"
+			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
 		],
 		"seeds": {
 			"Black Oil Sunflower": 1,
@@ -240,7 +240,7 @@
 	{
 		"bird": "Woodpeckers",
 		"feeders": [
-			"Hooper Feeder", "Platform Feeder", "Suet Feeder" 
+			"Hopper Feeder", "Platform Feeder", "Suet Feeder" 
 		],
 		"seeds": {
 			"Black Oil Sunflower": 0.6,
