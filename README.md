@@ -1,6 +1,8 @@
 # Reddit DataVis Battle
 ## Submissions for the r/dataisbeautiful monthly visualization competitions
 
+### List of topics
+
 **January** Visualize the Growth Rates of Algae
   
 **February** Visualize the Legal Status of Same-sex Marriage by US State and Year
@@ -15,7 +17,15 @@
 
 **July** Make it better: Which Birds prefer Which Seeds
   
+### Live demo
+
 All Live demos can be found [here](https://maryzam.github.io/reddit-dataVis-battle/)
+
+### Tools
 
 Visualization: D3.js (v4/v5), React
 Data preprocessing: R
+
+### License
+
+MIT
