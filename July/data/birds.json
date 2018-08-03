@@ -1,257 +1,74 @@
 [
 	{
-		"bird": "Cardinals",
-		"feeders": [
-			"Hopper Feeder", "Tube Feeder", "Platform Feeder", "Ground Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 1,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0.2,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 1,
-			"Corn Products": 0.2
-		}		
+		"bird": "Dove",
+		"family": "Columbidae",
+		"color": "#333333"
 	},
 	{
-		"bird": "Chickadees",
-		"feeders": [
-			"Hopper Feeder", "Nyjer Feeder", "Platform Feeder", "Suet Feeder" 
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 0.6,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0.6,
-			"Safflower Seed": 0.6,
-			"Corn Products": 0
-		}		
+		"bird": "Jay",
+		"color": "#606060"
 	},
 	{
-		"bird": "Doves",
-		"feeders": [
-			"Platform Feeder", "Ground Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 0.6,
-			"Stripped Sunflower": 0.2,
-			"Hulled Sunflower": 0.6,
-			"Millet White/Red": 1,
-			"Milo Seed": 1,
-			"Nyjer Seed": 0.2,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0.6,
-			"Corn Products": 0.6
-		}	
+		"bird": "Nuthatch",
+		"color": "#929292"
 	},
 	{
-		"bird": "Goldfinches",
-		"feeders": [
-			"Hopper Feeder", "Nyjer Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0.2,
-			"Milo Seed": 0,
-			"Nyjer Seed": 1,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0,
-			"Corn Products": 0
-		}		
+		"bird": "Woodpecker",
+		"color": "#c8c8c8"
 	},
 	{
-		"bird": "Grosbeaks",
-		"feeders": [
-			"Hopper Feeder", "Platform Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 0.6,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0
-		}		
+		"bird": "Goldfinch",
+		"family": "Fringillidae",
+		"color": "#278b9a"
 	},
 	{
-		"bird": "House Finches",
-		"feeders": [
-			"Hopper Feeder", "Nyjer Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0.6,
-			"Milo Seed": 0,
-			"Nyjer Seed": 1,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0
-		}		
+		"bird": "House Finch",
+		"family": "Fringillidae",
+		"color": "#6aa8b3"
 	},
 	{
-		"bird": "Jays",
-		"feeders": [
-			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 1,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0,
-			"Milo Seed": 0.2,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0.6,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0.6
-		}		
+		"bird": "Purple Finch",
+		"family": "Fringillidae",
+		"color": "#9cc4cb"
 	},
 	{
-		"bird": "Juncos",
-		"feeders": [
-			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 0.2,
-			"Stripped Sunflower": 0.2,
-			"Hulled Sunflower": 0.2,
-			"Millet White/Red": 0.2,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0.2,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0,
-			"Corn Products": 1
-		}		
+		"bird": "Siskin",
+		"family": "Fringillidae",
+		"color": "#cee2e5"
 	},
 	{
-		"bird": "Nuthatches",
-		"feeders": [
-			"Hopper Feeder", "Tube Feeder", "Suet Feeder" 
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 0.6,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0.2,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0
-		}		
+		"bird": "Junco",
+		"family": "Passerellidae",
+		"color": "#e75b64"
 	},
 	{
-		"bird": "Purple Finches",
-		"feeders": [
-			"Hopper Feeder", "Nyjer Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0.2,
-			"Milo Seed": 0,
-			"Nyjer Seed": 1,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0,
-			"Corn Products": 0
-		}		
+		"bird": "Towhee",
+		"family": "Passerellidae",
+		"color": "#f38688"
 	},
 	{
-		"bird": "Siskins",
-		"feeders": [
-			"Tube Feeder", "Nyjer Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 0.2,
-			"Stripped Sunflower": 0.2,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 1,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0,
-			"Corn Products": 0.2
-		}		
+		"bird": "Sparrow",
+		"family": "Passerellidae",
+		"color": "#fbb0ae"
 	},
 	{
-		"bird": "Sparrows",
-		"feeders": [
-			"Hopper Feeder", "Tube Feeder", "Platform Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 1,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 1,
-			"Milo Seed": 0.6,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0.6
-		}		
+		"bird": "Cardinal",
+		"family": "Cardinalidae",
+		"color": "#6b8325"
 	},
 	{
-		"bird": "Titmice",
-		"feeders": [
-			"Hopper Feeder", "Tube Feeder", "Platform Feeder", "Suet Feeder" 
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 0.6,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0.2,
-			"Shelled Peanuts": 0.6,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0
-		}		
+		"bird": "Grosbeak",
+		"family": "Cardinalidae",
+		"color": "#9daa6c"
 	},
 	{
-		"bird": "Towhees",
-		"feeders": [
-			"Hopper Feeder", "Platform Feeder", "Ground Feeder"
-		],
-		"seeds": {
-			"Black Oil Sunflower": 1,
-			"Stripped Sunflower": 1,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0.2,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0.2,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0.2
-		}		
+		"bird": "Titmouse",
+		"family": "Paridae",
+		"color": "#ddbf23"
 	},
 	{
-		"bird": "Woodpeckers",
-		"feeders": [
-			"Hopper Feeder", "Platform Feeder", "Suet Feeder" 
-		],
-		"seeds": {
-			"Black Oil Sunflower": 0.6,
-			"Stripped Sunflower": 0.6,
-			"Hulled Sunflower": 1,
-			"Millet White/Red": 0,
-			"Milo Seed": 0,
-			"Nyjer Seed": 0,
-			"Shelled Peanuts": 0.2,
-			"Safflower Seed": 0.2,
-			"Corn Products": 0.2
-		}		
+		"bird": "Chickadee",
+		"family": "Paridae",
+		"color": "#eed476"
 	}
 ]

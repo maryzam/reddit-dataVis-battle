@@ -1,7 +1,12 @@
     const radToDeg = 180 / Math.PI;
 
-	d3.json("data/feeders.json")
-	   .then((feeders) => {
+	Promise.all([
+		d3.json("data/feeders.json"),
+		d3.json("data/birds.json"),
+	]).then((source) => {
+
+			const feeders = source[0];
+			const birds = source[1];
 
 	   		const size = Math.floor((window.innerWidth / 3) - 20);
 
@@ -19,10 +24,6 @@
 	   		const scaleAngle = d3.scaleBand()
 	   								.range([0, Math.PI * 2]);
 
-	   		const allBirds = getAllBirds(feeders);
-	   		const scaleColor = d3.scaleSequential(d3.interpolateWarm)
-    							 .domain([0, allBirds.length]);
-
     		// prepare radial area generator
     		const area = d3.areaRadial()
 	    					.angle((d) => scaleAngle(d.data.seed))
@@ -31,17 +32,21 @@
 	    					.curve(d3.curveCardinalClosed.tension(0));
 
     		const scaleBirds = (d) => {
-    			const id = allBirds.indexOf(d);
-    			return scaleColor(id);
+    			const info = birds.find((x) => x.bird == d);
+    			console.log(info);
+    			if (info && info.color) {
+    				return info.color;
+    			}
+    			return "#000";
     		}
 
 	   		feeders.forEach((f, i) => {
 
-	   			const birds = getBirds(f);
-    			const seeds = getSeeds(f);
+	   			const feederBirds = getBirds(f, birds);
+    			const feederSeeds = getSeeds(f);
 
     			const stack = d3.stack()
-    						.keys(birds)
+    						.keys(feederBirds)
 	   						.order(d3.stackOrderNone)
     						.offset(d3.stackOffsetNone);
 
@@ -49,7 +54,7 @@
     			// prepare scales
     			const max = d3.max(data, (d) => d3.max(d, (x) => x[1]));
     			scaleRadius.domain([ 0, max ]);
-    			scaleAngle.domain(seeds)
+    			scaleAngle.domain(feederSeeds)
 
 				// prepare container
 				const offset = size /2
@@ -86,7 +91,7 @@
       				.append('g')
       					.attr('class', 'axis')
       				.selectAll('.seed')
-      					.data(seeds).enter()
+      					.data(feederSeeds).enter()
       				.append('g')
       					.attr('transform', (d) => `rotate(${ scaleAngle(d) * radToDeg - 90})`);
 
@@ -111,18 +116,18 @@
 	   		// add legend
 	   		const labels = d3.select('.legend')
 	   			.selectAll('.bird')
-	   				.data(allBirds).enter()
+	   				.data(birds).enter()
 	   			.append("p")
 	   				.attr("class", "bird")
 		   	
 		   	labels
 		   		.append("span")
 		   		.attr("class", "icon")
-		   		.style("background-color", (d) => scaleBirds(d));
+		   		.style("background-color", (d) => d.color || "black");
 
 		   	labels
 		   		.append("span")
-		   		.html((d) => d);
+		   		.html((d) => d.bird);
 	   })
 	   .catch((e) => console.log(e));
 
@@ -130,16 +135,13 @@
 		return feeder.seeds.map((s) => s.seed);
 	}
 
-	function getAllBirds(feeders) {
-		const birds = [];
-		feeders.forEach((f) => {
-			const curr = getBirds(f);
-			birds.push(...curr);
-		});
-		return Array.from(new Set(birds));
-	}
-
-	function getBirds(feeder) {
-		return Object.keys(feeder.seeds[0])
+	function getBirds(feeder, allBirds) {
+		const birds = Object.keys(feeder.seeds[0])
 					 .filter((x) => (x !== "seed")); 
+
+		return birds.sort((a, b) => {
+			const aId = allBirds.findIndex((d) => d.bird === a);
+			const bId = allBirds.findIndex((d) => d.bird === b);
+			return aId - bId;
+		})
 	}
