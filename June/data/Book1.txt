@@ -1,0 +1,66 @@
+Order	Name	Born	Birthplace	BirthplaceCoords	Died	Deathplace	DeathplaceCoords	Age	Race	Sex	Duration
+1	Betsy Baker	1842	United Kingdom	"[54.500945, -3.288263]"	1905	USA	"[38.224768, -98.836951]"	113.18	White	F	1
+2	Jennie Howell	1845	United Kingdom	"[54.500945, -3.288263]"	1956	USA	"[38.224768, -98.836951]"	111.85	White	F	1.14
+3	Anne Marie Carstenson	1849	Denmark	"[56.107772, 9.431042]"	1958	USA	"[38.224768, -98.836951]"	109.18	White	F	1.28
+4	Nancy Ryan	1849	USA	"[38.224768, -98.836951]"	1958	USA	"[38.224768, -98.836951]"	109.12	White	F	0.55
+5	Christina Karnebeek-Backs	1849	Netherlands	"[52.062644, 5.603461]"	1959	Netherlands	"[52.062644, 5.603461]"	110.01	White	F	0.97
+6	Marie Olsen	1850	Norway	"[61.374022, 9.469664]"	1959	Norway	"[61.374022, 9.469664]"	109.57	White	F	0.13
+7	Mary Kelly	1851	USA	"[38.224768, -98.836951]"	1964	USA	"[38.224768, -98.836951]"	113.56	White	F	5.1
+8	Elizabeth Kensley	1855	United Kingdom	"[54.500945, -3.288263]"	1965	United Kingdom	"[54.500945, -3.288263]"	109.82	White	F	0.18
+9	William Fullingim	1855	USA	"[38.224768, -98.836951]"	1965	USA	"[38.224768, -98.836951]"	110.08	White	M	0.42
+10	Hannah Smith	1856	United Kingdom	"[54.500945, -3.288263]"	1966	United Kingdom	"[54.500945, -3.288263]"	110.01	White	F	0.43
+11	John Turner	1856	United Kingdom	"[54.500945, -3.288263]"	1968	United Kingdom	"[54.500945, -3.288263]"	111.77	White	M	2.19
+12	Johanna Booysen	1857	South Africa	"[-29.599707, 24.110539]"	1968	South Africa	"[-29.599707, 24.110539]"	111.41	White	F	0.24
+13	Marie Bernatkova	1857	Czechoslovakia	"[50.063905, 14.439555]"	1969	Czechoslovakia	"[50.063905, 14.439555]"	111.53	White	F	0.88
+14	Ada Roe	1858	United Kingdom	"[54.500945, -3.288263]"	1970	United Kingdom	"[54.500945, -3.288263]"	111.93	White	F	0.69
+15	Josefa Salas Mateo	1860	Spain	"[40.001616, -3.473459]"	1973	Spain	"[40.001616, -3.473459]"	112.62	White	F	3.13
+16	Alice Stevenson	1861	United Kingdom	"[54.500945, -3.288263]"	1973	United Kingdom	"[54.500945, -3.288263]"	112.11	White	F	0.47
+17	Elizabeth Watkins	1863	United Kingdom	"[54.500945, -3.288263]"	1973	United Kingdom	"[54.500945, -3.288263]"	110.64	White	F	0.2
+18	Mito Umeta	1863	Japan	"[36.045534, 137.902870]"	1975	Japan	"[36.045534, 137.902870]"	112.18	East Asian	F	1.58
+19	Niwa Kawamoto	1863	Japan	"[36.045534, 137.902870]"	1976	Japan	"[36.045534, 137.902870]"	113.28	East Asian	F	1.46
+20	Sophia De Muth	1866	USA	"[38.224768, -98.836951]"	1977	USA	"[38.224768, -98.836951]"	111.42	White	F	1.04
+21	Marie-Virginie Duhem	1866	France	"[47.038598, 2.303166]"	1978	France	"[47.038598, 2.303166]"	111.73	White	F	0.39
+22	Fannie Thomas	1867	USA	"[38.224768, -98.836951]"	1981	USA	"[38.224768, -98.836951]"	113.78	White	F	2.75
+23	Augustine Teissier	1869	France	"[47.038598, 2.303166]"	1981	France	"[47.038598, 2.303166]"	112.18	White	F	0.12
+24	Nellie Spencer	1869	USA	"[38.224768, -98.836951]"	1982	USA	"[38.224768, -98.836951]"	113.22	White	F	1.68
+25	Emma Wilson	1870	USA	"[38.224768, -98.836951]"	1983	USA	"[38.224768, -98.836951]"	113.42	White	F	0.92
+26	Mathew Beard	1870	USA	"[38.224768, -98.836951]"	1985	USA	"[38.224768, -98.836951]"	114.61	Black	M	1.35
+27	Augusta Holtz	1871	Germany	"[50.640118, 10.252932]"	1986	USA	"[38.224768, -98.836951]"	115.22	White	F	1.68
+28	Mary McKinney	1873	USA	"[38.224768, -98.836951]"	1987	USA	"[38.224768, -98.836951]"	113.68	White	F	0.28
+29	Anna Eliza Williams	1873	United Kingdom	"[54.500945, -3.288263]"	1987	United Kingdom	"[54.500945, -3.288263]"	114.57	White	F	0.9
+30	Florence Knapp	1873	USA	"[38.224768, -98.836951]"	1988	USA	"[38.224768, -98.836951]"	114.25	White	F	0.04
+31	Jeanne Calment	1875	France	"[47.038598, 2.303166]"	1997	France	"[47.038598, 2.303166]"	122.45	White	F	9.56
+32	Marie-Louise Meilleur	1880	Canada	"[51.027258, -86.138604]"	1998	Canada	"[51.027258, -86.138604]"	117.63	White	F	0.7
+33	Sarah Knauss	1880	USA	"[38.224768, -98.836951]"	1999	USA	"[38.224768, -98.836951]"	119.27	White	F	1.71
+34	Eva Morris	1885	United Kingdom	"[54.500945, -3.288263]"	2000	United Kingdom	"[54.500945, -3.288263]"	114.99	White	F	0.84
+35	Marie Bremont	1886	France	"[47.038598, 2.303166]"	2001	France	"[47.038598, 2.303166]"	115.12	White	F	0.59
+36	Maud Farris-Luse	1887	USA	"[38.224768, -98.836951]"	2002	USA	"[38.224768, -98.836951]"	115.15	White	F	0.78
+37	Grace Clawson	1887	United Kingdom	"[54.500945, -3.288263]"	2002	USA	"[38.224768, -98.836951]"	114.53	White	F	0.19
+38	Adelina Domingues	1888	Cape Verde	"[15.076005, -23.614189]"	2002	USA	"[38.224768, -98.836951]"	114.5	White	F	0.23
+39	Mae Harrington	1889	USA	"[38.224768, -98.836951]"	2002	USA	"[38.224768, -98.836951]"	113.94	White	F	0.36
+40	Yukichi Chuganji	1889	Japan	"[36.045534, 137.902870]"	2003	Japan	"[36.045534, 137.902870]"	114.52	East Asian	M	0.75
+41	Mitoyo Kawate	1889	Japan	"[36.045534, 137.902870]"	2003	Japan	"[36.045534, 137.902870]"	114.5	East Asian	F	0.13
+42	Ramona Trinidad Iglesias-Jordan	1889	Puerto Rico	"[18.247915, -66.480948]"	2004	Puerto Rico	"[18.247915, -66.480948]"	114.75	White	F	0.54
+43	Maria Esther de Capovilla	1889	Ecuador	"[-0.899208, -78.521025]"	2006	Ecuador	"[-0.899208, -78.521025]"	116.95	White	F	2.25
+44	Elizabeth Bolden	1890	USA	"[38.224768, -98.836951]"	2006	USA	"[38.224768, -98.836951]"	116.32	Black	F	0.29
+45	Emiliano Mercado Del Toro	1891	Puerto Rico	"[18.247915, -66.480948]"	2007	Puerto Rico	"[18.247915, -66.480948]"	115.43	Hispanic	M	0.12
+46	Emma Tillman	1892	USA	"[38.224768, -98.836951]"	2007	USA	"[38.224768, -98.836951]"	114.18	Black	F	0.01
+47	Yone Minagawa	1893	Japan	"[36.045534, 137.902870]"	2007	Japan	"[36.045534, 137.902870]"	114.61	East Asian	F	0.54
+48	Edna Parker	1893	USA	"[38.224768, -98.836951]"	2008	USA	"[38.224768, -98.836951]"	115.6	White	F	1.29
+49	Maria de Jesus	1893	Portugal	"[61.374022, 9.469664]"	2009	Portugal	"[61.374022, 9.469664]"	115.31	White	F	0.1
+50	Gertrude Baines	1894	USA	"[38.224768, -98.836951]"	2009	USA	"[38.224768, -98.836951]"	115.43	Black	F	0.69
+51	Kama Chinen	1895	Japan	"[36.045534, 137.902870]"	2010	Japan	"[36.045534, 137.902870]"	114.98	East Asian	F	0.64
+52	Eugenie Blanchard	1896	France	"[47.038598, 2.303166]"	2010	France	"[47.038598, 2.303166]"	114.72	White	F	0.51
+53	Maria Gomes Valentim	1896	Brazil	"[-10.069827, -53.844174]"	2011	Brazil	"[-10.069827, -53.844174]"	114.95	White	F	0.63
+54	Besse Cooper	1896	USA	"[38.224768, -98.836951]"	2012	USA	"[38.224768, -98.836951]"	116.27	White	F	1.45
+55	Dina Manfredini	1896	Italy	"[42.596019, 12.764245]"	2012	USA	"[38.224768, -98.836951]"	115.7	White	F	0.04
+56	Jiroemon Kimura	1897	Japan	"[36.045534, 137.902870]"	2013	Japan	"[36.045534, 137.902870]"	116.15	East Asian	M	0.48
+57	Misao Okawa	1898	Japan	"[36.045534, 137.902870]"	2015	Japan	"[36.045534, 137.902870]"	117.07	East Asian	F	1.8
+58	Gertrude Weaver	1898	USA	"[38.224768, -98.836951]"	2015	USA	"[38.224768, -98.836951]"	116.76	Multiracial	F	0.01
+59	Jeralean Talley	1899	USA	"[38.224768, -98.836951]"	2015	USA	"[38.224768, -98.836951]"	116.07	Black	F	0.2
+60	Susannah Mushatt Jones	1899	USA	"[38.224768, -98.836951]"	2016	USA	"[38.224768, -98.836951]"	116.85	Black	F	0.9
+61	Emma Morano	1899	Italy	"[42.596019, 12.764245]"	2017	Italy	"[42.596019, 12.764245]"	117.38	White	F	0.92
+62	Violet Brown	1900	Jamaica	"[18.212578, -77.380020]"	2017	Jamaica	"[18.212578, -77.380020]"	117.52	Black	F	0.42
+63	Nabi Tajima	1900	Japan	"[36.045534, 137.902870]"	2018	Japan	"[36.045534, 137.902870]"	117.71	East Asian	F	0.6
+64	Chiyo Miyako	1901	Japan	"[36.045534, 137.902870]"	2018	Japan	"[36.045534, 137.902870]"	117.22	East Asian	F	0.25
+65	Kane Tanaka	1903	Japan	"[36.045534, 137.902870]"	N/A	Japan	"[36.045534, 137.902870]"	115.59	East Asian	F	1
